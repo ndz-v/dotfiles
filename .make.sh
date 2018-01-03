@@ -1,22 +1,24 @@
-#!/bin/bash
-# .make.sh
-# This script creates symlinks from ~/ to dotfiles dir
+#!/usr/bin/env bash
 
-dir=~/dotfiles
-olddir=~/dotfiles_old
-files=".zshrc .nanorc .gitconfig"
+source ./functions.sh
 
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...complete."
-
-echo "Changing to the $dir directory"
-cd $dir
-echo "...complete."
-
-for file in $files; do
-    echo "Moving existing dotfiles from ~ to $olddir"
-    mv ~/$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/$file
-done
+initiate_update;
+initiate_upgrade;
+install_build_essentials;
+isntall_nano;
+install_gnome;
+install_guake;
+install_build_essentials;
+install_curl;
+install_zsh;
+install_oh_my_zsh;
+install_libinput_gestures;
+install_mongodb;
+install_postgresql;
+install_node;
+install_typescript;
+install_tslint;
+install_angular_cli;
+install_zsh_syntax_highlighting;
+install_code;
+create_sysmbolic_links;

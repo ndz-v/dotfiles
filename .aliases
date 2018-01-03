@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Lazy stuff
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
+alias listUpgrades='apt list --upgradeable'
+alias reload='source ~/.zshrc'
+alias startMongoService='sudo service mongod start'
+alias stopMongoService='sudo service mongod stop'
+
+# Shortcuts
+alias docs="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias desk="cd ~/Desktop"
+
+# Open projects
+alias editDotfiles='code ~/dotfiles'
+alias day4erp='code ~/repositories/Day4ERP'
+alias d4client='code ~/repositories/d4client'
+alias d4server='code ~/repositories/d4server'
+alias editWikis='code ~/wikis'
+alias editScripts='code ~/scripts'
+
+# Git aliases
+alias status='git status'
+alias add='git add .'
+alias commit='git commit'
+alias push='git push'
+alias pull='git pull'

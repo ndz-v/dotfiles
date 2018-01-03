@@ -2,8 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/nidzo/.oh-my-zsh
-#  export PATH=$PATH:/home/nidzo/Documents/scripts
+export ZSH=/home/$USER/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -139,29 +138,10 @@ compctl -K _ng_completion ng
 
 # alias youtube='mpsyt'
 
-export PATH=/home/nidzo/scripts:$PATH
+export PATH=/home/$USER/scripts:$PATH
 
-# lazy commands
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
-alias listUpgrades='apt list --upgradeable'
-alias loadZshrc='source ~/.zshrc'
-alias startMongoService='sudo service mongod start'
+source ~/.aliases
 
-# open projects
-alias editDotfiles='code ~/dotfiles'
-alias day4erp='code ~/repositories/Day4ERP'
-alias d4client='code ~/repositories/d4client'
-alias d4server='code ~/repositories/d4server'
-alias editWikis='code ~/wikis'
-alias editScripts='code ~/scripts'
-
-# git aliases
-alias status='git status'
-alias add='git add .'
-alias commit='git commit'
-alias push='git push'
-alias pull='git pull'
 
 ##########################
 # zsh-syntax-highlitning # must always be the last line
