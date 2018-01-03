@@ -156,3 +156,9 @@ alias editScripts='code ~/scripts'
 alias status='git status'
 alias add='git add .'
 alias commit='git commit'
+
+##########################
+# zsh-syntax-highlitning # must always be the last line
+##########################
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
