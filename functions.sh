@@ -151,6 +151,11 @@ install_code(){
     code --install-extension yzane.markdown-pdf
 }
 
+clone_scripts(){
+    cd ~;
+    git clone git@github.com:nidzov/scripts.git
+}
+
 create_sysmbolic_links(){
     # This creates symlinks from ~/ to dotfiles dir
     
