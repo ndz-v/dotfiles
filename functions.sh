@@ -46,7 +46,7 @@ install_zsh(){
 # Oh-My-Zsh
 install_oh_my_zsh(){
     echo 'Oh-My-Zsh'
-    sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'
+    sudo sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'
 }
 
 install_libinput_gestures(){

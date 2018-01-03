@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./functions.sh
+source ~/dotfiles/functions.sh
 
 initiate_update;
 initiate_upgrade;
