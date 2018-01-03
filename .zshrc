@@ -147,15 +147,21 @@ alias upgrade='sudo apt upgrade'
 alias listUpgrades='apt list --upgradeable'
 alias loadZshrc='source ~/.zshrc'
 alias startMongoService='sudo service mongod start'
+
+# open projects
 alias editDotfiles='code ~/dotfiles'
 alias day4erp='code ~/repositories/Day4ERP'
 alias d4client='code ~/repositories/d4client'
 alias d4server='code ~/repositories/d4server'
 alias editWikis='code ~/wikis'
 alias editScripts='code ~/scripts'
+
+# git aliases
 alias status='git status'
 alias add='git add .'
 alias commit='git commit'
+alias push='git push'
+alias pull='git pull'
 
 ##########################
 # zsh-syntax-highlitning # must always be the last line
