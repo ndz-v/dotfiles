@@ -1,58 +1,89 @@
 #!/usr/bin/env bash
 initiate_update(){
-    echo 'Update #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Update'
+    echo '#########################################################'
     sudo apt update
 }
 
 initiate_upgrade(){
-    echo 'Upgrade #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Upgrade'
+    echo '#########################################################'
     sudo apt upgrade -y
 }
 
 # Build Essentials
 install_build_essentials(){
-    echo 'Build Essentials #########################################################'
-    sudo apt-get install build-essential
+    echo ''
+    echo '#########################################################'
+    echo 'Build Essentials'
+    echo '#########################################################'
+    sudo apt-get install -y build-essential
 }
 
 install_nano(){
-    echo 'nano #########################################################'
-    sudo apt install nano
+    echo ''
+    echo '#########################################################'
+    echo 'nano'
+    echo '#########################################################'
+    sudo apt install -y nano
 }
 
 # Gnome Shell Session
 install_gnome(){
-    echo 'Gnome Shell #########################################################'
-    sudo apt install gnome-session
+    echo ''
+    echo '#########################################################'
+    echo 'Gnome Shell'
+    echo '#########################################################'
+    sudo apt install -y gnome-session
 }
 
 # Guake Terminal
 install_guake(){
-    echo 'Guake Terminal #########################################################'
-    sudo apt install Guake
+    echo ''
+    echo '#########################################################'
+    echo 'Guake Terminal'
+    echo '#########################################################'
+    sudo apt install -y guake
 }
 
 # Curl
 install_curl(){
-    echo 'Curl #########################################################'
-    sudo apt install curl
+    echo ''
+    echo '#########################################################'
+    echo 'Curl'
+    echo '#########################################################'
+    sudo apt install -y curl
 }
 
 # Zsh
 install_zsh(){
-    echo 'Zsh #########################################################'
-    sudo apt install zsh
+    echo ''
+    echo '#########################################################'
+    echo 'Zsh'
+    echo '#########################################################'
+    sudo apt install -y zsh
 }
 
 # Oh-My-Zsh
 install_oh_my_zsh(){
-    echo 'Oh-My-Zsh #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Oh-My-Zsh'
+    echo '#########################################################'
     curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -
 }
 
+# Libinput Gestures
 install_libinput_gestures(){
-    ### Libinput Gestures
-    echo 'Libinput Gestures #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Libinput Gestures'
+    echo '#########################################################'
+    
     cd ~
     sudo gpasswd -a $USER input
     sudo apt install xdotool wmctrl libinput-tools
@@ -66,7 +97,10 @@ install_libinput_gestures(){
 
 # MongoDB
 install_mongodb(){
-    echo 'Mongodb #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Mongodb'
+    echo '#########################################################'
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     
     echo 'deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
@@ -79,57 +113,81 @@ install_mongodb(){
 
 # PostgreSQL
 install_postgresql(){
-    echo 'PostgreSQL #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'PostgreSQL'
+    echo '#########################################################'
     sudo apt-get install postgresql postgresql-contrib pgadmin3
 }
 
 # Node.js
 install_node(){
-    echo 'Node.js #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Node.js'
+    echo '#########################################################'
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     sudo apt-get install -y nodejs
 }
 
 # TypeScript
 install_typescript(){
-    echo 'TypeScript #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'TypeScript'
+    echo '#########################################################'
     sudo npm install -g typescript
 }
 
 # TSLint
 install_tslint(){
-    echo 'TSLint #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'TSLint'
+    echo '#########################################################'
     sudo npm install -g tslint
 }
 
 # Angular CLI
 install_angular_cli(){
-    echo 'Angular CLI #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Angular CLI'
+    echo '#########################################################'
     sudo npm install -g @angular/cli
 }
 
 # Tmux
 install_tmux(){
-    echo 'Tmux #########################################################'
-    sudo apt install tmux
+    echo ''
+    echo '#########################################################'
+    echo 'Tmux'
+    echo '#########################################################'
+    sudo apt install -y tmux
 }
 
 # Zsh-Syntax-Highlighting
 install_zsh_syntax_highlighting(){
-    echo 'Zsh-Syntax-Highlighting #########################################################'
-    sudo apt install zsh-syntax-highlighting
+    echo ''
+    echo '#########################################################'
+    echo 'Zsh-Syntax-Highlighting'
+    echo '#########################################################'
+    sudo apt install -y zsh-syntax-highlighting
 }
 
 # Visual Studio Code
 # Installation of code not working
 install_code(){
-    echo 'Visual Studio Code #########################################################'
+    echo ''
+    echo '#########################################################'
+    echo 'Visual Studio Code'
+    echo '#########################################################'
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     echo 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' | sudo tee /etc/apt/sources.list.d/vscode.list
     
     sudo apt-get update
-    sudo apt-get install code
+    sudo apt-get install -y code
     
     code --install-extension Angular.ng-template
     code --install-extension DavidAnson.vscode-markdownlint
@@ -160,15 +218,22 @@ install_code(){
 }
 
 clone_scripts(){
+    echo ''
+    echo '#########################################################'
     echo 'cloning scripts'
+    echo '#########################################################'
+    
     cd ~;
     git clone https://github.com/nidzov/scripts.git
 }
 
+# This creates symlinks from ~/ to dotfiles dir
 create_sysmbolic_links(){
+    echo ''
+    echo '#########################################################'
+    echo 'creating symbolic links'
+    echo '#########################################################'
     
-    # This creates symlinks from ~/ to dotfiles dir
-    echo 'creating symbolic links #########################################################'
     dir=~/dotfiles
     olddir=~/dotfiles_old
     files=".zshrc .nanorc .gitconfig .aliases"
