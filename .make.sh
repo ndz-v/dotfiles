@@ -5,7 +5,7 @@ source ~/dotfiles/functions.sh
 initiate_update;
 initiate_upgrade;
 install_build_essentials;
-isntall_nano;
+install_nano;
 install_gnome;
 install_guake;
 install_build_essentials;
