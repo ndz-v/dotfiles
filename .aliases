@@ -5,6 +5,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias root='cd $(git rev-parse --show-toplevel)'
 
 # Lazy stuff
 alias update='sudo apt update'
