@@ -1,57 +1,58 @@
 #!/usr/bin/env bash
 initiate_update(){
-    echo 'Update'
+    echo 'Update #########################################################'
     sudo apt update
 }
 
 initiate_upgrade(){
-    echo 'Upgrade'
+    echo 'Upgrade #########################################################'
     sudo apt upgrade -y
 }
 
 # Build Essentials
 install_build_essentials(){
-    echo 'Build Essentials'
+    echo 'Build Essentials #########################################################'
     sudo apt-get install build-essential
 }
 
 install_nano(){
+    echo 'nano #########################################################'
     sudo apt install nano
 }
 
 # Gnome Shell Session
 install_gnome(){
-    echo 'Gnome Shell'
+    echo 'Gnome Shell #########################################################'
     sudo apt install gnome-session
 }
 
 # Guake Terminal
 install_guake(){
-    echo 'Guake Terminal'
+    echo 'Guake Terminal #########################################################'
     sudo apt install Guake
 }
 
 # Curl
 install_curl(){
-    echo 'Curl'
+    echo 'Curl #########################################################'
     sudo apt install curl
 }
 
 # Zsh
 install_zsh(){
-    echo 'Zsh'
+    echo 'Zsh #########################################################'
     sudo apt install zsh
 }
 
 # Oh-My-Zsh
 install_oh_my_zsh(){
-    echo 'Oh-My-Zsh'
+    echo 'Oh-My-Zsh #########################################################'
     curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -
 }
 
 install_libinput_gestures(){
     ### Libinput Gestures
-    echo 'Libinput Gestures'
+    echo 'Libinput Gestures #########################################################'
     cd ~
     sudo gpasswd -a $USER input
     sudo apt install xdotool wmctrl libinput-tools
@@ -65,7 +66,7 @@ install_libinput_gestures(){
 
 # MongoDB
 install_mongodb(){
-    echo 'Mongodb'
+    echo 'Mongodb #########################################################'
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     
     echo 'deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
@@ -78,45 +79,51 @@ install_mongodb(){
 
 # PostgreSQL
 install_postgresql(){
-    echo 'PostgreSQL'
+    echo 'PostgreSQL #########################################################'
     sudo apt-get install postgresql postgresql-contrib pgadmin3
 }
 
 # Node.js
 install_node(){
-    echo 'Node.js'
+    echo 'Node.js #########################################################'
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     sudo apt-get install -y nodejs
 }
 
 # TypeScript
 install_typescript(){
-    echo 'TypeScript'
+    echo 'TypeScript #########################################################'
     sudo npm install -g typescript
 }
 
 # TSLint
 install_tslint(){
-    echo 'TSLint'
+    echo 'TSLint #########################################################'
     sudo npm install -g tslint
 }
 
 # Angular CLI
 install_angular_cli(){
-    echo 'Angular CLI'
+    echo 'Angular CLI #########################################################'
     sudo npm install -g @angular/cli
+}
+
+# Tmux
+install_tmux(){
+    echo 'Tmux #########################################################'
+    sudo apt install tmux
 }
 
 # Zsh-Syntax-Highlighting
 install_zsh_syntax_highlighting(){
-    echo 'Zsh-Syntax-Highlighting'
+    echo 'Zsh-Syntax-Highlighting #########################################################'
     sudo apt install zsh-syntax-highlighting
 }
 
 # Visual Studio Code
 # Installation of code not working
 install_code(){
-    echo 'Visual Studio Code'
+    echo 'Visual Studio Code #########################################################'
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     echo 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' | sudo tee /etc/apt/sources.list.d/vscode.list
@@ -153,13 +160,15 @@ install_code(){
 }
 
 clone_scripts(){
+    echo 'cloning scripts'
     cd ~;
     git clone https://github.com/nidzov/scripts.git
 }
 
 create_sysmbolic_links(){
-    # This creates symlinks from ~/ to dotfiles dir
     
+    # This creates symlinks from ~/ to dotfiles dir
+    echo 'creating symbolic links #########################################################'
     dir=~/dotfiles
     olddir=~/dotfiles_old
     files=".zshrc .nanorc .gitconfig .aliases"
