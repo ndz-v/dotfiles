@@ -46,7 +46,7 @@ install_zsh(){
 # Oh-My-Zsh
 install_oh_my_zsh(){
     echo 'Oh-My-Zsh'
-    sudo sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'
+    curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -
 }
 
 install_libinput_gestures(){
@@ -114,6 +114,7 @@ install_zsh_syntax_highlighting(){
 }
 
 # Visual Studio Code
+# Installation of code not working
 install_code(){
     echo 'Visual Studio Code'
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg

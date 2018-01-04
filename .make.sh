@@ -20,6 +20,7 @@ install_typescript;
 install_tslint;
 install_angular_cli;
 install_zsh_syntax_highlighting;
-install_code;
+# not working
+# install_code;
 clone_scripts;
 create_sysmbolic_links;
