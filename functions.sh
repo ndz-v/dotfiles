@@ -154,7 +154,7 @@ install_code(){
 
 clone_scripts(){
     cd ~;
-    git clone git@github.com:nidzov/scripts.git
+    git clone https://github.com/nidzov/scripts.git
 }
 
 create_sysmbolic_links(){
