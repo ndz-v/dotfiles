@@ -14,19 +14,12 @@
     "editor.autoIndent": true,
     "tslint.autoFixOnSave": true,
     "typescript.referencesCodeLens.enabled": true,
-    "todohighlight.keywords": [
-        {
-            "text": "TODO",
-            "color": "white",
-            "borderRadius": "1px",
-            "backgroundColor": "black",
-            "isWholeLine": true
-        }
-    ],
     "eslint.autoFixOnSave": true,
     "LineCount.excludes": [
         "**/.vscode/**",
         "**/node_modules/**",
+        "**/bower_components/**",
+        "**/vendor/**",
         "**/*.css/**",
         "**/*.scss/**",
         "**/*.less/**",
@@ -45,7 +38,6 @@
     "bookmarks.treeview.visible": false,
     "vsicons.projectDetection.disableDetect": true,
     "jsDocCompletion.enabled": false,
-    "workbench.panel.location": "bottom",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -59,17 +51,22 @@
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
-        "**/dist": true
+        "**/dist": true,
+        "**/tests": true
     },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/dist/**": true
+        "**/.DS_Store": true
     },
     "workbench.startupEditor": "newUntitledFile",
     "extensions.ignoreRecommendations": true,
-    "typescript.autoImportSuggestions.enabled": false
+    "typescript.autoImportSuggestions.enabled": false,
+    "prettier.singleQuote": true,
+    "diffEditor.renderSideBySide": false,
+    "window.zoomLevel": 0,
+    "prettier.printWidth": 120,
+    "gitlens.gitExplorer.enabled": false
 }
