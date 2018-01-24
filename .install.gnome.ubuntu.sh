@@ -8,7 +8,6 @@ install_build_essentials;
 install_nano;
 install_gnome;
 install_guake;
-install_build_essentials;
 install_curl;
 install_tmux;
 install_zsh;
