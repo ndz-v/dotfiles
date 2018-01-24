@@ -35,3 +35,8 @@ alias commit='git commit'
 alias amend='git commit --amend'
 alias push='git push'
 alias pull='git pull'
+
+# Open Chrome in Debug Mode
+alias startChromeDebugging='google-chrome --remote-debugging-port=9222 &'
+alias pgadmin4='. ~/apps/pgadmin4/pgadmin4.sh'
+alias increaseVidMemory='VBoxManage modifyvm "Name of VM" --vram 256'
