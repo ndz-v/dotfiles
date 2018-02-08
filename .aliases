@@ -10,10 +10,10 @@ alias root='cd $(git rev-parse --show-toplevel)'
 # Lazy stuff
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
-alias listUpgrades='apt list --upgradeable'
+alias list_upgrades='apt list --upgradeable'
 alias reload='source ~/.zshrc'
-alias startMongoService='sudo service mongod start'
-alias stopMongoService='sudo service mongod stop'
+alias start_mongo_service='sudo service mongod start'
+alias stop_mongo_service='sudo service mongod stop'
 
 # Shortcuts
 alias docs="cd ~/Documents"
@@ -21,12 +21,12 @@ alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
 
 # Open projects
-alias editDotfiles='code ~/dotfiles'
+alias dotfiles='code ~/dotfiles'
 alias day4erp='code ~/repositories/Day4ERP'
 alias d4client='code ~/repositories/d4client'
 alias d4server='code ~/repositories/d4server'
-alias editWikis='code ~/wikis'
-alias editScripts='code ~/scripts'
+alias edit_wikis='code ~/wikis'
+alias edit_scripts='code ~/scripts'
 
 # Git aliases
 alias status='git status'
@@ -37,6 +37,5 @@ alias push='git push'
 alias pull='git pull'
 
 # Open Chrome in Debug Mode
-alias startChromeDebugging='google-chrome --remote-debugging-port=9222 &'
-alias pgadmin4='. ~/apps/pgadmin4/pgadmin4.sh'
+alias start_chrome_debugging='google-chrome --remote-debugging-port=9222 &'
 alias increaseVidMemory='VBoxManage modifyvm "Name of VM" --vram 256'
