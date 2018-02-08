@@ -95,22 +95,6 @@ install_libinput_gestures(){
     cd ~
 }
 
-# MongoDB
-install_mongodb(){
-    echo ''
-    echo '#########################################################'
-    echo 'Mongodb'
-    echo '#########################################################'
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    
-    echo 'deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
-    
-    sudo apt update
-    sudo apt-get install -y mongodb-org
-    sudo mkdir -p /data/db
-    sudo chown -R $USER /data
-}
-
 # PostgreSQL
 install_postgresql(){
     echo ''
@@ -126,7 +110,7 @@ install_node(){
     echo '#########################################################'
     echo 'Node.js'
     echo '#########################################################'
-    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
     sudo apt-get install -y nodejs
 }
 
@@ -178,17 +162,16 @@ install_zsh_syntax_highlighting(){
 # Visual Studio Code
 # Installation of code not working
 install_code(){
-    echo ''
-    echo '#########################################################'
-    echo 'Visual Studio Code'
-    echo '#########################################################'
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+    # echo ''
+    # echo '#########################################################'
+    # echo 'Visual Studio Code'
+    # echo '#########################################################'
+    # curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    # sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    # sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
     
-    sudo apt-get update
-    sudo apt-get install -y code
-    
+    # sudo apt-get update
+    # sudo apt-get install -y code
     code --install-extension Angular.ng-template
     code --install-extension DavidAnson.vscode-markdownlint
     code --install-extension EditorConfig.EditorConfig
@@ -203,11 +186,12 @@ install_code(){
     code --install-extension ecmel.vscode-html-css
     code --install-extension eg2.tslint
     code --install-extension eg2.vscode-npm-script
+    code --install-extension esbenp.prettier-vscode
     code --install-extension formulahendry.code-runner
     code --install-extension howardzuo.vscode-npm-dependency
     code --install-extension joelday.docthis
-    code --install-extension jvitor83.types-autoinstaller
     code --install-extension mrmlnc.vscode-scss
+    code --install-extension ms-vscode.cpptools
     code --install-extension msjsdiag.debugger-for-chrome
     code --install-extension robertohuertasm.vscode-icons
     code --install-extension shakram02.bash-beautify
@@ -215,6 +199,7 @@ install_code(){
     code --install-extension wayou.vscode-todo-highlight
     code --install-extension yycalm.linecount
     code --install-extension yzane.markdown-pdf
+    
 }
 
 clone_scripts(){
@@ -255,9 +240,9 @@ create_sysmbolic_links(){
     
     # This create symlinks to .config/Code/User/settings.json
     mv ~/.config/Code/User/settings.json $olddir
-    ln -s $dir/.config/code/settings.json ~/.config/Code/User/settings.json
+    ln -s ~/dotfiles/code/settings.json ~/.config/Code/User/settings.json
     
     # This create symlinks to .config/Code/User/keybindings.json
     mv ~/.config/Code/User/keybindings.json $olddir
-    ln -s $dir/.config/code/keybindings.json ~/.config/Code/User/keybindings.json
+    ln -s ~/dotfiles/code/keybindings.json ~/.config/Code/User/keybindings.json
 }
