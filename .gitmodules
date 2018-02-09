@@ -1,3 +1,4 @@
 [submodule "code"]
 	path = code
 	url = git@github.com:nidzov/code.git
+	ignore = dirty
