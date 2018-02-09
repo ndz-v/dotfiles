@@ -161,44 +161,48 @@ install_zsh_syntax_highlighting(){
 
 # Visual Studio Code
 # Installation of code not working
-install_code(){
-    # echo ''
-    # echo '#########################################################'
-    # echo 'Visual Studio Code'
-    # echo '#########################################################'
-    # curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    # sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-    # sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+install_vscode_extensions(){
+    url=https://code.visualstudio.com/
+    if command -v code > /dev/null; then
+        extensions=(
+            Angular.ng-template
+            DavidAnson.vscode-markdownlint
+            EditorConfig.EditorConfig
+            PKief.material-icon-theme
+            adamvoss.yaml
+            alefragnani.Bookmarks
+            christian-kohler.npm-intellisense
+            christian-kohler.path-intellisense
+            chrmarti.regex
+            dbaeumer.vscode-eslint
+            eamodio.gitlens
+            ecmel.vscode-html-css
+            eg2.tslint
+            eg2.vscode-npm-script
+            esbenp.prettier-vscode
+            formulahendry.code-runner
+            howardzuo.vscode-npm-dependency
+            joelday.docthis
+            mrmlnc.vscode-scss
+            ms-vscode.cpptools
+            msjsdiag.debugger-for-chrome
+            robertohuertasm.vscode-icons
+            shakram02.bash-beautify
+            sidneys1.gitconfig
+            wayou.vscode-todo-highlight
+            yycalm.linecount
+            yzane.markdown-pdf
+        )
+        echo '\nVS Code extensions: \n'
+        for extension in ${extensions[*]}
+        do
+            printf 'Installing %s\n' $extension
+            code --install-extension $extension
+        done
+    else
+        printf '\nVisual Studio Code is not installed.\nPlease install VS Code from: %s\n\n' $url
+    fi
     
-    # sudo apt-get update
-    # sudo apt-get install -y code
-    code --install-extension Angular.ng-template
-    code --install-extension DavidAnson.vscode-markdownlint
-    code --install-extension EditorConfig.EditorConfig
-    code --install-extension PKief.material-icon-theme
-    code --install-extension adamvoss.yaml
-    code --install-extension alefragnani.Bookmarks
-    code --install-extension christian-kohler.npm-intellisense
-    code --install-extension christian-kohler.path-intellisense
-    code --install-extension chrmarti.regex
-    code --install-extension dbaeumer.vscode-eslint
-    code --install-extension eamodio.gitlens
-    code --install-extension ecmel.vscode-html-css
-    code --install-extension eg2.tslint
-    code --install-extension eg2.vscode-npm-script
-    code --install-extension esbenp.prettier-vscode
-    code --install-extension formulahendry.code-runner
-    code --install-extension howardzuo.vscode-npm-dependency
-    code --install-extension joelday.docthis
-    code --install-extension mrmlnc.vscode-scss
-    code --install-extension ms-vscode.cpptools
-    code --install-extension msjsdiag.debugger-for-chrome
-    code --install-extension robertohuertasm.vscode-icons
-    code --install-extension shakram02.bash-beautify
-    code --install-extension sidneys1.gitconfig
-    code --install-extension wayou.vscode-todo-highlight
-    code --install-extension yycalm.linecount
-    code --install-extension yzane.markdown-pdf
     
 }
 
