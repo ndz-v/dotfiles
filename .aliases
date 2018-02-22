@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 alias root='cd $(git rev-parse --show-toplevel)'
 
 # Lazy stuff
@@ -16,9 +16,9 @@ alias start_mongo_service='sudo service mongod start'
 alias stop_mongo_service='sudo service mongod stop'
 
 # Shortcuts
-alias docs="cd ~/Documents"
-alias dl="cd ~/Downloads"
-alias desk="cd ~/Desktop"
+alias docs='cd ~/Documents'
+alias dl='cd ~/Downloads'
+alias desk='cd ~/Desktop'
 
 # Open projects
 alias dotfiles='code ~/dotfiles'
@@ -38,4 +38,4 @@ alias pull='git pull'
 
 # Open Chrome in Debug Mode
 alias start_chrome_debugging='google-chrome --remote-debugging-port=9222 &'
-alias increaseVidMemory='VBoxManage modifyvm "Name of VM" --vram 256'
+# alias increaseVidMemory='VBoxManage modifyvm 'Name of VM' --vram 256'

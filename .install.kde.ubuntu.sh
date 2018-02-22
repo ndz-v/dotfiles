@@ -5,6 +5,7 @@ source ~/dotfiles/functions.sh
 initiate_update;
 initiate_upgrade;
 install_build_essentials;
+install_thunderbird;
 install_nano;
 install_guake;
 install_curl;
@@ -20,3 +21,5 @@ install_oh_my_zsh;
 install_zsh_syntax_highlighting;
 clone_scripts;
 create_sysmbolic_links;
+install_libinput_gestures;
+change_shell;

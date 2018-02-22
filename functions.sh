@@ -41,6 +41,15 @@ install_gnome(){
     sudo apt install -y gnome-session
 }
 
+# Thunderbird
+install_thunderbird(){
+    echo ''
+    echo '#########################################################'
+    echo 'Thunderbird'
+    echo '#########################################################'
+    sudo apt install -y thunderbird
+}
+
 # Guake Terminal
 install_guake(){
     echo ''
@@ -75,6 +84,18 @@ install_oh_my_zsh(){
     echo 'Oh-My-Zsh'
     echo '#########################################################'
     curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -
+    
+    sudo chown -R $USER .oh-my-zsh;
+    #Powerline Fonts
+    sudo apt-get install fonts-powerline;
+}
+
+change_shell(){
+    echo ''
+    echo '#########################################################'
+    echo 'Change Shell To Zsh'
+    echo '#########################################################'
+    sudo chsh -s /bin/zsh
 }
 
 # Libinput Gestures
@@ -84,15 +105,15 @@ install_libinput_gestures(){
     echo 'Libinput Gestures'
     echo '#########################################################'
     
-    cd ~
+    cd ~ || exit;
     sudo gpasswd -a $USER input
     sudo apt install xdotool wmctrl libinput-tools
     git clone http://github.com/bulletmark/libinput-gestures
-    cd libinput-gestures
+    cd libinput-gestures || exit;
     sudo ./libinput-gestures-setup install
     libinput-gestures-setup start
     libinput-gestures-setup autostart
-    cd ~
+    cd ~ || exit;
 }
 
 # PostgreSQL
@@ -112,6 +133,19 @@ install_node(){
     echo '#########################################################'
     curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
     sudo apt-get install -y nodejs
+    source ~/.bashrc;
+    
+    # npm packages to be in user profile
+    # create a directory for global installations
+    mkdir ~/.npm-global;
+    # configure npm to use the new directory path
+    npm config set prefix '~/.npm-global'
+    
+    # prepend the export to bashrc
+    echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc;
+    source ~/.bashrc;
+    sudo chown -R '$USER:$(id -gn $USER)' ~/.config;
+    source ~/.bashrc;
 }
 
 # TypeScript
@@ -120,7 +154,7 @@ install_typescript(){
     echo '#########################################################'
     echo 'TypeScript'
     echo '#########################################################'
-    sudo npm install -g typescript
+    npm install -g typescript
 }
 
 # TSLint
@@ -129,7 +163,7 @@ install_tslint(){
     echo '#########################################################'
     echo 'TSLint'
     echo '#########################################################'
-    sudo npm install -g tslint
+    npm install -g tslint
 }
 
 # Angular CLI
@@ -138,7 +172,7 @@ install_angular_cli(){
     echo '#########################################################'
     echo 'Angular CLI'
     echo '#########################################################'
-    sudo npm install -g @angular/cli
+    npm install -g @angular/cli
 }
 
 # Tmux
@@ -162,6 +196,8 @@ install_zsh_syntax_highlighting(){
 # Visual Studio Code
 # Installation of code not working
 install_vscode_extensions(){
+    apt-get install shellcheck
+    
     url=https://code.visualstudio.com/
     if command -v code > /dev/null; then
         extensions=(
@@ -212,7 +248,7 @@ clone_scripts(){
     echo 'cloning scripts'
     echo '#########################################################'
     
-    cd ~;
+    cd ~ || exit;
     git clone https://github.com/nidzov/scripts.git
 }
 
@@ -225,20 +261,20 @@ create_sysmbolic_links(){
     
     dir=~/dotfiles
     olddir=~/dotfiles_old
-    files=".zshrc .nanorc .gitconfig .aliases"
+    files='.zshrc .nanorc .gitconfig .aliases'
     
-    echo "Creating $olddir for backup of any existing dotfiles in ~"
+    echo 'Creating $olddir for backup of any existing dotfiles in ~'
     mkdir -p $olddir
-    echo "...complete."
+    echo '...complete.'
     
-    echo "Changing to the $dir directory"
-    cd $dir
-    echo "...complete."
+    echo 'Changing to the $dir directory'
+    cd $dir || exit;
+    echo '...complete.'
     
     for file in $files; do
-        echo "Moving existing dotfiles from ~ to $olddir"
+        echo 'Moving existing dotfiles from ~ to $olddir'
         mv ~/$file ~/dotfiles_old/
-        echo "Creating symlink to $file in home directory."
+        echo 'Creating symlink to $file in home directory.'
         ln -s $dir/$file ~/$file
     done
     
