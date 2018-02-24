@@ -95,7 +95,8 @@ change_shell(){
     echo '#########################################################'
     echo 'Change Shell To Zsh'
     echo '#########################################################'
-    sudo chsh -s /bin/zsh
+    chsh -s $(which zsh)
+    sudo chsh -s $(which zsh)
 }
 
 # Libinput Gestures
