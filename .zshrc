@@ -141,7 +141,7 @@ compctl -K _ng_completion ng
 ###-end-ng-completion###
 
 export PATH=/home/$USER/scripts:$PATH
-
+export PATH=~/.npm-global/bin:$PATH
 source ~/.aliases
 
 
