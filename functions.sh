@@ -1,111 +1,34 @@
 #!/usr/bin/env bash
-initiate_update(){
-    echo ''
-    echo '#########################################################'
-    echo 'Update'
-    echo '#########################################################'
-    sudo apt update
-}
 
-initiate_upgrade(){
-    echo ''
-    echo '#########################################################'
-    echo 'Upgrade'
-    echo '#########################################################'
-    sudo apt upgrade -y
-}
-
-# Build Essentials
-install_build_essentials(){
-    echo ''
-    echo '#########################################################'
-    echo 'Build Essentials'
-    echo '#########################################################'
-    sudo apt-get install -y build-essential
-}
-
-install_nano(){
-    echo ''
-    echo '#########################################################'
-    echo 'nano'
-    echo '#########################################################'
-    sudo apt install -y nano
-}
-
-# Gnome Shell Session
-install_gnome(){
-    echo ''
-    echo '#########################################################'
-    echo 'Gnome Shell'
-    echo '#########################################################'
-    sudo apt install -y gnome-session
-}
-
-# Thunderbird
-install_thunderbird(){
-    echo ''
-    echo '#########################################################'
-    echo 'Thunderbird'
-    echo '#########################################################'
-    sudo apt install -y thunderbird
-}
-
-# Guake Terminal
-install_guake(){
-    echo ''
-    echo '#########################################################'
-    echo 'Guake Terminal'
-    echo '#########################################################'
-    sudo apt install -y guake
-}
-
-# Curl
-install_curl(){
-    echo ''
-    echo '#########################################################'
-    echo 'Curl'
-    echo '#########################################################'
-    sudo apt install -y curl
-}
-
-# Zsh
-install_zsh(){
-    echo ''
-    echo '#########################################################'
-    echo 'Zsh'
-    echo '#########################################################'
-    sudo apt install -y zsh
+# APT Packages
+install_apt_packages(){
+    sudo apt update;
+    sudo apt upgrade;
+    apt_packages='build-essentials nano thunderbird guake curl zsh postgresql postgresql-contrib pgadmin3 tmux shellcheck zsh-syntax-highlighting fonts-powerline'
+    
+    for package in $apt_packages; do
+        printf 'Installing APT Package: %s\n ##################################' $extension
+        sudo apt install $package;
+    done
 }
 
 # Oh-My-Zsh
 install_oh_my_zsh(){
-    echo ''
-    echo '#########################################################'
-    echo 'Oh-My-Zsh'
-    echo '#########################################################'
+    echo 'Oh-My-Zsh ###############################################'
     curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -
     
     sudo chown -R $USER .oh-my-zsh;
-    #Powerline Fonts
-    sudo apt-get install fonts-powerline;
 }
 
 change_shell(){
-    echo ''
-    echo '#########################################################'
-    echo 'Change Shell To Zsh'
-    echo '#########################################################'
+    echo 'Change Shell To Zsh #####################################'
     chsh -s $(which zsh)
     sudo chsh -s $(which zsh)
 }
 
 # Libinput Gestures
 install_libinput_gestures(){
-    echo ''
-    echo '#########################################################'
-    echo 'Libinput Gestures'
-    echo '#########################################################'
-    
+    echo 'Libinput Gestures #######################################'
     cd ~ || exit;
     sudo gpasswd -a $USER input
     sudo apt install xdotool wmctrl libinput-tools
@@ -117,21 +40,9 @@ install_libinput_gestures(){
     cd ~ || exit;
 }
 
-# PostgreSQL
-install_postgresql(){
-    echo ''
-    echo '#########################################################'
-    echo 'PostgreSQL'
-    echo '#########################################################'
-    sudo apt-get install postgresql postgresql-contrib pgadmin3
-}
-
 # Node.js
 install_node(){
-    echo ''
-    echo '#########################################################'
-    echo 'Node.js'
-    echo '#########################################################'
+    echo 'Node.js #################################################'
     curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
     sudo apt-get install -y nodejs
     source ~/.bashrc;
@@ -149,49 +60,13 @@ install_node(){
     source ~/.bashrc;
 }
 
-# TypeScript
-install_typescript(){
-    echo ''
-    echo '#########################################################'
-    echo 'TypeScript'
-    echo '#########################################################'
-    npm install -g typescript
-}
-
-# TSLint
-install_tslint(){
-    echo ''
-    echo '#########################################################'
-    echo 'TSLint'
-    echo '#########################################################'
-    npm install -g tslint
-}
-
-# Angular CLI
-install_angular_cli(){
-    echo ''
-    echo '#########################################################'
-    echo 'Angular CLI'
-    echo '#########################################################'
-    npm install -g @angular/cli
-}
-
-# Tmux
-install_tmux(){
-    echo ''
-    echo '#########################################################'
-    echo 'Tmux'
-    echo '#########################################################'
-    sudo apt install -y tmux
-}
-
-# Zsh-Syntax-Highlighting
-install_zsh_syntax_highlighting(){
-    echo ''
-    echo '#########################################################'
-    echo 'Zsh-Syntax-Highlighting'
-    echo '#########################################################'
-    sudo apt install -y zsh-syntax-highlighting
+install_npm_packages(){
+    npm_packages='typescript tslint @angular/cli nodemon'
+    for package in $npm_packages;
+    do
+        printf 'Installing NPM Package: %s\n ##################################' $extension
+        npm install -g $package;
+    done
 }
 
 # Visual Studio Code
@@ -239,27 +114,17 @@ install_vscode_extensions(){
     else
         printf '\nVisual Studio Code is not installed.\nPlease install VS Code from: %s\n\n' $url
     fi
-    
-    
 }
 
 clone_scripts(){
-    echo ''
-    echo '#########################################################'
-    echo 'cloning scripts'
-    echo '#########################################################'
-    
+    echo 'cloning scripts #########################################'
     cd ~ || exit;
     git clone https://github.com/nidzov/scripts.git
 }
 
 # This creates symlinks from ~/ to dotfiles dir
 create_sysmbolic_links(){
-    echo ''
-    echo '#########################################################'
-    echo 'creating symbolic links'
-    echo '#########################################################'
-    
+    echo 'creating symbolic links #################################'
     dir=~/dotfiles
     olddir=~/dotfiles_old
     files='.zshrc .nanorc .gitconfig .aliases'
