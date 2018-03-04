@@ -4,31 +4,31 @@
 install_apt_packages(){
     sudo apt update;
     sudo apt upgrade;
-    apt_packages='build-essentials nano thunderbird guake curl zsh postgresql postgresql-contrib pgadmin3 tmux shellcheck zsh-syntax-highlighting fonts-powerline'
+    apt_packages="build-essentials nano thunderbird guake curl zsh postgresql postgresql-contrib pgadmin3 tmux shellcheck zsh-syntax-highlighting fonts-powerline"
     
     for package in $apt_packages; do
-        printf 'Installing APT Package: %s\n ##################################' $extension
+        printf "Installing APT Package: %s\n ##################################" $extension
         sudo apt install $package;
     done
 }
 
 # Oh-My-Zsh
 install_oh_my_zsh(){
-    echo 'Oh-My-Zsh ###############################################'
+    echo "Oh-My-Zsh ###############################################"
     curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -
     
     sudo chown -R $USER .oh-my-zsh;
 }
 
 change_shell(){
-    echo 'Change Shell To Zsh #####################################'
+    echo "Change Shell To Zsh #####################################"
     chsh -s $(which zsh)
     sudo chsh -s $(which zsh)
 }
 
 # Libinput Gestures
 install_libinput_gestures(){
-    echo 'Libinput Gestures #######################################'
+    echo "Libinput Gestures #######################################"
     cd ~ || exit;
     sudo gpasswd -a $USER input
     sudo apt install xdotool wmctrl libinput-tools
@@ -42,7 +42,7 @@ install_libinput_gestures(){
 
 # Node.js
 install_node(){
-    echo 'Node.js #################################################'
+    echo "Node.js #################################################"
     curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
     sudo apt-get install -y nodejs
     source ~/.bashrc;
@@ -51,20 +51,20 @@ install_node(){
     # create a directory for global installations
     mkdir ~/.npm-global;
     # configure npm to use the new directory path
-    npm config set prefix '~/.npm-global'
+    npm config set prefix "~/.npm-global"
     
     # prepend the export to bashrc
-    echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc;
+    echo "export PATH=~/.npm-global/bin:$PATH" >> ~/.bashrc;
     source ~/.bashrc;
-    sudo chown -R '$USER:$(id -gn $USER)' ~/.config;
+    sudo chown -R "$USER:$(id -gn $USER)" ~/.config;
     source ~/.bashrc;
 }
 
 install_npm_packages(){
-    npm_packages='typescript tslint @angular/cli nodemon'
+    npm_packages="typescript tslint @angular/cli nodemon"
     for package in $npm_packages;
     do
-        printf 'Installing NPM Package: %s\n ##################################' $extension
+        printf "Installing NPM Package: %s\n ##################################" $extension
         npm install -g $package;
     done
 }
@@ -101,46 +101,47 @@ install_vscode_extensions(){
             robertohuertasm.vscode-icons
             shakram02.bash-beautify
             sidneys1.gitconfig
+            timonwong.shellcheck
             wayou.vscode-todo-highlight
             yycalm.linecount
             yzane.markdown-pdf
         )
-        echo '\nVS Code extensions: \n'
+        echo "\nVS Code extensions: \n"
         for extension in ${extensions[*]}
         do
-            printf 'Installing %s\n' $extension
+            printf "Installing %s\n" $extension
             code --install-extension $extension
         done
     else
-        printf '\nVisual Studio Code is not installed.\nPlease install VS Code from: %s\n\n' $url
+        printf "\nVisual Studio Code is not installed.\nPlease install VS Code from: %s\n\n" $url
     fi
 }
 
 clone_scripts(){
-    echo 'cloning scripts #########################################'
+    echo "cloning scripts #########################################"
     cd ~ || exit;
     git clone https://github.com/nidzov/scripts.git
 }
 
 # This creates symlinks from ~/ to dotfiles dir
 create_sysmbolic_links(){
-    echo 'creating symbolic links #################################'
+    echo "creating symbolic links #################################"
     dir=~/dotfiles
     olddir=~/dotfiles_old
-    files='.zshrc .nanorc .gitconfig .aliases'
+    files=".zshrc .nanorc .gitconfig .aliases"
     
-    echo 'Creating $olddir for backup of any existing dotfiles in ~'
+    echo "Creating $olddir for backup of any existing dotfiles in ~"
     mkdir -p $olddir
-    echo '...complete.'
+    echo "...complete."
     
-    echo 'Changing to the $dir directory'
+    echo "Changing to the $dir directory"
     cd $dir || exit;
-    echo '...complete.'
+    echo "...complete."
     
     for file in $files; do
-        echo 'Moving existing dotfiles from ~ to $olddir'
+        echo "Moving existing dotfiles from ~ to $olddir"
         mv ~/$file ~/dotfiles_old/
-        echo 'Creating symlink to $file in home directory.'
+        echo "Creating symlink to $file in home directory."
         ln -s $dir/$file ~/$file
     done
     
