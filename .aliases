@@ -22,10 +22,6 @@ alias desk='cd ~/Desktop'
 
 # Open projects
 alias dotfiles='code ~/dotfiles'
-alias day4erp='code ~/repositories/Day4ERP'
-alias d4client='code ~/repositories/d4client'
-alias d4server='code ~/repositories/d4server'
-alias edit_wikis='code ~/wikis'
 alias edit_scripts='code ~/scripts'
 
 # Git aliases

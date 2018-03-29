@@ -61,7 +61,7 @@ install_node(){
 }
 
 install_npm_packages(){
-    npm_packages="typescript tslint @angular/cli nodemon"
+    npm_packages='typescript tslint @angular/cli nodemon'
     for package in $npm_packages;
     do
         printf "Installing NPM Package: %s\n ##################################" $extension
