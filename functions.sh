@@ -71,8 +71,14 @@ install_npm_packages(){
 
 # Visual Studio Code
 # Installation of code not working
-install_vscode_extensions(){
-    apt-get install shellcheck
+install_vscode(){
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+    
+    sudo apt update;
+    sudo apt install code;
+    
     
     url=https://code.visualstudio.com/
     if command -v code > /dev/null; then
