@@ -61,6 +61,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -142,16 +143,17 @@ compctl -K _ng_completion ng
 
 export PATH=/home/$USER/scripts:$PATH
 export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.local/bin:$PATH
 source ~/.aliases
 
 
-_dotnet_zsh_complete() 
+_dotnet_zsh_complete()
 {
-  local dotnetPath=$words[1]
-
-  local completions=("$(dotnet complete "$words")")
-
-  reply=( "${(ps:\n:)completions}" )
+    local dotnetPath=$words[1]
+    
+    local completions=("$(dotnet complete "$words")")
+    
+    reply=( "${(ps:\n:)completions}" )
 }
 
 compctl -K _dotnet_zsh_complete dotnet

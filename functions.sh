@@ -4,10 +4,10 @@
 install_apt_packages(){
     sudo apt update;
     sudo apt upgrade;
-    apt_packages="build-essentials nano thunderbird guake curl zsh postgresql postgresql-contrib pgadmin3 tmux shellcheck zsh-syntax-highlighting fonts-powerline"
+    apt_packages="build-essentials nano thunderbird guake curl zsh postgresql postgresql-contrib pgadmin3 tmux shellcheck zsh-syntax-highlighting fonts-powerline python3-pip"
     
     for package in $apt_packages; do
-        printf "Installing APT Package: %s\n ##################################" "$extension"
+        printf "Installing APT Package: $package ##################################"
         sudo apt install "$package";
     done
 }
@@ -43,7 +43,7 @@ install_libinput_gestures(){
 # Node.js
 install_node(){
     echo "Node.js #################################################"
-    curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     sudo apt-get install -y nodejs
     . "$HOME/.bashrc";
     
@@ -61,12 +61,22 @@ install_node(){
 }
 
 install_npm_packages(){
-    npm_packages='typescript tslint @angular/cli nodemon'
+    npm_packages='typescript tslint @angular/cli nodemon coinmon'
     for package in $npm_packages;
     do
-        printf "Installing NPM Package: %s\n ##################################" "$extension"
+        printf "Installing NPM Package: $package ##################################"
         npm install -g "$package";
     done
+}
+
+install_dotnetcore(){
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
+    
+    sudo apt-get install apt-transport-https;
+    sudo apt-get update;
+    sudo apt-get install dotnet-sdk-2.1.103;
 }
 
 # Visual Studio Code
@@ -87,12 +97,15 @@ install_vscode(){
             DavidAnson.vscode-markdownlint
             EditorConfig.EditorConfig
             PKief.material-icon-theme
-            adamvoss.yaml
             alefragnani.Bookmarks
+            bibhasdn.django-html
+            bibhasdn.django-snippets
             christian-kohler.npm-intellisense
             christian-kohler.path-intellisense
             chrmarti.regex
             dbaeumer.vscode-eslint
+            donjayamanne.jupyter
+            donjayamanne.python-extension-pack
             eamodio.gitlens
             ecmel.vscode-html-css
             eg2.tslint
@@ -100,15 +113,21 @@ install_vscode(){
             esbenp.prettier-vscode
             formulahendry.code-runner
             howardzuo.vscode-npm-dependency
+            jchannon.csharpextensions
+            jmrog.vscode-nuget-package-manager
             joelday.docthis
+            magicstack.MagicPython
             mrmlnc.vscode-scss
+            ms-python.python
             ms-vscode.cpptools
+            ms-vscode.csharp
             msjsdiag.debugger-for-chrome
             robertohuertasm.vscode-icons
             shakram02.bash-beautify
             sidneys1.gitconfig
             timonwong.shellcheck
             wayou.vscode-todo-highlight
+            wholroyd.jinja
             yycalm.linecount
             yzane.markdown-pdf
         )
