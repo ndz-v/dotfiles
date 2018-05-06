@@ -7,28 +7,32 @@ install_apt_packages(){
     apt_packages="build-essentials nano thunderbird guake curl zsh postgresql postgresql-contrib pgadmin3 tmux shellcheck zsh-syntax-highlighting fonts-powerline python3-pip"
     
     for package in $apt_packages; do
-        printf "Installing APT Package: $package ##################################"
         sudo apt install "$package";
+    done
+}
+
+install_python_packages(){
+    python_packages="python-dotenv mechanicalsoup rtv"
+    
+    for package in $python_packages; do
+        pip3 install "$package";
     done
 }
 
 # Oh-My-Zsh
 install_oh_my_zsh(){
-    echo "Oh-My-Zsh ###############################################"
     curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -
     
     sudo chown -R "$USER" .oh-my-zsh;
 }
 
 change_shell(){
-    echo "Change Shell To Zsh #####################################"
     chsh -s "$(which zsh)"
     sudo chsh -s "$(which zsh)"
 }
 
 # Libinput Gestures
 install_libinput_gestures(){
-    echo "Libinput Gestures #######################################"
     cd ~ || exit;
     sudo gpasswd -a "$USER" input
     sudo apt install xdotool wmctrl libinput-tools
@@ -42,7 +46,6 @@ install_libinput_gestures(){
 
 # Node.js
 install_node(){
-    echo "Node.js #################################################"
     curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     sudo apt-get install -y nodejs
     . "$HOME/.bashrc";
@@ -64,7 +67,6 @@ install_npm_packages(){
     npm_packages='typescript tslint @angular/cli nodemon coinmon'
     for package in $npm_packages;
     do
-        printf "Installing NPM Package: $package ##################################"
         npm install -g "$package";
     done
 }
@@ -143,14 +145,12 @@ install_vscode(){
 }
 
 clone_scripts(){
-    echo "cloning scripts #########################################"
     cd ~ || exit;
     git clone https://github.com/nidzov/scripts.git
 }
 
 # This creates symlinks from ~/ to dotfiles dir
 create_sysmbolic_links(){
-    echo "creating symbolic links #################################"
     dir=~/dotfiles
     olddir=~/dotfiles_old
     files=".zshrc .nanorc .gitconfig .aliases"
