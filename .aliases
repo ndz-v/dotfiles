@@ -27,7 +27,7 @@ alias desk='cd ~/Desktop'
 alias grades='python3 ~/python_scripts/grades.py'
 
 # Open projects
-alias dotfiles='code ~/dotfiles'
+alias dotfiles='code ~/.dotfiles'
 alias edit_scripts='code ~/scripts'
 
 # Git aliases

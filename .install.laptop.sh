@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ~/dotfiles/functions.sh
+source ~/.dotfiles/functions.sh
 
 install_apt_packages;
 install_python_packages;

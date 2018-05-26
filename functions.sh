@@ -151,8 +151,8 @@ clone_scripts(){
 
 # This creates symlinks from ~/ to dotfiles dir
 create_sysmbolic_links(){
-    dir=~/dotfiles
-    olddir=~/dotfiles_old
+    dir=~/.dotfiles
+    olddir=~/.dotfiles_old
     files=".zshrc .nanorc .gitconfig .aliases"
     
     echo "Creating $olddir for backup of any existing dotfiles in ~"
@@ -165,16 +165,16 @@ create_sysmbolic_links(){
     
     for file in $files; do
         echo "Moving existing dotfiles from ~ to $olddir"
-        mv "$HOME/$file" "$HOME/dotfiles_old/"
+        mv "$HOME/$file" "$HOME/.dotfiles_old/"
         echo "Creating symlink to $file in home directory."
         ln -s "$dir/$file" "$HOME/$file"
     done
     
     # This create symlinks to .config/Code/User/settings.json
     mv ~/.config/Code/User/settings.json $olddir
-    ln -s ~/dotfiles/code/settings.json ~/.config/Code/User/settings.json
+    ln -s ~/.dotfiles/code/settings.json ~/.config/Code/User/settings.json
     
     # This create symlinks to .config/Code/User/keybindings.json
     mv ~/.config/Code/User/keybindings.json $olddir
-    ln -s ~/dotfiles/code/keybindings.json ~/.config/Code/User/keybindings.json
+    ln -s ~/.dotfiles/code/keybindings.json ~/.config/Code/User/keybindings.json
 }
