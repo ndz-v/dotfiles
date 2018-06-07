@@ -3,10 +3,8 @@
 source ~/.dotfiles/functions.sh
 
 install_apt_packages;
-install_python_packages;
 install_node;
 install_npm_packages;
-install_dotnetcore;
 install_oh_my_zsh;
 install_libinput_gestures;
 install_vscode;
