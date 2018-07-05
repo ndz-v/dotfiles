@@ -10,25 +10,19 @@ alias root='cd $(git rev-parse --show-toplevel)'
 # Lazy stuff
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
-alias list_upgrades='apt list --upgradeable'
+alias list-upgrades='apt list --upgradeable'
 alias reload='source ~/.zshrc'
-alias start_mongo_service='sudo service mongod start'
-alias stop_mongo_service='sudo service mongod stop'
-alias clear_history='rm $HISTFILE'
+alias clear-history='rm $HISTFILE'
 alias chrome='google-chrome &'
-alias coins='coinmon -c eur -p; coinmon -r 6 -t 14'
 
 # Shortcuts
 alias docs='cd ~/Documents'
 alias dl='cd ~/Downloads'
 alias desk='cd ~/Desktop'
 
-#python scripts
-alias grades='python3 ~/python_scripts/grades.py'
-
 # Open projects
 alias dotfiles='code ~/.dotfiles'
-alias edit_scripts='code ~/scripts'
+alias edit-scripts='code ~/scripts'
 
 # Git aliases
 alias status='git status'
@@ -39,5 +33,3 @@ alias push='git push'
 alias pull='git pull'
 
 # Open Chrome in Debug Mode
-alias start_chrome_debugging='google-chrome --remote-debugging-port=9222 &'
-# alias increaseVidMemory='VBoxManage modifyvm 'Name of VM' --vram 256'
