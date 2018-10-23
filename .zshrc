@@ -61,6 +61,7 @@ ZSH_THEME="nidzo"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    gitprompt
     colored-man-pages
     colorize
     cp

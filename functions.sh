@@ -90,31 +90,38 @@ install_vscode(){
     if command -v code > /dev/null; then
         extensions=(
             Angular.ng-template
-            DavidAnson.vscode-markdownlint
-            EditorConfig.EditorConfig
-            PKief.material-icon-theme
             christian-kohler.npm-intellisense
             christian-kohler.path-intellisense
             chrmarti.regex
+            DavidAnson.vscode-markdownlint
             dbaeumer.vscode-eslint
+            donjayamanne.githistory
             donjayamanne.jupyter
+            dracula-theme.theme-dracula
             eamodio.gitlens
             ecmel.vscode-html-css
+            EditorConfig.EditorConfig
             eg2.tslint
             eg2.vscode-npm-script
             esbenp.prettier-vscode
+            felixfbecker.php-intellisense
             formulahendry.code-runner
             howardzuo.vscode-npm-dependency
+            humao.rest-client
             jchannon.csharpextensions
             jmrog.vscode-nuget-package-manager
             joelday.docthis
+            k--kato.docomment
             mrmlnc.vscode-scss
             ms-python.python
             ms-vscode.cpptools
             ms-vscode.csharp
             msjsdiag.debugger-for-chrome
+            PKief.material-icon-theme
+            quicktype.quicktype
             robertohuertasm.vscode-icons
             shakram02.bash-beautify
+            shd101wyy.markdown-preview-enhanced
             sidneys1.gitconfig
             timonwong.shellcheck
             wayou.vscode-todo-highlight
