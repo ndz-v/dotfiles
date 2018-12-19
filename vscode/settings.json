@@ -1,0 +1,20 @@
+{
+    "breadcrumbs.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "editor.autoIndent": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "workbench.settings.editor": "json",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula"
+}
