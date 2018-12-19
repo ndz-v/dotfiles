@@ -23,6 +23,10 @@ do
     sudo apt install "$app"
 done
 
+# Install Oh-My-zsh
+eval "sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'"
+
+
 # Create autostart file for guake
 eval "cat /usr/share/guake/data/guake.template.desktop >> $HOME/.config/autostart/guake.desktop"
 
@@ -72,8 +76,8 @@ fi
 
 # Install VS Code
 eval "curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg"
-eval "install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/"
-eval "sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'"
+eval "sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/"
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 apt install apt-transport-https
 apt update
