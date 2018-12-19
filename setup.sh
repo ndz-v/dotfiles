@@ -31,18 +31,23 @@ eval "cat /usr/share/guake/data/guake.template.desktop >> $HOME/.config/autostar
 
 
 # Check if it's a laptop system
-if [ -d "/sys/class/power_supply" ] && ! type tlp &> /dev/null
+if [ -d "/sys/class/power_supply" ]
 then
-    sudo add-apt-repository ppa:linrunner/tlp
-    sudo apt-get update
-    sudo apt-get install tlp nvidia-driver-390
-    sudo tlp start
     
-    sudo gpasswd -a "$USER" input
-    sudo apt-get install xdotool wmctrl libinput-tools
+    if ! type tlp &> /dev/null && ! type nvidia-settings &> /dev/null
+    then
+        sudo add-apt-repository ppa:linrunner/tlp
+        sudo apt-get update
+        sudo apt-get install tlp nvidia-driver-390
+        sudo tlp start
+    fi
     
+    # Install libinput-gestures for swiping gestures
     if ! type libinput-gestures &> /dev/null
     then
+        sudo gpasswd -a "$USER" input
+        sudo apt-get install xdotool wmctrl libinput-tools
+        
         cd ~ || exit
         git clone https://github.com/bulletmark/libinput-gestures.git
         cd libinput-gestures || exit
@@ -55,19 +60,22 @@ then
     fi
 fi
 
-# Install latte dock if KDE desktop environment
-if [  "$XDG_CURRENT_DESKTOP" == "KDE" ] && ! type latte-dock &> /dev/null ; then
-    sudo apt install cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
+if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     
-    cd ~ || exit
-    git clone https://github.com/KDE/latte-dock.git
-    cd latte-dock || exit
-    sh install.sh
-    cd .. || exit
-    rm -rf latte-dock
+    # Install latte dock if KDE desktop environment
+    if ! type latte-dock &> /dev/null
+    then
+        sudo apt install cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
+        
+        cd ~ || exit
+        git clone https://github.com/KDE/latte-dock.git
+        cd latte-dock || exit
+        sh install.sh
+        cd .. || exit
+        rm -rf latte-dock
+    fi
     
     # create symbolic links for kde settings
-    
     ln -sfn "$HOME/Projects/dotfiles/kde/kcminputrc" "$HOME/.config/kcminputrc"
     
     ln -sfn "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" "$HOME/.config/kglobalshortcutsrc"
@@ -109,9 +117,6 @@ then
     done
 fi
 
-
-
-
 # Create symbolic links
 
 # git
@@ -125,8 +130,8 @@ guake_location="$HOME/.config/dconf/user"
 ln -sfn "$guake" "$guake_location"
 
 # latte
-latte="$HOME/Projects/dotfiles/latte/My\ Layout.layout.latte"
-latte_location="$HOME/.config/latte/My\ Layout.layout.latte"
+latte="$HOME/Projects/dotfiles/latte/My Layout.layout.latte"
+latte_location="$HOME/.config/latte/My Layout.layout.latte"
 ln -sfn "$latte" "$latte_location"
 
 # nano
