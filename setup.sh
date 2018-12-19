@@ -18,8 +18,10 @@ apps=(
     curl
     thunderbird
 )
-
-apt install "${apps[@]}"
+for app in ${apps[*]}
+do
+    sudo apt install "$app"
+done
 
 # Create autostart file for guake
 eval "cat /usr/share/guake/data/guake.template.desktop >> $HOME/.config/autostart/guake.desktop"
@@ -69,9 +71,9 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
 fi
 
 # Install VS Code
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+eval "curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg"
+eval "install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/"
+eval "sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'"
 
 apt install apt-transport-https
 apt update
