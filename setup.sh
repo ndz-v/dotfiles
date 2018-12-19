@@ -18,10 +18,9 @@ apps=(
     curl
     thunderbird
 )
-for app in ${apps[*]}
-do
-    sudo apt install "$app"
-done
+
+sudo apt install "${apps[@]}"
+
 
 # Install Oh-My-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -32,28 +31,32 @@ eval "cat /usr/share/guake/data/guake.template.desktop >> $HOME/.config/autostar
 
 
 # Check if it's a laptop system
-if [ -d "/sys/class/power_supply" ]; then
-    add-apt-repository ppa:linrunner/tlp
-    apt-get update
-    apt-get install tlp nvidia-driver-390
-    tlp start
+if [ -d "/sys/class/power_supply" ] && ! type tlp &> /dev/null
+then
+    sudo add-apt-repository ppa:linrunner/tlp
+    sudo apt-get update
+    sudo apt-get install tlp nvidia-driver-390
+    sudo tlp start
     
     sudo gpasswd -a "$USER" input
     sudo apt-get install xdotool wmctrl libinput-tools
     
-    cd ~ || exit
-    git clone https://github.com/bulletmark/libinput-gestures.git
-    cd libinput-gestures || exit
-    sudo make install
-    cd .. || exit
-    rm -rf libinput-gestures
-    
-    libinput-gestures-setup autostart
-    libinput-gestures-setup start
+    if ! type libinput-gestures &> /dev/null
+    then
+        cd ~ || exit
+        git clone https://github.com/bulletmark/libinput-gestures.git
+        cd libinput-gestures || exit
+        sudo make install
+        cd .. || exit
+        rm -rf libinput-gestures
+        
+        libinput-gestures-setup autostart
+        libinput-gestures-setup start
+    fi
 fi
 
 # Install latte dock if KDE desktop environment
-if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
+if [  "$XDG_CURRENT_DESKTOP" == "KDE" ] && ! type latte-dock &> /dev/null ; then
     sudo apt install cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
     
     cd ~ || exit
@@ -74,22 +77,40 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     ln -sfn "$HOME/Projects/dotfiles/kde/touchpadrc" "$HOME/.config/touchpadrc"
 fi
 
+# Install VS Code
+
+if ! code &> /dev/null
+then
+    sudo apt install apt-transport-https
+    eval "wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -"
+    
+    sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    
+    sudo apt install code
+fi
+
 # Install VS Code extensions
-extensions=(
-    donjayamanne.githistory
-    dracula-theme.theme-dracula
-    eamodio.gitlens
-    PKief.material-icon-theme
-    shakram02.bash-beautify
-    shd101wyy.markdown-preview-enhanced
-    sidneys1.gitconfig
-    timonwong.shellcheck
-    yycalm.linecount
-)
-for extension in ${extensions[*]}
-do
-    code --install-extension "$extension"
-done
+if code &> /dev/null
+then
+    extensions=(
+        donjayamanne.githistory
+        dracula-theme.theme-dracula
+        eamodio.gitlens
+        PKief.material-icon-theme
+        shakram02.bash-beautify
+        shd101wyy.markdown-preview-enhanced
+        sidneys1.gitconfig
+        timonwong.shellcheck
+        yycalm.linecount
+    )
+    for extension in ${extensions[*]}
+    do
+        code --install-extension "$extension"
+    done
+fi
+
+
+
 
 # Create symbolic links
 
@@ -102,6 +123,11 @@ ln -sfn "$gitconfig" "$gitconfig_location"
 guake="$HOME/Projects/dotfiles/guake/user"
 guake_location="$HOME/.config/dconf/user"
 ln -sfn "$guake" "$guake_location"
+
+# latte
+latte="$HOME/Projects/dotfiles/latte/My\ Layout.layout.latte"
+latte_location="$HOME/.config/latte/My\ Layout.layout.latte"
+ln -sfn "$latte" "$latte_location"
 
 # nano
 nanorc="$HOME/Projects/dotfiles/nano/.nanorc"
