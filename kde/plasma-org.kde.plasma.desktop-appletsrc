@@ -41,6 +41,10 @@ PreloadWeight=0
 [Containments][1][General]
 ToolBoxButtonState=topright
 ToolBoxButtonX=1890
+alignment=1
+arrangement=1
+positions=2,9,desktop:/kubuntu-18.10-desktop-amd64.iso,1,3,desktop:/nidzo,0,1,desktop:/trash:⁄.desktop,0,0
+sortMode=-1
 
 [Containments][2]
 activityId=
@@ -231,3 +235,4 @@ immutability=2
 
 [ScreenMapping]
 itemsOnDisabledScreens=
+screenMapping=desktop:/kubuntu-18.10-desktop-amd64.iso,0,desktop:/nidzo,0,desktop:/trash:⁄.desktop,0
