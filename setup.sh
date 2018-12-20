@@ -80,8 +80,6 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     
     ln -sfn "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" "$HOME/.config/kglobalshortcutsrc"
     
-    ln -sfn "$HOME/Projects/dotfiles/kde/plasma-org.kde.plasma.desktop-appletsrc" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
-    
     ln -sfn "$HOME/Projects/dotfiles/kde/touchpadrc" "$HOME/.config/touchpadrc"
 fi
 
@@ -128,11 +126,6 @@ ln -sfn "$gitconfig" "$gitconfig_location"
 guake="$HOME/Projects/dotfiles/guake/user"
 guake_location="$HOME/.config/dconf/user"
 ln -sfn "$guake" "$guake_location"
-
-# latte
-latte="$HOME/Projects/dotfiles/latte/My Layout.layout.latte"
-latte_location="$HOME/.config/latte/My Layout.layout.latte"
-ln -sfn "$latte" "$latte_location"
 
 # nano
 nanorc="$HOME/Projects/dotfiles/nano/.nanorc"
