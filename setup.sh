@@ -152,6 +152,6 @@ ln -sfn "$theme" "$theme_location"
 
 # Dotfiles dir with git
 mkdir "$HOME/Projects/temp"
-git clone git@github.com:nidzov/dotfiles.git temp
+git clone https://github.com/nidzov/dotfiles.git temp
 mv "$HOME/Projects/temp/.git" "$HOME/Projects/dotfiles"
 rm -rf "$HOME/Projects/temp"
