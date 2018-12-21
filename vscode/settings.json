@@ -16,5 +16,6 @@
     },
     "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula"
+    "workbench.colorTheme": "Dracula",
+    "terminal.integrated.fontSize": 12
 }
