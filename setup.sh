@@ -78,9 +78,9 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     # create symbolic links for kde settings
     cat "$HOME/Projects/dotfiles/kde/kcminputrc" > "$HOME/.config/kcminputrc"
     
-    cat ln -sfn "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
+    cat "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
     
-    cat ln -sfn "$HOME/Projects/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
+    cat "$HOME/Projects/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
 fi
 
 # Install VS Code
