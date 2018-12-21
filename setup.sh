@@ -76,11 +76,11 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     fi
     
     # create symbolic links for kde settings
-    ln -sfn "$HOME/Projects/dotfiles/kde/kcminputrc" "$HOME/.config/kcminputrc"
+    cat "$HOME/Projects/dotfiles/kde/kcminputrc" > "$HOME/.config/kcminputrc"
     
-    ln -sfn "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" "$HOME/.config/kglobalshortcutsrc"
+    cat ln -sfn "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
     
-    ln -sfn "$HOME/Projects/dotfiles/kde/touchpadrc" "$HOME/.config/touchpadrc"
+    cat ln -sfn "$HOME/Projects/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
 fi
 
 # Install VS Code
@@ -150,3 +150,8 @@ theme="$HOME/Projects/dotfiles/zsh/nidzo.zsh-theme"
 theme_location="$HOME/.oh-my-zsh/themes/nidzo.zsh-theme"
 ln -sfn "$theme" "$theme_location"
 
+# Dotfiles dir with git
+mkdir "$HOME/Projects/temp"
+git clone git@github.com:nidzov/dotfiles.git temp
+mv "$HOME/Projects/temp/.git" "$HOME/Projects/dotfiles"
+rm -rf "$HOME/Projects/temp"

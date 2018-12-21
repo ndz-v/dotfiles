@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export ZSH="/home/nidzo/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 
 ZSH_THEME="nidzo"
 
