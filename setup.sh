@@ -75,7 +75,7 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
         rm -rf latte-dock
     fi
     
-    # create symbolic links for kde settings
+    # Overwrite kde settings
     cat "$HOME/Projects/dotfiles/kde/kcminputrc" > "$HOME/.config/kcminputrc"
     
     cat "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
