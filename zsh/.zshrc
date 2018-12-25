@@ -11,7 +11,7 @@ plugins=(
     colorize
 )
 
-export PATH=~/.npm-global/bin:$PATH
+export PATH=$HOME/.config/npm-global/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
