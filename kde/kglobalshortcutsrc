@@ -21,10 +21,10 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
-{01168603-2988-4be0-aa5c-1d45801bc153}=,none,Take Active Window Screenshot
-{2db3450f-4904-43ab-a74b-5d6efa9767de}=,none,Take Rectangular Region Screenshot
-{93eb695d-95e1-4346-9b09-62a14875153d}=,none,Take Full Screen Screenshot
-{a9e5eb95-24d7-4e04-990e-c6b5d1830269}=,none,Start Screenshot Tool
+{0a140265-2a47-408c-94c3-6f833505d6a1}=Print,none,Start Screenshot Tool
+{0baf998e-010c-47d3-af50-975ccefd1351}=Meta+Print,none,Take Active Window Screenshot
+{770aa6b2-9eea-4d9d-a6a3-a27961ed7fd1}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
+{8fea2fdd-343b-4379-aa50-df7f9fa1aaf3}=Shift+Print,none,Take Full Screen Screenshot
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
 
 [kmix]
@@ -55,6 +55,8 @@ Decrease Opacity=none,none,Decrease Opacity of Active Window by 5 %
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
+FlipSwitchAll=none,none,Toggle Flip Switch (All desktops)
+FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
 Invert Screen Colors=none,none,Invert Screen Colors
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
@@ -274,7 +276,7 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
-activate widget 3=Alt+F1,none,Activate Application Launcher Widget
+activate widget 28=Alt+F1,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item

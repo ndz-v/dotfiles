@@ -4,8 +4,8 @@
 sudo -v
 
 # Update and upgrade system
-apt update
-apt upgrade
+sudo apt update
+sudo apt upgrade -y
 
 # Install apps
 apps=(
@@ -17,13 +17,16 @@ apps=(
     shellcheck
     curl
     thunderbird
+    texlive
+    texlive-lang-german
+    texlive-latex-extra
+    python3-pip
 )
 
-sudo apt install "${apps[@]}"
-
+sudo apt install -y "${apps[@]}"
 
 # Install Oh-My-zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh --quiet --show-progress -O -)"
 
 
 # Create autostart file for guake
@@ -38,7 +41,7 @@ then
     then
         sudo add-apt-repository ppa:linrunner/tlp
         sudo apt-get update
-        sudo apt-get install tlp nvidia-driver-390
+        sudo apt-get install -y tlp nvidia-driver-390
         sudo tlp start
     fi
     
@@ -46,7 +49,7 @@ then
     if ! type libinput-gestures &> /dev/null
     then
         sudo gpasswd -a "$USER" input
-        sudo apt-get install xdotool wmctrl libinput-tools
+        sudo apt-get install -y xdotool wmctrl libinput-tools
         
         cd ~ || exit
         git clone https://github.com/bulletmark/libinput-gestures.git
@@ -65,7 +68,7 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     # Install latte dock if KDE desktop environment
     if ! type latte-dock &> /dev/null
     then
-        sudo apt install cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
+        sudo apt install -y cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
         
         cd ~ || exit
         git clone https://github.com/KDE/latte-dock.git
@@ -78,13 +81,15 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     # Overwrite kde settings
     cat "$HOME/Projects/dotfiles/kde/kcminputrc" > "$HOME/.config/kcminputrc"
     
-    cat "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
+    if [ -d "/sys/class/power_supply" ]
+    then
+        cat "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
+        cat "$HOME/Projects/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
+    fi
     
-    cat "$HOME/Projects/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
 fi
 
 # Install VS Code
-
 if ! code &> /dev/null
 then
     sudo apt install apt-transport-https
@@ -92,7 +97,7 @@ then
     
     sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
     
-    sudo apt install code
+    sudo apt install -y code
 fi
 
 # Install VS Code extensions
@@ -102,7 +107,10 @@ then
         donjayamanne.githistory
         dracula-theme.theme-dracula
         eamodio.gitlens
+        ms-vscode.csharp
+        ms-vsliveshare.vsliveshare
         PKief.material-icon-theme
+        quicktype.quicktype
         shakram02.bash-beautify
         shd101wyy.markdown-preview-enhanced
         sidneys1.gitconfig
@@ -113,6 +121,12 @@ then
     do
         code --install-extension "$extension"
     done
+fi
+
+# Install youtube-dl
+if python3-pip &> /dev/null
+then
+    pip3 install --upgrade youtube-dl
 fi
 
 # Create symbolic links
@@ -152,6 +166,7 @@ ln -sfn "$theme" "$theme_location"
 
 # Dotfiles dir with git
 mkdir "$HOME/Projects/temp"
-git clone https://github.com/nidzov/dotfiles.git temp
+cd "$HOME/Projects" || exit
+git clone https://github.com/nidzov/dotfiles.git "$HOME/Projects/temp"
 mv "$HOME/Projects/temp/.git" "$HOME/Projects/dotfiles"
 rm -rf "$HOME/Projects/temp"

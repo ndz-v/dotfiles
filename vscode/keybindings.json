@@ -3,5 +3,15 @@
     {
         "key": "ctrl+;",
         "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+shift+meta+enter",
+        "command": "markdown-preview-enhanced.runAllCodeChunks",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "-markdown-preview-enhanced.runAllCodeChunks",
+        "when": "editorLangId == 'markdown'"
     }
 ]

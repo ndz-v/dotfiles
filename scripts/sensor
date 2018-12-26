@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+sensordata=$(sensors)
+echo "$sensordata" | awk '/^temp1:/{print;exit}'
+echo "$sensordata" | awk '/^Processor Fan:/{print} /^Video Fan:/{print}'
+
+
+memorydata=$(free -h)
+echo "$memorydata" | awk '/^Mem:/{print $3 "/" $2}'
