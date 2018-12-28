@@ -21,6 +21,7 @@ apps=(
     texlive-lang-german
     texlive-latex-extra
     python3-pip
+    entr
 )
 
 sudo apt install -y "${apps[@]}"
