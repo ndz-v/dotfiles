@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-sensordata=$(sensors)
-echo "$sensordata" | awk '/^temp1:/{print;exit}'
-echo "$sensordata" | awk '/^Processor Fan:/{print} /^Video Fan:/{print}'
-
-
-memorydata=$(free -h)
-echo "$memorydata" | awk '/^Mem:/{print $3 "/" $2}'
+if  sensors &> /dev/null
+then
+    sensordata=$(sensors)
+    memorydata=$(free -h)
+    echo "$sensordata" | awk '/^temp1:/{print "CPU temp:       " $2}' | awk 'END{print}'
+    echo "$memorydata" | awk '/^Mem:/{print "Memory:      "$3 "/" $2}'
+    echo "$sensordata" | awk '/^Processor Fan:/{print} /^Video Fan:/{print}'
+fi

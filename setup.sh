@@ -9,19 +9,21 @@ sudo apt upgrade -y
 
 # Install apps
 apps=(
-    build-essentials
+    curl
+    entr
     git
     guake
-    zsh
-    zsh-syntax-highlighting
+    libnotify-bin
+    python3-pip
     shellcheck
-    curl
-    thunderbird
+    silversearcher-ag
     texlive
     texlive-lang-german
     texlive-latex-extra
     python3-pip
     entr
+    libnotify-bin
+    silversearcher-ag
 )
 
 sudo apt install -y "${apps[@]}"
@@ -105,16 +107,19 @@ fi
 if code &> /dev/null
 then
     extensions=(
+        PKief.material-icon-theme
         donjayamanne.githistory
         dracula-theme.theme-dracula
         eamodio.gitlens
         ms-vscode.csharp
         ms-vsliveshare.vsliveshare
-        PKief.material-icon-theme
         quicktype.quicktype
+        ritwickdey.LiveServer
         shakram02.bash-beautify
         shd101wyy.markdown-preview-enhanced
         sidneys1.gitconfig
+        streetsidesoftware.code-spell-checker
+        streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
         yycalm.linecount
     )
