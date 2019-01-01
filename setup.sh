@@ -20,10 +20,9 @@ apps=(
     texlive
     texlive-lang-german
     texlive-latex-extra
-    python3-pip
-    entr
-    libnotify-bin
-    silversearcher-ag
+    thunderbird
+    zsh
+    zsh-syntax-highlighting
 )
 
 sudo apt install -y "${apps[@]}"

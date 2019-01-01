@@ -34,7 +34,8 @@ source "$ZSH/oh-my-zsh.sh"
 # Lazy stuff
 alias root='cd $(git rev-parse --show-toplevel)'
 alias ai='sudo apt install'
-alias au='sudo apt upgrade'
+alias aud='sudo apt update'
+alias aug='sudo apt upgrade'
 alias alu='apt list --upgradeable'
 alias aver='apt-cache policy'
 alias dotfiles='code ~/Projects/dotfiles'
