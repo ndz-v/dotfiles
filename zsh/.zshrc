@@ -5,10 +5,12 @@ export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="nidzo"
 
 plugins=(
-    git
-    gitprompt
     colored-man-pages
     colorize
+    git
+    gitprompt
+    node
+    npm
 )
 
 export FCEDIT=nano
@@ -50,7 +52,7 @@ alias pull='git pull'
 
 # Internet
 alias yt='youtube-dl -ic'
-alias yta='youtube-dl -xic'
+alias yta='youtube-dl -xic --audio-format mp3'
 
 # PostgreSQL
 if postgresql &> /dev/null

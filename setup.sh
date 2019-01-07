@@ -38,7 +38,6 @@ eval "cat /usr/share/guake/data/guake.template.desktop >> $HOME/.config/autostar
 # Check if it's a laptop system
 if [ -d "/sys/class/power_supply" ]
 then
-    
     if ! type tlp &> /dev/null && ! type nvidia-settings &> /dev/null
     then
         sudo add-apt-repository ppa:linrunner/tlp
@@ -53,11 +52,11 @@ then
         sudo gpasswd -a "$USER" input
         sudo apt-get install -y xdotool wmctrl libinput-tools
         
-        cd ~ || exit
+        cd ~ || return
         git clone https://github.com/bulletmark/libinput-gestures.git
-        cd libinput-gestures || exit
+        cd libinput-gestures || return
         sudo make install
-        cd .. || exit
+        cd .. || return
         rm -rf libinput-gestures
         
         libinput-gestures-setup autostart
@@ -66,17 +65,16 @@ then
 fi
 
 if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
-    
     # Install latte dock if KDE desktop environment
     if ! type latte-dock &> /dev/null
     then
         sudo apt install -y cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
         
-        cd ~ || exit
+        cd ~ || return
         git clone https://github.com/KDE/latte-dock.git
-        cd latte-dock || exit
+        cd latte-dock || return
         sh install.sh
-        cd .. || exit
+        cd .. || return
         rm -rf latte-dock
     fi
     
@@ -134,6 +132,13 @@ then
     pip3 install --upgrade youtube-dl
 fi
 
+# Check if Linux/Windows dual boot system to adjust time
+windows=$(sudo os-prober)
+if [[ $windows == *"Windows"* ]]; then
+    timedatectl set-local-rtc 1 --adjust-system-clock
+fi
+
+
 # Create symbolic links
 
 # git
@@ -171,7 +176,7 @@ ln -sfn "$theme" "$theme_location"
 
 # Dotfiles dir with git
 mkdir "$HOME/Projects/temp"
-cd "$HOME/Projects" || exit
+cd "$HOME/Projects" || return
 git clone https://github.com/nidzov/dotfiles.git "$HOME/Projects/temp"
 mv "$HOME/Projects/temp/.git" "$HOME/Projects/dotfiles"
 rm -rf "$HOME/Projects/temp"
