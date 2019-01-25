@@ -35,7 +35,7 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 eval "cat /usr/share/guake/data/guake.template.desktop >> $HOME/.config/autostart/guake.desktop"
 
 
-# Check if it's a laptop system
+# Check if it's a notebook
 if [ -d "/sys/class/power_supply" ]
 then
     if ! type tlp &> /dev/null && ! type nvidia-settings &> /dev/null
@@ -64,8 +64,9 @@ then
     fi
 fi
 
+# Check if the installed desktop environment is KDE Plasma
 if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
-    # Install latte dock if KDE desktop environment
+    # Install latte dock
     if ! type latte-dock &> /dev/null
     then
         sudo apt install -y cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
@@ -104,7 +105,10 @@ fi
 if code &> /dev/null
 then
     extensions=(
+        DavidAnson.vscode-markdownlint
+        James-Yu.latex-workshop
         PKief.material-icon-theme
+        Tyriar.sort-lines
         donjayamanne.githistory
         dracula-theme.theme-dracula
         eamodio.gitlens
@@ -118,6 +122,7 @@ then
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
+        vmsynkov.colonize
         yycalm.linecount
     )
     for extension in ${extensions[*]}
@@ -137,7 +142,6 @@ windows=$(sudo os-prober)
 if [[ $windows == *"Windows"* ]]; then
     timedatectl set-local-rtc 1 --adjust-system-clock
 fi
-
 
 # Create symbolic links
 

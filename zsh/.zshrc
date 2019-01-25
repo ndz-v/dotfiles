@@ -11,6 +11,7 @@ plugins=(
     gitprompt
     node
     npm
+    globalias
 )
 
 export FCEDIT=nano
@@ -31,7 +32,6 @@ then
 fi
 
 source "$ZSH/oh-my-zsh.sh"
-
 
 # Lazy stuff
 alias root='cd $(git rev-parse --show-toplevel)'
