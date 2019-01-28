@@ -135,6 +135,7 @@ fi
 if python3-pip &> /dev/null
 then
     pip3 install --upgrade youtube-dl
+    echo '--output "~/Music/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
 fi
 
 # Check if Linux/Windows dual boot system to adjust time
