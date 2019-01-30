@@ -18,5 +18,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Dracula",
     "terminal.integrated.fontSize": 12,
-    "search.location": "panel"
+    "search.location": "panel",
+    "tslint.autoFixOnSave": true,
+    "typescript.preferences.quoteStyle": "single"
 }
