@@ -28,7 +28,7 @@ apps=(
 sudo apt install -y "${apps[@]}"
 
 # Install Oh-My-zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh --quiet --show-progress -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh --quiet --show-progress -O - | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 
 
 # Create autostart file for guake
@@ -101,19 +101,59 @@ then
     sudo apt install -y code
 fi
 
+# Install .net core
+if dotnet &> /dev/null
+then
+    eval "wget -q https://packages.microsoft.com/config/ubuntu/18.10/packages-microsoft-prod.deb
+    "
+    sudo dpkg -i packages-microsoft-prod.deb
+    
+    sudo add-apt-repository universe
+    sudo apt-get install apt-transport-https
+    sudo apt-get update
+    sudo apt-get install dotnet-sdk-2.2
+fi
+
+# Install NodeJS
+if node &> /dev/null
+then
+    eval -c "curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -"
+    sudo apt-get install -y nodejs
+    
+    if npm &> /dev/null
+    then
+        globaldir="$HOME/.config/.npm-global"
+        mkdir "$globaldir"
+        npm config set prefix "$globaldir"
+        export PATH=$globaldir/bin:$PATH
+        
+        packages=(
+            @angular/cli
+            coinmon
+            express-generator
+            phantomjs
+            tslint
+            typescript
+        )
+        
+        npm i -g "${packages[@]}"
+    fi
+fi
+
 # Install VS Code extensions
 if code &> /dev/null
 then
     extensions=(
+        Angular.ng-template
         DavidAnson.vscode-markdownlint
-        James-Yu.latex-workshop
-        PKief.material-icon-theme
-        Tyriar.sort-lines
         donjayamanne.githistory
         dracula-theme.theme-dracula
         eamodio.gitlens
+        eg2.tslint
+        James-Yu.latex-workshop
         ms-vscode.csharp
         ms-vsliveshare.vsliveshare
+        PKief.material-icon-theme
         quicktype.quicktype
         ritwickdey.LiveServer
         shakram02.bash-beautify
@@ -122,6 +162,7 @@ then
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
+        Tyriar.sort-lines
         vmsynkov.colonize
         yycalm.linecount
     )
