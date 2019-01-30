@@ -20,5 +20,6 @@
     "terminal.integrated.fontSize": 12,
     "search.location": "panel",
     "tslint.autoFixOnSave": true,
-    "typescript.preferences.quoteStyle": "single"
+    "typescript.preferences.quoteStyle": "single",
+    "python.jediEnabled": false
 }

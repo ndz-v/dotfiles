@@ -151,6 +151,7 @@ then
         eamodio.gitlens
         eg2.tslint
         James-Yu.latex-workshop
+        ms-python.python
         ms-vscode.csharp
         ms-vsliveshare.vsliveshare
         PKief.material-icon-theme
