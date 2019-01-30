@@ -173,10 +173,11 @@ then
     done
 fi
 
-# Install youtube-dl
+# Install youtube-dl, pylint, autopep8
 if python3-pip &> /dev/null
 then
-    pip3 install --upgrade youtube-dl
+    pip3 install --upgrade youtube-dl pylint autopep8
+    
     echo '--output "~/Music/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
 fi
 
