@@ -41,6 +41,7 @@ alias aug='sudo apt upgrade'
 alias alu='apt list --upgradeable'
 alias aver='apt-cache policy'
 alias dotfiles='code ~/Projects/dotfiles'
+alias counthere='ls -lAh | wc -l'
 
 # Git aliases
 alias status='git status'
