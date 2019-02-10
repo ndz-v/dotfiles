@@ -129,7 +129,6 @@ then
         
         packages=(
             @angular/cli
-            coinmon
             express-generator
             phantomjs
             tslint
