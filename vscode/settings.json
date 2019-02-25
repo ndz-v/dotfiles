@@ -21,5 +21,13 @@
     "search.location": "panel",
     "tslint.autoFixOnSave": true,
     "typescript.preferences.quoteStyle": "single",
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "workbench.settings.useSplitJSON": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/.direnv/**": true,
+        "**/.venv/**": true
+    }
 }

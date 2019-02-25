@@ -13,6 +13,7 @@ apps=(
     entr
     git
     guake
+    latexmk
     libnotify-bin
     python3-pip
     shellcheck
@@ -145,15 +146,16 @@ then
     extensions=(
         Angular.ng-template
         DavidAnson.vscode-markdownlint
+        James-Yu.latex-workshop
+        PKief.material-icon-theme
+        Tyriar.sort-lines
         donjayamanne.githistory
         dracula-theme.theme-dracula
         eamodio.gitlens
         eg2.tslint
-        James-Yu.latex-workshop
         ms-python.python
         ms-vscode.csharp
         ms-vsliveshare.vsliveshare
-        PKief.material-icon-theme
         quicktype.quicktype
         ritwickdey.LiveServer
         shakram02.bash-beautify
@@ -162,7 +164,6 @@ then
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
-        Tyriar.sort-lines
         vmsynkov.colonize
         yycalm.linecount
     )
