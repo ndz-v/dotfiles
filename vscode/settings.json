@@ -29,5 +29,9 @@
         "**/node_modules/**": true,
         "**/.direnv/**": true,
         "**/.venv/**": true
-    }
+    },
+    "python.autoComplete.extraPaths": [
+        "~/.local/lib/python3.6/site-packages"
+    ],
+    "python.autoComplete.addBrackets": true
 }
