@@ -1,37 +1,38 @@
 {
-    "breadcrumbs.enabled": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.minimap.enabled": false,
-    "editor.wordWrap": "on",
-    "editor.autoIndent": true,
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.smoothScrolling": true,
-    "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "line",
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": true,
-        "strings": true
-    },
-    "workbench.settings.editor": "json",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula",
-    "terminal.integrated.fontSize": 12,
-    "search.location": "panel",
-    "tslint.autoFixOnSave": true,
-    "typescript.preferences.quoteStyle": "single",
-    "python.jediEnabled": false,
-    "workbench.settings.useSplitJSON": true,
-    "files.watcherExclude": {
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/node_modules/**": true,
-        "**/.direnv/**": true,
-        "**/.venv/**": true
-    },
-    "python.autoComplete.extraPaths": [
-        "~/.local/lib/python3.6/site-packages"
-    ],
-    "python.autoComplete.addBrackets": true
+  "breadcrumbs.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.autoIndent": true,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "workbench.settings.editor": "json",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Dracula",
+  "terminal.integrated.fontSize": 12,
+  "search.location": "panel",
+  "tslint.autoFixOnSave": true,
+  "typescript.preferences.quoteStyle": "single",
+  "python.jediEnabled": false,
+  "workbench.settings.useSplitJSON": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.direnv/**": true,
+    "**/.venv/**": true
+  },
+  "python.autoComplete.extraPaths": [
+    "~/.local/lib/python3.6/site-packages"
+  ],
+  "python.autoComplete.addBrackets": true,
+  "window.titleBarStyle": "custom"
 }

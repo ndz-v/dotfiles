@@ -8,7 +8,6 @@ plugins=(
     colored-man-pages
     colorize
     git
-    gitprompt
     node
     npm
     globalias
