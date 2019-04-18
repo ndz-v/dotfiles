@@ -43,7 +43,7 @@ then
     then
         sudo add-apt-repository ppa:linrunner/tlp
         sudo apt-get update
-        sudo apt-get install -y tlp nvidia-driver-390
+        sudo apt-get install -y tlp nvidia-driver-418
         sudo tlp start
     fi
     
