@@ -85,7 +85,7 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     
     if [ -d "/sys/class/power_supply" ]
     then
-        cat "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
+        # cat "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
         cat "$HOME/Projects/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
     fi
     
