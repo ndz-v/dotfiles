@@ -1,5 +1,7 @@
 {
-  "breadcrumbs.enabled": true,
+  // ************
+  // ** Editor **
+  // ************
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
@@ -14,15 +16,25 @@
     "comments": true,
     "strings": true
   },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  // **************
+  // ** Terminal **
+  // **************
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "terminal.integrated.showExitAlert": false,
+  // ***********
+  // ** Style **
+  // ***********
+  "breadcrumbs.enabled": true,
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Dracula",
-  "terminal.integrated.fontSize": 12,
-  "search.location": "panel",
-  "tslint.autoFixOnSave": true,
-  "typescript.preferences.quoteStyle": "single",
-  "python.jediEnabled": false,
   "workbench.settings.useSplitJSON": true,
+  "window.titleBarStyle": "custom",
+  "search.location": "panel",
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
@@ -30,9 +42,14 @@
     "**/.direnv/**": true,
     "**/.venv/**": true
   },
-  "python.autoComplete.extraPaths": [
-    "~/.local/lib/python3.6/site-packages"
-  ],
+  // ***************
+  // ** Languages **
+  // ***************
+  "typescript.preferences.quoteStyle": "single",
   "python.autoComplete.addBrackets": true,
-  "window.titleBarStyle": "custom"
+  "python.jediEnabled": false,
+  "python.autoComplete.extraPaths": [
+    "~/.local/lib/python3.7/site-packages"
+  ],
+  "latex-workshop.latex.outDir": "%DIR%/out",
 }

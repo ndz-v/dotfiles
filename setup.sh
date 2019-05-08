@@ -15,43 +15,50 @@ apps=(
     guake
     latexmk
     libnotify-bin
+    lm-sensors
+    powertop
     python3-pip
     shellcheck
     silversearcher-ag
-    texlive
-    texlive-lang-german
-    texlive-latex-extra
+    texlive-full
     thunderbird
+    ufw
     zsh
     zsh-syntax-highlighting
 )
 
 sudo apt install -y "${apps[@]}"
 
+# Turn on ufw
+if type "ufw" &> /dev/null
+then
+    sudo ufw enable
+fi
+
 # Install Oh-My-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh --quiet --show-progress -O - | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 
 
 # Create autostart file for guake
-eval "cat /usr/share/guake/data/guake.template.desktop >> $HOME/.config/autostart/guake.desktop"
+eval "cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop"
 
 
 # Check if it's a notebook
 if [ -d "/sys/class/power_supply" ]
 then
-    if ! type tlp &> /dev/null && ! type nvidia-settings &> /dev/null
+    if ! type "tlp" &> /dev/null
     then
         sudo add-apt-repository ppa:linrunner/tlp
-        sudo apt-get update
-        sudo apt-get install -y tlp nvidia-driver-418
+        sudo apt update
+        sudo apt install -y tlp
         sudo tlp start
     fi
     
     # Install libinput-gestures for swiping gestures
-    if ! type libinput-gestures &> /dev/null
+    if ! type "libinput-gestures" &> /dev/null
     then
         sudo gpasswd -a "$USER" input
-        sudo apt-get install -y xdotool wmctrl libinput-tools
+        sudo apt install -y xdotool wmctrl libinput-tools
         
         cd ~ || return
         git clone https://github.com/bulletmark/libinput-gestures.git
@@ -68,7 +75,7 @@ fi
 # Check if the installed desktop environment is KDE Plasma
 if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     # Install latte dock
-    if ! type latte-dock &> /dev/null
+    if ! type "latte-dock" &> /dev/null
     then
         sudo apt install -y cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
         
@@ -92,56 +99,19 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
 fi
 
 # Install VS Code
-if ! code &> /dev/null
+if ! type "code" &> /dev/null
 then
-    sudo apt install apt-transport-https
-    eval "wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -"
-    
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
     sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
     
+    sudo apt install apt-transport-https
+    sudo apt update
     sudo apt install -y code
 fi
 
-# Install .net core
-if dotnet &> /dev/null
-then
-    eval "wget -q https://packages.microsoft.com/config/ubuntu/18.10/packages-microsoft-prod.deb
-    "
-    sudo dpkg -i packages-microsoft-prod.deb
-    
-    sudo add-apt-repository universe
-    sudo apt-get install apt-transport-https
-    sudo apt-get update
-    sudo apt-get install dotnet-sdk-2.2
-fi
-
-# Install NodeJS
-if node &> /dev/null
-then
-    eval -c "curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -"
-    sudo apt-get install -y nodejs
-    
-    if npm &> /dev/null
-    then
-        globaldir="$HOME/.config/.npm-global"
-        mkdir "$globaldir"
-        npm config set prefix "$globaldir"
-        export PATH=$globaldir/bin:$PATH
-        
-        packages=(
-            @angular/cli
-            express-generator
-            phantomjs
-            tslint
-            typescript
-        )
-        
-        npm i -g "${packages[@]}"
-    fi
-fi
-
 # Install VS Code extensions
-if code &> /dev/null
+if type "code" &> /dev/null
 then
     extensions=(
         Angular.ng-template
@@ -149,12 +119,13 @@ then
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
+        VisualStudioExptTeam.vscodeintellicode
         donjayamanne.githistory
         dracula-theme.theme-dracula
         eamodio.gitlens
-        eg2.tslint
         ms-python.python
         ms-vscode.csharp
+        ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
         quicktype.quicktype
         ritwickdey.LiveServer
@@ -174,17 +145,11 @@ then
 fi
 
 # Install youtube-dl, pylint, autopep8
-if python3-pip &> /dev/null
+if type "python3-pip" &> /dev/null
 then
     pip3 install --upgrade youtube-dl pylint autopep8
     
-    echo '--output "~/Music/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
-fi
-
-# Check if Linux/Windows dual boot system to adjust time
-windows=$(sudo os-prober)
-if [[ $windows == *"Windows"* ]]; then
-    timedatectl set-local-rtc 1 --adjust-system-clock
+    echo '--output "~/Downloads/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
 fi
 
 # Create symbolic links
@@ -225,6 +190,6 @@ ln -sfn "$theme" "$theme_location"
 # Dotfiles dir with git
 mkdir "$HOME/Projects/temp"
 cd "$HOME/Projects" || return
-git clone https://github.com/nidzov/dotfiles.git "$HOME/Projects/temp"
+git clone git@github.com:nidzov/dotfiles.git "$HOME/Projects/temp"
 mv "$HOME/Projects/temp/.git" "$HOME/Projects/dotfiles"
 rm -rf "$HOME/Projects/temp"
