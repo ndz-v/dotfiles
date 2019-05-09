@@ -1,55 +1,59 @@
 {
-  // ************
-  // ** Editor **
-  // ************
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.minimap.enabled": false,
-  "editor.wordWrap": "on",
-  "editor.autoIndent": true,
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.smoothScrolling": true,
-  "editor.cursorBlinking": "solid",
-  "editor.cursorStyle": "line",
-  "editor.quickSuggestions": {
-    "other": true,
-    "comments": true,
-    "strings": true
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
-  },
-  // **************
-  // ** Terminal **
-  // **************
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.shell.linux": "/bin/zsh",
-  "terminal.integrated.showExitAlert": false,
-  // ***********
-  // ** Style **
-  // ***********
-  "breadcrumbs.enabled": true,
-  "workbench.settings.editor": "json",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Dracula",
-  "workbench.settings.useSplitJSON": true,
-  "window.titleBarStyle": "custom",
-  "search.location": "panel",
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/node_modules/**": true,
-    "**/.direnv/**": true,
-    "**/.venv/**": true
-  },
-  // ***************
-  // ** Languages **
-  // ***************
-  "typescript.preferences.quoteStyle": "single",
-  "python.autoComplete.addBrackets": true,
-  "python.jediEnabled": false,
-  "python.autoComplete.extraPaths": [
-    "~/.local/lib/python3.7/site-packages"
-  ],
-  "latex-workshop.latex.outDir": "%DIR%/out",
+    // ************
+    // ** Editor **
+    // ************
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "editor.autoIndent": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.tslint": true
+    },
+    "editor.detectIndentation": false,
+    "editor.suggestSelection": "first",
+    // **************
+    // ** Terminal **
+    // **************
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "terminal.integrated.showExitAlert": false,
+    // ***********
+    // ** Style **
+    // ***********
+    "breadcrumbs.enabled": true,
+    "workbench.settings.editor": "json",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula",
+    "workbench.settings.useSplitJSON": true,
+    "window.titleBarStyle": "custom",
+    "search.location": "panel",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/.direnv/**": true,
+        "**/.venv/**": true
+    },
+    // ***************
+    // ** Languages **
+    // ***************
+    "typescript.preferences.quoteStyle": "single",
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": false,
+    "python.autoComplete.extraPaths": [
+        "~/.local/lib/python3.7/site-packages"
+    ],
+    "latex-workshop.latex.outDir": "%DIR%/out",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "diffEditor.ignoreTrimWhitespace": true,
 }

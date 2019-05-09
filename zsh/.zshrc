@@ -55,7 +55,7 @@ alias yt='youtube-dl -ic'
 alias yta='youtube-dl -xic --audio-format mp3'
 
 # PostgreSQL
-if postgresql &> /dev/null
+if type "psql" &> /dev/null
 then
     alias statuspostgres="sudo service postgresql status"
     alias startpostgres="sudo service postgresql start; statuspostgres"
