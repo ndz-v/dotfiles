@@ -115,6 +115,7 @@ if type "code" &> /dev/null
 then
     extensions=(
         Angular.ng-template
+        CoenraadS.bracket-pair-colorizer
         DavidAnson.vscode-markdownlint
         James-Yu.latex-workshop
         PKief.material-icon-theme
