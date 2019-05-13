@@ -11,6 +11,7 @@ sudo apt upgrade -y
 apps=(
     curl
     entr
+    ffmpeg
     git
     guake
     latexmk
@@ -22,12 +23,24 @@ apps=(
     silversearcher-ag
     texlive-full
     thunderbird
+    tree
     ufw
     zsh
     zsh-syntax-highlighting
 )
 
 sudo apt install -y "${apps[@]}"
+
+
+# Add obs ppa and install it
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update
+sudo apt install obs-studio
+
+# Add kdenlive ppa and install it
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo apt update
+sudo apt install kdenlive
 
 # Turn on ufw
 if type "ufw" &> /dev/null
@@ -88,12 +101,12 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     fi
     
     # Overwrite kde settings
-    cat "$HOME/Projects/dotfiles/kde/kcminputrc" > "$HOME/.config/kcminputrc"
+    cat "$HOME/dev/dotfiles/kde/kcminputrc" > "$HOME/.config/kcminputrc"
     
     if [ -d "/sys/class/power_supply" ]
     then
-        # cat "$HOME/Projects/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
-        cat "$HOME/Projects/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
+        # cat "$HOME/dev/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
+        cat "$HOME/dev/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
     fi
     
 fi
@@ -156,41 +169,41 @@ fi
 # Create symbolic links
 
 # git
-gitconfig="$HOME/Projects/dotfiles/git/.gitconfig"
+gitconfig="$HOME/dev/dotfiles/git/.gitconfig"
 gitconfig_location="$HOME/.gitconfig"
 ln -sfn "$gitconfig" "$gitconfig_location"
 
 # guake
-guake="$HOME/Projects/dotfiles/guake/user"
+guake="$HOME/dev/dotfiles/guake/user"
 guake_location="$HOME/.config/dconf/user"
 ln -sfn "$guake" "$guake_location"
 
 # nano
-nanorc="$HOME/Projects/dotfiles/nano/.nanorc"
+nanorc="$HOME/dev/dotfiles/nano/.nanorc"
 nanorc_location="$HOME/.nanorc"
 ln -sfn "$nanorc" "$nanorc_location"
 
 # VS Code
-vscode_settings="$HOME/Projects/dotfiles/vscode/settings.json"
+vscode_settings="$HOME/dev/dotfiles/vscode/settings.json"
 vscode_settings_location="$HOME/.config/Code/User/settings.json"
 ln -sfn "$vscode_settings" "$vscode_settings_location"
 
-vscode_keybindings="$HOME/Projects/dotfiles/vscode/keybindings.json"
+vscode_keybindings="$HOME/dev/dotfiles/vscode/keybindings.json"
 vscode_keybindings_location="$HOME/.config/Code/User/keybindings.json"
 ln -sfn "$vscode_keybindings" "$vscode_keybindings_location"
 
 # zsh
-zshrc="$HOME/Projects/dotfiles/zsh/.zshrc"
+zshrc="$HOME/dev/dotfiles/zsh/.zshrc"
 zshrc_location="$HOME/.zshrc"
 ln -sfn "$zshrc" "$zshrc_location"
 
-theme="$HOME/Projects/dotfiles/zsh/nidzo.zsh-theme"
+theme="$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 theme_location="$HOME/.oh-my-zsh/themes/nidzo.zsh-theme"
 ln -sfn "$theme" "$theme_location"
 
 # Dotfiles dir with git
-mkdir "$HOME/Projects/temp"
-cd "$HOME/Projects" || return
-git clone git@github.com:nidzov/dotfiles.git "$HOME/Projects/temp"
-mv "$HOME/Projects/temp/.git" "$HOME/Projects/dotfiles"
-rm -rf "$HOME/Projects/temp"
+mkdir "$HOME/dev/temp"
+cd "$HOME/dev" || return
+git clone git@github.com:nidzov/dotfiles.git "$HOME/dev/temp"
+mv "$HOME/dev/temp/.git" "$HOME/dev/dotfiles"
+rm -rf "$HOME/dev/temp"

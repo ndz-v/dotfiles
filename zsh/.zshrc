@@ -25,9 +25,9 @@ then
     export PATH=~/.local/bin:$PATH
 fi
 
-if [ -d "$HOME/Projects/dotfiles/scripts" ]
+if [ -d "$HOME/dev/dotfiles/scripts" ]
 then
-    export PATH=$HOME/Projects/dotfiles/scripts:$PATH
+    export PATH=$HOME/dev/dotfiles/scripts:$PATH
 fi
 
 source "$ZSH/oh-my-zsh.sh"
@@ -39,7 +39,7 @@ alias aud='sudo apt update'
 alias aug='sudo apt upgrade'
 alias alu='apt list --upgradeable'
 alias aver='apt-cache policy'
-alias dotfiles='code ~/Projects/dotfiles'
+alias dotfiles='code ~/dev/dotfiles'
 alias counthere='ls -lAh | wc -l'
 
 # Git aliases
