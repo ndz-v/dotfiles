@@ -1,17 +1,25 @@
 #!/usr/bin/env bash
 
-# Ask for admin credentials
+###############################
+## Ask for admin credentials ##
+###############################
 sudo -v
 
-# Update and upgrade system
+##############################
+## Update and upgrade system ##
+##############################
 sudo apt update
 sudo apt upgrade -y
 
-# Install apps
+##################
+## Install apps ##
+##################
 apps=(
+    calibre
     curl
     entr
     ffmpeg
+    figlet
     git
     guake
     latexmk
@@ -31,13 +39,16 @@ apps=(
 
 sudo apt install -y "${apps[@]}"
 
-
-# Add obs ppa and install it
+################################
+## Add obs ppa and install it ##
+################################
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update
 sudo apt install obs-studio
 
-# Add kdenlive ppa and install it
+#####################################
+## Add kdenlive ppa and install it ##
+#####################################
 sudo add-apt-repository ppa:kdenlive/kdenlive-stable
 sudo apt update
 sudo apt install kdenlive
@@ -48,17 +59,65 @@ then
     sudo ufw enable
 fi
 
-# Install Oh-My-zsh
+####################
+## Install pandoc ##
+####################
+
+# Create the url
+url_part1="https://github.com"
+tempvar=$(curl "$url_part1/jgm/pandoc/releases")
+
+# Get the first link with a .deb file ending, it's the latest pandoc linux release
+url_part2=$(echo "$tempvar" | sed -n '/amd64.deb/p' | awk '/<a href/{print $2;exit;}' | sed 's/href=//; s/\"//g')
+
+# Download pandoc
+wget "$url_part1$url_part2"
+
+# Install pandoc
+package=$(ls ./*glob*.deb)
+sudo dpkg  -i "./$package"
+sudo apt install -f
+
+# Delete .deb file
+rm "./$package"
+
+###########################
+## Install Google Chrome ##
+###########################
+
+# Create download url variable
+chrome_url="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+
+# Download Chrome
+wget $chrome_url
+
+# Install Chrome
+package=$(ls ./*glob*.deb)
+sudo dpkg  -i "./$package"
+sudo apt install -f
+
+# Remove .deb file
+rm "./$package"
+
+#######################
+## Install Oh-My-zsh ##
+#######################
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh --quiet --show-progress -O - | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 
-
-# Create autostart file for guake
+#####################################
+## Create autostart file for guake ##
+#####################################
 eval "cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop"
 
+
+#######################################
+## Install tlp and libinput-gestures ##
+#######################################
 
 # Check if it's a notebook
 if [ -d "/sys/class/power_supply" ]
 then
+    # Check if tlp is installed
     if ! type "tlp" &> /dev/null
     then
         sudo add-apt-repository ppa:linrunner/tlp
@@ -84,6 +143,10 @@ then
         libinput-gestures-setup start
     fi
 fi
+
+##############################################
+## Install latte-dock and apply KDE options ##
+##############################################
 
 # Check if the installed desktop environment is KDE Plasma
 if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
@@ -111,7 +174,11 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     
 fi
 
-# Install VS Code
+#####################
+## Install VS Code ##
+#####################
+
+# Check if code is installed
 if ! type "code" &> /dev/null
 then
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -158,7 +225,11 @@ then
     done
 fi
 
-# Install youtube-dl, pylint, autopep8
+##########################################
+## Install youtube-dl, pylint, autopep8 ##
+##########################################
+
+# Check if pip3 is installed
 if type "python3-pip" &> /dev/null
 then
     pip3 install --upgrade youtube-dl pylint autopep8
@@ -166,7 +237,10 @@ then
     echo '--output "~/Downloads/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
 fi
 
-# Create symbolic links
+
+###########################
+## Create symbolic links ##
+###########################
 
 # git
 gitconfig="$HOME/dev/dotfiles/git/.gitconfig"
