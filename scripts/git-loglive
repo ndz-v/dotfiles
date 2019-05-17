@@ -1,3 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-watch --color "git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all -20"
+while :
+do
+    clear
+    git --no-pager log --graph --date=short --pretty=format:'%Cred%h%Creset %n -%C(yellow)%d%Creset %s %n %Creset %C(bold blue)%an%Creset %n %Cgreen(%ad)'  --abbrev-commit --date=relative --decorate --all -10 "$@"
+    sleep 1
+done
+
