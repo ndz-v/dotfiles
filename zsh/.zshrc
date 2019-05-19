@@ -15,9 +15,9 @@ plugins=(
 
 export FCEDIT=nano
 
-if [ -d "$HOME/.config/npm-global/bin" ]
+if [ -d "$HOME/.npm-global/bin" ]
 then
-    export PATH=$HOME/.config/npm-global/bin:$PATH
+    export PATH=~/.npm-global/bin:$PATH
 fi
 
 if [ -d "$HOME/.local/bin" ]
