@@ -21,7 +21,6 @@ apps=(
     ffmpeg
     figlet
     git
-    guake
     latexmk
     libnotify-bin
     lm-sensors
@@ -38,6 +37,16 @@ apps=(
 )
 
 sudo apt install -y "${apps[@]}"
+
+########################
+## Add guake from ppa ##
+########################
+sudo add-apt-repository ppa:linuxuprising/guake
+sudo apt update
+sudo apt install guake
+
+# Create autostart file for guake ##
+eval "cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop"
 
 ################################
 ## Add obs ppa and install it ##
@@ -103,12 +112,6 @@ rm "./$package"
 ## Install Oh-My-zsh ##
 #######################
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh --quiet --show-progress -O - | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
-
-#####################################
-## Create autostart file for guake ##
-#####################################
-eval "cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop"
-
 
 #######################################
 ## Install tlp and libinput-gestures ##
@@ -197,6 +200,7 @@ then
         Angular.ng-template
         CoenraadS.bracket-pair-colorizer
         DavidAnson.vscode-markdownlint
+        EditorConfig.EditorConfig
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
@@ -205,9 +209,11 @@ then
         dracula-theme.theme-dracula
         eamodio.gitlens
         ms-python.python
+        ms-vscode.cpptools
         ms-vscode.csharp
         ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
+        msjsdiag.vscode-react-native
         quicktype.quicktype
         ritwickdey.LiveServer
         shakram02.bash-beautify
@@ -218,6 +224,7 @@ then
         timonwong.shellcheck
         vmsynkov.colonize
         yycalm.linecount
+        zhuangtongfa.Material-theme
     )
     for extension in ${extensions[*]}
     do
