@@ -2,9 +2,9 @@
 
 export ZSH="/home/$USER/.oh-my-zsh"
 
-ZSH_THEME="nidzo"
+export ZSH_THEME="nidzo"
 
-plugins=(
+export plugins=(
     colored-man-pages
     colorize
     git
