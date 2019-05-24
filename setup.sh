@@ -49,7 +49,7 @@ sudo apt install guake
 cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop
 
 # Disable bluetooth
-udo systemctl disable bluetooth.service
+sudo systemctl disable bluetooth.service
 
 ################################
 ## Add obs ppa and install it ##
