@@ -46,7 +46,10 @@ sudo apt update
 sudo apt install guake
 
 # Create autostart file for guake ##
-eval "cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop"
+cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop
+
+# Disable bluetooth
+udo systemctl disable bluetooth.service
 
 ################################
 ## Add obs ppa and install it ##
@@ -83,12 +86,12 @@ url_part2=$(echo "$tempvar" | sed -n '/amd64.deb/p' | awk '/<a href/{print $2;ex
 wget "$url_part1$url_part2"
 
 # Install pandoc
-package=$(ls ./*glob*.deb)
-sudo dpkg  -i "./$package"
+package=$(ls ./*.deb)
+sudo dpkg  -i "$package"
 sudo apt install -f
 
 # Delete .deb file
-rm "./$package"
+rm "$package"
 
 ###########################
 ## Install Google Chrome ##
@@ -101,12 +104,12 @@ chrome_url="https://dl.google.com/linux/direct/google-chrome-stable_current_amd6
 wget $chrome_url
 
 # Install Chrome
-package=$(ls ./*glob*.deb)
-sudo dpkg  -i "./$package"
+package=$(ls ./*.deb)
+sudo dpkg  -i "$package"
 sudo apt install -f
 
 # Remove .deb file
-rm "./$package"
+rm "$package"
 
 #######################
 ## Install Oh-My-zsh ##
