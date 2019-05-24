@@ -45,10 +45,12 @@ sudo add-apt-repository ppa:linuxuprising/guake
 sudo apt update
 sudo apt install guake
 
-# Create autostart file for guake ##
-cat /usr/share/guake/data/guake.template.desktop > $HOME/.config/autostart/guake.desktop
+# Create autostart file for guake
+rsync ./guake/guake.desktop "$HOME/.config/autostart/"
 
-# Disable bluetooth
+#######################
+## Disable bluetooth ##
+#######################
 sudo systemctl disable bluetooth.service
 
 ################################
@@ -209,7 +211,6 @@ then
         Tyriar.sort-lines
         VisualStudioExptTeam.vscodeintellicode
         donjayamanne.githistory
-        dracula-theme.theme-dracula
         eamodio.gitlens
         ms-python.python
         ms-vscode.cpptools
@@ -220,13 +221,13 @@ then
         quicktype.quicktype
         ritwickdey.LiveServer
         shakram02.bash-beautify
-        shd101wyy.markdown-preview-enhanced
         sidneys1.gitconfig
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
         vmsynkov.colonize
         yycalm.linecount
+        yzhang.markdown-all-in-one
         zhuangtongfa.Material-theme
     )
     for extension in ${extensions[*]}
@@ -240,7 +241,7 @@ fi
 ##########################################
 
 # Check if pip3 is installed
-if type "python3-pip" &> /dev/null
+if type "pip3" &> /dev/null
 then
     pip3 install --upgrade youtube-dl pylint autopep8
     
@@ -288,6 +289,10 @@ ln -sfn "$theme" "$theme_location"
 # Dotfiles dir with git
 mkdir "$HOME/dev/temp"
 cd "$HOME/dev" || return
-git clone git@github.com:nidzov/dotfiles.git "$HOME/dev/temp"
+git clone https://github.com/nidzov/dotfiles.git "$HOME/dev/temp"
 mv "$HOME/dev/temp/.git" "$HOME/dev/dotfiles"
 rm -rf "$HOME/dev/temp"
+
+# Change remote url of dotfiles
+cd "$HOME/dev/dotfiles" || return
+git remote set-url origin git@github.com:nidzov/dotfiles.git
