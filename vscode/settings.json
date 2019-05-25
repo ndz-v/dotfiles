@@ -20,7 +20,27 @@
     "source.fixAll.tslint": true
   },
   "editor.suggestSelection": "first",
-  "diffEditor.ignoreTrimWhitespace": true,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": false,
+  "editor.tokenColorCustomizations": {
+    "[One Dark Pro]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "entity.name.variable.local.cs",
+            "variable.other.object.cs",
+            "variable.other.object.property.cs",
+            "variable.other.readwrite.cs",
+            "entity.name.variable.field.cs",
+            "entity.name.variable.parameter.cs"
+          ],
+          "settings": {
+            "foreground": "#d6d8dd"
+          }
+        }
+      ]
+    }
+  },
   // ##############
   // ## Terminal ##
   // ##############
@@ -55,25 +75,4 @@
     "~/.local/lib/python3.7/site-packages"
   ],
   "latex-workshop.latex.outDir": "%DIR%/out",
-  "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": false,
-  "editor.tokenColorCustomizations": {
-    "[One Dark Pro]": {
-      "textMateRules": [
-        {
-          "scope": [
-            "entity.name.variable.local.cs",
-            "variable.other.object.cs",
-            "variable.other.object.property.cs",
-            "variable.other.readwrite.cs",
-            "entity.name.variable.field.cs",
-            "entity.name.variable.parameter.cs"
-          ],
-          "settings": {
-            "foreground": "#d6d8dd"
-          }
-        }
-      ]
-    }
-  }
 }
