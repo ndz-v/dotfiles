@@ -5,9 +5,9 @@
 ###############################
 sudo -v
 
-##############################
+###############################
 ## Update and upgrade system ##
-##############################
+###############################
 sudo apt update
 sudo apt upgrade -y
 
@@ -19,7 +19,6 @@ apps=(
     curl
     entr
     ffmpeg
-    figlet
     git
     latexmk
     libnotify-bin
@@ -45,24 +44,21 @@ sudo add-apt-repository ppa:linuxuprising/guake
 sudo apt update
 sudo apt install guake
 
-# Create autostart file for guake
-rsync ./guake/guake.desktop "$HOME/.config/autostart/"
-
 #######################
 ## Disable bluetooth ##
 #######################
 sudo systemctl disable bluetooth.service
 
-################################
-## Add obs ppa and install it ##
-################################
+#############################
+## Add obs ppa and install ##
+#############################
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update
 sudo apt install obs-studio
 
-#####################################
-## Add kdenlive ppa and install it ##
-#####################################
+##################################
+## Add kdenlive ppa and install ##
+##################################
 sudo add-apt-repository ppa:kdenlive/kdenlive-stable
 sudo apt update
 sudo apt install kdenlive
@@ -171,13 +167,16 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
         rm -rf latte-dock
     fi
     
-    # Overwrite kde settings
-    cat "$HOME/dev/dotfiles/kde/kcminputrc" > "$HOME/.config/kcminputrc"
+    # Symbolic link for keyboard settings
+    ln -sfn "$HOME/dev/dotfiles/kde/kcminputrc" "$HOME/.config/kcminputrc"
+    
+    # Symbolic link for global shortcuts
+    ln -sfn "$HOME/dev/dotfiles/kde/kglobalshortcutsrc" "$HOME/.config/kglobalshortcutsrc"
     
     if [ -d "/sys/class/power_supply" ]
     then
-        # cat "$HOME/dev/dotfiles/kde/kglobalshortcutsrc" > "$HOME/.config/kglobalshortcutsrc"
-        cat "$HOME/dev/dotfiles/kde/touchpadrc" > "$HOME/.config/touchpadrc"
+        # Symbolic link for touchpad
+        ln -sfn "$HOME/dev/dotfiles/kde/touchpadrc" "$HOME/.config/touchpadrc"
     fi
     
 fi
