@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+ip4=$(curl -s ifconfig.me)
+ip6=$(curl -s ifconfig.co/ip)
+city=$(curl -s ifconfig.co/city)
+country=$(curl -s ifconfig.co/country)
+
+printf "%s\\n%s\\n%s\\n%s\\n" "$ip4" "$ip6" "$city" "$country"
