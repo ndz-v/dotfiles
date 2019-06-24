@@ -6,4 +6,3 @@ do
     git --no-pager log --graph --date=short --pretty=format:'%Cred%h%Creset %n -%C(yellow)%d%Creset %s %n %Creset %C(bold blue)%an%Creset %n %Cgreen(%ad)'  --abbrev-commit --date=relative --decorate --all -10 "$@"
     sleep 1
 done
-
