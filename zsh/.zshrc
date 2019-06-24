@@ -8,18 +8,26 @@ export plugins=(
     colored-man-pages
     colorize
     git
+    globalias
+    ng
     node
     npm
-    globalias
+    zsh-autosuggestions
 )
 
-# Add blur effect to guake terminal
-if [[ $(ps --no-header -p $PPID -o comm) =~ guake ]]; then
-    for wid in $(xdotool search --pid $PPID); do
-    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
-fi
+# Ctrl + x Ctrl + e
+export EDITOR=nano
 
-export FCEDIT=nano
+# fc in cli
+export FCEDIT=code
+
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+
+if [ -d "$HOME/.dotnet/tools" ]
+then
+    export PATH=~/.dotnet/tools:$PATH
+fi
 
 if [ -d "$HOME/.npm-global/bin" ]
 then
@@ -39,40 +47,32 @@ fi
 source "$ZSH/oh-my-zsh.sh"
 
 # Lazy stuff
-alias root='cd $(git rev-parse --show-toplevel)'
-alias ai='sudo apt install'
-alias aud='sudo apt update'
-alias aug='sudo apt upgrade'
-alias alu='apt list --upgradeable'
-alias aver='apt-cache policy'
-alias dotfiles='code ~/dev/dotfiles'
-alias counthere='ls -lAh | wc -l'
-
-# Git aliases
-alias status='git status'
-alias add='git add .'
-alias commit='git commit'
-alias amend='git commit --amend'
-alias push='git push'
-alias pull='git pull'
+alias ai="sudo apt install"
+alias alu="apt list --upgradeable"
+alias aud="sudo apt update"
+alias aug="sudo apt upgrade"
+alias aver="apt-cache policy"
+alias counthere="ls -lAh | wc -l"
+alias dotfiles="code ~/dev/dotfiles"
+alias zshconfig="code ~/dev/dotfiles/zsh/.zshrc"
 
 # Internet
-alias yt='youtube-dl -ic'
-alias yta='youtube-dl -xic --audio-format mp3'
+alias yt="youtube-dl -ic"
+alias yta="youtube-dl -xic --audio-format mp3"
 
 # PostgreSQL
 if type "psql" &> /dev/null
 then
-    alias statuspostgres="sudo service postgresql status"
     alias startpostgres="sudo service postgresql start; statuspostgres"
+    alias statuspostgres="sudo service postgresql status"
     alias stoppostgres="sudo service postgresql stop; statuspostgres"
 fi
+
+# Advanced tab completion
+autoload -U compinit
+compinit
 
 ##########################
 # zsh-syntax-highlitning # must always be the last line
 ##########################
-
-autoload -U compinit
-compinit
-
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
