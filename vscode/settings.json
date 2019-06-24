@@ -50,7 +50,6 @@
   // ###########
   // ## Style ##
   // ###########
-  "breadcrumbs.enabled": true,
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "One Dark Pro",
@@ -64,6 +63,9 @@
     "**/.direnv/**": true,
     "**/.venv/**": true
   },
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
   // ###############
   // ## Languages ##
   // ###############
@@ -75,4 +77,10 @@
     "~/.local/lib/python3.7/site-packages"
   ],
   "latex-workshop.latex.outDir": "%DIR%/out",
+  // ##########
+  // ## Misc ##
+  // ##########
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "gitlens.advanced.telemetry.enabled": false,
 }
