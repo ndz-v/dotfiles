@@ -20,15 +20,18 @@ apps=(
     entr
     ffmpeg
     git
+    graphviz
     latexmk
     libnotify-bin
     lm-sensors
     powertop
     python3-pip
+    rename
     shellcheck
     silversearcher-ag
     texlive-full
     thunderbird
+    translate-shell
     tree
     ufw
     zsh
@@ -89,24 +92,6 @@ sudo dpkg  -i "$package"
 sudo apt install -f
 
 # Delete .deb file
-rm "$package"
-
-###########################
-## Install Google Chrome ##
-###########################
-
-# Create download url variable
-chrome_url="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-
-# Download Chrome
-wget $chrome_url
-
-# Install Chrome
-package=$(ls ./*.deb)
-sudo dpkg  -i "$package"
-sudo apt install -f
-
-# Remove .deb file
 rm "$package"
 
 #######################
@@ -170,9 +155,6 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     # Symbolic link for keyboard settings
     ln -sfn "$HOME/dev/dotfiles/kde/kcminputrc" "$HOME/.config/kcminputrc"
     
-    # Symbolic link for global shortcuts
-    ln -sfn "$HOME/dev/dotfiles/kde/kglobalshortcutsrc" "$HOME/.config/kglobalshortcutsrc"
-    
     if [ -d "/sys/class/power_supply" ]
     then
         # Symbolic link for touchpad
@@ -204,19 +186,21 @@ then
         Angular.ng-template
         CoenraadS.bracket-pair-colorizer
         DavidAnson.vscode-markdownlint
+        EFanZh.graphviz-preview
         EditorConfig.EditorConfig
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
         VisualStudioExptTeam.vscodeintellicode
-        donjayamanne.githistory
         eamodio.gitlens
+        geeklearningio.graphviz-markdown-preview
+        jmrog.vscode-nuget-package-manager
+        joaompinto.vscode-graphviz
         ms-python.python
         ms-vscode.cpptools
         ms-vscode.csharp
         ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
-        msjsdiag.vscode-react-native
         quicktype.quicktype
         ritwickdey.LiveServer
         shakram02.bash-beautify
@@ -224,6 +208,7 @@ then
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
+        tintoy.msbuild-project-tools
         vmsynkov.colonize
         yycalm.linecount
         yzhang.markdown-all-in-one
@@ -242,11 +227,10 @@ fi
 # Check if pip3 is installed
 if type "pip3" &> /dev/null
 then
-    pip3 install --upgrade youtube-dl pylint autopep8
+    pip3 install youtube-dl pylint autopep8 pandocfilters
     
     echo '--output "~/Downloads/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
 fi
-
 
 ###########################
 ## Create symbolic links ##
