@@ -21,9 +21,6 @@ export EDITOR=nano
 # fc in cli
 export FCEDIT=code
 
-export DOTNET_ROOT=$HOME/dotnet
-export PATH=$PATH:$HOME/dotnet
-
 if [ -d "$HOME/.dotnet/tools" ]
 then
     export PATH=~/.dotnet/tools:$PATH
