@@ -24,6 +24,7 @@ apps=(
     latexmk
     libnotify-bin
     lm-sensors
+    postgresql
     powertop
     python3-pip
     rename
@@ -97,7 +98,7 @@ rm "$package"
 #######################
 ## Install Oh-My-zsh ##
 #######################
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh --quiet --show-progress -O - | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
 #######################################
 ## Install tlp and libinput-gestures ##
@@ -142,14 +143,7 @@ if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
     # Install latte dock
     if ! type "latte-dock" &> /dev/null
     then
-        sudo apt install -y cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev libkf5wayland-dev git gettext libkf5archive-dev libkf5notifications-dev libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev
-        
-        cd ~ || return
-        git clone https://github.com/KDE/latte-dock.git
-        cd latte-dock || return
-        sh install.sh
-        cd .. || return
-        rm -rf latte-dock
+        sudo apt install latte-dock
     fi
     
     # Symbolic link for keyboard settings
