@@ -20,7 +20,6 @@
     "source.fixAll.tslint": true
   },
   "editor.suggestSelection": "first",
-  "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": false,
   "editor.tokenColorCustomizations": {
     "[One Dark Pro]": {
