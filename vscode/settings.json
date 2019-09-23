@@ -40,6 +40,28 @@
       ]
     }
   },
+  // ###############
+  // ## Languages ##
+  // ###############
+  "javascript.preferences.quoteStyle": "single",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.intellisense.package.extra": [
+    "calc",
+    "xcolor",
+    "xparse",
+    "geometry",
+    "graphicx",
+    "xstring",
+    "tikz"
+  ],
+  "python.autoComplete.addBrackets": true,
+  "python.jediEnabled": false,
+  "typescript.preferences.quoteStyle": "single",
+  "python.autoComplete.extraPaths": [
+    "~/.local/lib/python3.7/site-packages"
+  ],
   // ##############
   // ## Terminal ##
   // ##############
@@ -54,7 +76,7 @@
   "workbench.colorTheme": "One Dark Pro",
   "workbench.settings.useSplitJSON": true,
   "window.titleBarStyle": "custom",
-  "search.location": "panel",
+  "search.location": "sidebar",
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
@@ -62,24 +84,36 @@
     "**/.direnv/**": true,
     "**/.venv/**": true
   },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.aux": true,
+    "**/*.fdb_latexmk": true,
+    "**/*.fls": true,
+    "**/*.log": true,
+    "**/*.out": true,
+    "**/*.synctex.gz": true,
+    "**/*.synctex(busy)": true
+  },
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
-  // ###############
-  // ## Languages ##
-  // ###############
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
-  "python.autoComplete.addBrackets": true,
-  "python.jediEnabled": false,
-  "python.autoComplete.extraPaths": [
-    "~/.local/lib/python3.7/site-packages"
-  ],
-  "latex-workshop.latex.outDir": "%DIR%/out",
   // ##########
   // ## Misc ##
   // ##########
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "gitlens.advanced.telemetry.enabled": false,
+  "LineCount.excludes": [
+    "**/.vscode/**",
+    "**/node_modules/**",
+    "**/*.json",
+    "**/*.gitignore",
+    "**/*.csproj",
+    "**/*.sln",
+    "**/*.md"
+  ]
 }

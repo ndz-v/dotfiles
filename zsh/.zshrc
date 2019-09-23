@@ -12,7 +12,6 @@ export plugins=(
     ng
     node
     npm
-    zsh-autosuggestions
 )
 
 # Ctrl + x Ctrl + e
