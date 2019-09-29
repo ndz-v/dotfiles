@@ -178,14 +178,11 @@ if type "code" &> /dev/null
 then
     extensions=(
         Angular.ng-template
-        CoenraadS.bracket-pair-colorizer
         DavidAnson.vscode-markdownlint
         EFanZh.graphviz-preview
-        EditorConfig.EditorConfig
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
-        VisualStudioExptTeam.vscodeintellicode
         eamodio.gitlens
         geeklearningio.graphviz-markdown-preview
         jmrog.vscode-nuget-package-manager
@@ -202,7 +199,6 @@ then
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
-        tintoy.msbuild-project-tools
         vmsynkov.colonize
         yycalm.linecount
         yzhang.markdown-all-in-one

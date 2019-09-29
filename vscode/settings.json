@@ -115,5 +115,6 @@
     "**/*.csproj",
     "**/*.sln",
     "**/*.md"
-  ]
+  ],
+  "editor.fontSize": 13
 }
