@@ -116,5 +116,6 @@
     "**/*.sln",
     "**/*.md"
   ],
-  "editor.fontSize": 13
+  "editor.fontSize": 13,
+  "diffEditor.renderSideBySide": false
 }

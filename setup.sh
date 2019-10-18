@@ -268,4 +268,4 @@ rm -rf "$HOME/dev/temp"
 
 # Change remote url of dotfiles
 cd "$HOME/dev/dotfiles" || return
-git remote set-url origin git@github.com:nidzov/dotfiles.git
+git remote set-url origin git@github.com:Nidzo-Vidic/nidzocv.git
