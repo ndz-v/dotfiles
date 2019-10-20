@@ -21,6 +21,7 @@ apps=(
     ffmpeg
     git
     graphviz
+    guake
     latexmk
     libnotify-bin
     lm-sensors
@@ -40,13 +41,6 @@ apps=(
 )
 
 sudo apt install -y "${apps[@]}"
-
-########################
-## Add guake from ppa ##
-########################
-sudo add-apt-repository ppa:linuxuprising/guake
-sudo apt update
-sudo apt install guake
 
 #######################
 ## Disable bluetooth ##
@@ -268,4 +262,4 @@ rm -rf "$HOME/dev/temp"
 
 # Change remote url of dotfiles
 cd "$HOME/dev/dotfiles" || return
-git remote set-url origin git@github.com:Nidzo-Vidic/nidzocv.git
+git remote set-url origin git@github.com:Nidzo-Vidic/dotfiles.git
