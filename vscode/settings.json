@@ -65,7 +65,6 @@
   // ##############
   // ## Terminal ##
   // ##############
-  "terminal.integrated.fontSize": 12,
   "terminal.integrated.shell.linux": "/bin/zsh",
   "terminal.integrated.showExitAlert": false,
   // ###########
@@ -116,6 +115,6 @@
     "**/*.sln",
     "**/*.md"
   ],
-  "editor.fontSize": 13,
-  "diffEditor.renderSideBySide": false
+  "diffEditor.renderSideBySide": false,
+  "breadcrumbs.enabled": false,
 }

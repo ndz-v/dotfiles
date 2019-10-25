@@ -33,6 +33,7 @@ apps=(
     silversearcher-ag
     texlive-full
     thunderbird
+    tlp
     translate-shell
     tree
     ufw
@@ -40,7 +41,7 @@ apps=(
     zsh-syntax-highlighting
 )
 
-sudo apt install -y "${apps[@]}"
+sudo apt install -y "${apps[@]}" || true
 
 #######################
 ## Disable bluetooth ##
@@ -95,21 +96,12 @@ rm "$package"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
 #######################################
-## Install tlp and libinput-gestures ##
+## Install libinput-gestures ##
 #######################################
 
 # Check if it's a notebook
 if [ -d "/sys/class/power_supply" ]
 then
-    # Check if tlp is installed
-    if ! type "tlp" &> /dev/null
-    then
-        sudo add-apt-repository ppa:linrunner/tlp
-        sudo apt update
-        sudo apt install -y tlp
-        sudo tlp start
-    fi
-    
     # Install libinput-gestures for swiping gestures
     if ! type "libinput-gestures" &> /dev/null
     then
@@ -189,7 +181,6 @@ then
         quicktype.quicktype
         ritwickdey.LiveServer
         shakram02.bash-beautify
-        sidneys1.gitconfig
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         timonwong.shellcheck
