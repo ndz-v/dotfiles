@@ -23,6 +23,7 @@ apps=(
     graphviz
     guake
     latexmk
+    latte-dock
     libnotify-bin
     lm-sensors
     postgresql
@@ -84,7 +85,7 @@ wget "$url_part1$url_part2"
 
 # Install pandoc
 package=$(ls ./*.deb)
-sudo dpkg  -i "$package"
+sudo dpkg -i "$package"
 sudo apt install -f
 
 # Delete .deb file
@@ -118,29 +119,6 @@ then
         libinput-gestures-setup autostart
         libinput-gestures-setup start
     fi
-fi
-
-##############################################
-## Install latte-dock and apply KDE options ##
-##############################################
-
-# Check if the installed desktop environment is KDE Plasma
-if [  "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
-    # Install latte dock
-    if ! type "latte-dock" &> /dev/null
-    then
-        sudo apt install latte-dock
-    fi
-    
-    # Symbolic link for keyboard settings
-    ln -sfn "$HOME/dev/dotfiles/kde/kcminputrc" "$HOME/.config/kcminputrc"
-    
-    if [ -d "/sys/class/power_supply" ]
-    then
-        # Symbolic link for touchpad
-        ln -sfn "$HOME/dev/dotfiles/kde/touchpadrc" "$HOME/.config/touchpadrc"
-    fi
-    
 fi
 
 #####################
