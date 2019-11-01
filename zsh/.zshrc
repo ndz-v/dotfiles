@@ -25,6 +25,7 @@ then
     export PATH=~/.dotnet/tools:$PATH
 fi
 
+# npm config set prefix '~/.npm-global'
 if [ -d "$HOME/.npm-global/bin" ]
 then
     export PATH=~/.npm-global/bin:$PATH
