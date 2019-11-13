@@ -147,6 +147,8 @@ then
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
+        VisualStudioExptTeam.vscodeintellicode
+        dbaeumer.vscode-eslint
         eamodio.gitlens
         geeklearningio.graphviz-markdown-preview
         jmrog.vscode-nuget-package-manager
