@@ -54,7 +54,7 @@
     "geometry",
     "graphicx",
     "xstring",
-    "tikz"
+    "tikz",
   ],
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": false,
@@ -115,6 +115,10 @@
     "**/*.sln",
     "**/*.md"
   ],
-  "diffEditor.renderSideBySide": false,
+  "diffEditor.renderSideBySide": true,
   "breadcrumbs.enabled": false,
+  "window.zoomLevel": 0,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.untrackedChanges": "separate",
+  "terminal.integrated.rendererType": "experimentalWebgl"
 }

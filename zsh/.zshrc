@@ -12,6 +12,7 @@ export plugins=(
     ng
     node
     npm
+    zsh-autosuggestions
 )
 
 # Ctrl + x Ctrl + e
@@ -19,6 +20,12 @@ export EDITOR=nano
 
 # fc in cli
 export FCEDIT=code
+
+# if [ -d "$HOME/.dotnetframework" ]
+# then
+#     export PATH=$PATH:$HOME/.dotnetframework
+#     export DOTNET_ROOT=$HOME/.dotnetframework
+# fi
 
 if [ -d "$HOME/.dotnet/tools" ]
 then

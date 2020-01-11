@@ -17,6 +17,7 @@ sudo apt upgrade -y
 apps=(
     calibre
     curl
+    emacs
     entr
     ffmpeg
     git
