@@ -21,32 +21,10 @@ export EDITOR=nano
 # fc in cli
 export FCEDIT=code
 
-# if [ -d "$HOME/.dotnetframework" ]
-# then
-#     export PATH=$PATH:$HOME/.dotnetframework
-#     export DOTNET_ROOT=$HOME/.dotnetframework
-# fi
-
-if [ -d "$HOME/.dotnet/tools" ]
-then
-    export PATH=~/.dotnet/tools:$PATH
-fi
-
-# npm config set prefix '~/.npm-global'
-if [ -d "$HOME/.npm-global/bin" ]
-then
-    export PATH=~/.npm-global/bin:$PATH
-fi
-
-if [ -d "$HOME/.local/bin" ]
-then
-    export PATH=~/.local/bin:$PATH
-fi
-
-if [ -d "$HOME/dev/dotfiles/scripts" ]
-then
-    export PATH=$HOME/dev/dotfiles/scripts:$PATH
-fi
+[ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
+[ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
+[ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
+[ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH
 
 source "$ZSH/oh-my-zsh.sh"
 

@@ -22,10 +22,12 @@ apps=(
     ffmpeg
     git
     graphviz
+    grub-customizer
     guake
     latexmk
     latte-dock
     libnotify-bin
+    libreoffice
     lm-sensors
     postgresql
     powertop
@@ -142,24 +144,25 @@ fi
 if type "code" &> /dev/null
 then
     extensions=(
+        albert.TabOut
         Angular.ng-template
         DavidAnson.vscode-markdownlint
         EFanZh.graphviz-preview
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
-        VisualStudioExptTeam.vscodeintellicode
         dbaeumer.vscode-eslint
         eamodio.gitlens
         geeklearningio.graphviz-markdown-preview
+        humao.rest-client
         jmrog.vscode-nuget-package-manager
         joaompinto.vscode-graphviz
+        josefpihrt-vscode.roslynator
+        ms-dotnettools.csharp
         ms-python.python
         ms-vscode.cpptools
-        ms-vscode.csharp
         ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
-        quicktype.quicktype
         ritwickdey.LiveServer
         shakram02.bash-beautify
         streetsidesoftware.code-spell-checker
@@ -168,7 +171,7 @@ then
         vmsynkov.colonize
         yycalm.linecount
         yzhang.markdown-all-in-one
-        zhuangtongfa.Material-theme
+        zhuangtongfa.material-theme
     )
     for extension in ${extensions[*]}
     do

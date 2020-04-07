@@ -21,6 +21,7 @@
   },
   "editor.suggestSelection": "first",
   "editor.fontLigatures": false,
+  "timeline.showView": true,
   "editor.tokenColorCustomizations": {
     "[One Dark Pro]": {
       "textMateRules": [
@@ -70,31 +71,33 @@
   // ###########
   // ## Style ##
   // ###########
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.settings.useSplitJSON": true,
   "window.titleBarStyle": "custom",
   "files.watcherExclude": {
+    "**/.direnv/**": true,
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
+    "**/.venv/**": true,
     "**/node_modules/**": true,
-    "**/.direnv/**": true,
-    "**/.venv/**": true
   },
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
     "**/*.aux": true,
     "**/*.fdb_latexmk": true,
     "**/*.fls": true,
     "**/*.log": true,
     "**/*.out": true,
+    "**/*.synctex(busy)": true,
     "**/*.synctex.gz": true,
-    "**/*.synctex(busy)": true
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/bin": true,
+    "**/obj": true,
   },
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
