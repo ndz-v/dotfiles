@@ -23,7 +23,6 @@ apps=(
     git
     graphviz
     grub-customizer
-    guake
     latexmk
     latte-dock
     libnotify-bin
@@ -46,6 +45,17 @@ apps=(
 )
 
 sudo apt install -y "${apps[@]}" || true
+
+###################
+## Install Guake ##
+###################
+git clone https://github.com/Guake/guake.git
+cd guake || return
+./scripts/bootstrap-dev-debian.sh run make
+make
+sudo make install
+cd .. || return
+rm -rf guake
 
 #######################
 ## Disable bluetooth ##
@@ -111,14 +121,14 @@ then
     then
         sudo gpasswd -a "$USER" input
         sudo apt install -y xdotool wmctrl libinput-tools
-        
+
         cd ~ || return
         git clone https://github.com/bulletmark/libinput-gestures.git
         cd libinput-gestures || return
         sudo make install
         cd .. || return
         rm -rf libinput-gestures
-        
+
         libinput-gestures-setup autostart
         libinput-gestures-setup start
     fi
@@ -134,7 +144,7 @@ then
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
     sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-    
+
     sudo apt install apt-transport-https
     sudo apt update
     sudo apt install -y code
@@ -187,7 +197,7 @@ fi
 if type "pip3" &> /dev/null
 then
     pip3 install youtube-dl pylint autopep8 pandocfilters
-    
+
     echo '--output "~/Downloads/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
 fi
 
