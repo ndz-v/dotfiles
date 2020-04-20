@@ -21,7 +21,6 @@
   },
   "editor.suggestSelection": "first",
   "editor.fontLigatures": false,
-  "timeline.showView": true,
   "editor.tokenColorCustomizations": {
     "[One Dark Pro]": {
       "textMateRules": [
@@ -47,16 +46,8 @@
   "javascript.preferences.quoteStyle": "single",
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.chktex.enabled": true,
   "latex-workshop.latex.autoClean.run": "onBuilt",
-  "latex-workshop.intellisense.package.extra": [
-    "calc",
-    "xcolor",
-    "xparse",
-    "geometry",
-    "graphicx",
-    "xstring",
-    "tikz",
-  ],
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": false,
   "typescript.preferences.quoteStyle": "single",

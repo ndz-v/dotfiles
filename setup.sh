@@ -154,22 +154,23 @@ fi
 if type "code" &> /dev/null
 then
     extensions=(
-        albert.TabOut
         Angular.ng-template
         DavidAnson.vscode-markdownlint
         EFanZh.graphviz-preview
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
+        albert.TabOut
         dbaeumer.vscode-eslint
         eamodio.gitlens
         geeklearningio.graphviz-markdown-preview
         humao.rest-client
         jmrog.vscode-nuget-package-manager
         joaompinto.vscode-graphviz
-        josefpihrt-vscode.roslynator
         ms-dotnettools.csharp
         ms-python.python
+        ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-ssh-edit
         ms-vscode.cpptools
         ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
@@ -177,6 +178,7 @@ then
         shakram02.bash-beautify
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
+        sumneko.lua
         timonwong.shellcheck
         vmsynkov.colonize
         yycalm.linecount
