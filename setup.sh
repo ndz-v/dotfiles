@@ -76,12 +76,6 @@ sudo add-apt-repository ppa:kdenlive/kdenlive-stable
 sudo apt update
 sudo apt install kdenlive
 
-# Turn on ufw
-if type "ufw" &> /dev/null
-then
-    sudo ufw enable
-fi
-
 ####################
 ## Install pandoc ##
 ####################
