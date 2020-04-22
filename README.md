@@ -8,7 +8,15 @@
 sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/nidzov/dotfiles/master/remote-setup.sh`"
 ```
 
-## Audio config to switch to headphones on startup
+## General tips
+
+### If audio is not working with headphones
+
+```bash
+alsactl restore
+```
+
+### Audio config to switch to headphones on startup
 
 ```bash
 cd /usr/share/pulseaudio/alsa-mixer/paths

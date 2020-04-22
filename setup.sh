@@ -192,7 +192,7 @@ fi
 # Check if pip3 is installed
 if type "pip3" &> /dev/null
 then
-    pip3 install youtube-dl pylint autopep8 pandocfilters
+    pip3 install youtube-dl pylint autopep8 pandocfilters jupyter
 
     echo '--output "~/Downloads/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
 fi
