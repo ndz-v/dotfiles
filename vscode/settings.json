@@ -137,5 +137,7 @@
   "window.zoomLevel": 0,
   "diffEditor.ignoreTrimWhitespace": false,
   "git.untrackedChanges": "separate",
-  "terminal.integrated.rendererType": "experimentalWebgl"
+  "terminal.integrated.rendererType": "experimentalWebgl",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "hack"
 }
