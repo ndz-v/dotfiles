@@ -2,11 +2,12 @@
   // ############
   // ## Editor ##
   // ############
+  "editor.fontSize": 12,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
-  "editor.autoIndent": true,
+  "editor.autoIndent": "advanced",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true,
   "editor.cursorBlinking": "solid",
@@ -40,6 +41,23 @@
       ]
     }
   },
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlue": "#61afef",
+    "terminal.ansiBrightBlack": "#7f848e",
+    "terminal.ansiBrightBlue": "#528bff",
+    "terminal.ansiBrightCyan": "#56b6c2",
+    "terminal.ansiBrightGreen": "#98c379",
+    "terminal.ansiBrightMagenta": "#7e0097",
+    "terminal.ansiBrightRed": "#f44747",
+    "terminal.ansiBrightWhite": "#d7dae0",
+    "terminal.ansiBrightYellow": "#e5c07b",
+    "terminal.ansiCyan": "#56b6c2",
+    "terminal.ansiGreen": "#98c379",
+    "terminal.ansiMagenta": "#c678dd",
+    "terminal.ansiRed": "#e06c75",
+    "terminal.ansiWhite": "#d7dae0",
+    "terminal.ansiYellow": "#e5c07b",
+  },
   // ###############
   // ## Languages ##
   // ###############
@@ -48,12 +66,16 @@
   "latex-workshop.intellisense.package.enabled": true,
   "latex-workshop.chktex.enabled": true,
   "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.intellisense.update.aggressive.enabled": true,
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": false,
-  "typescript.preferences.quoteStyle": "single",
   "python.autoComplete.extraPaths": [
-    "~/.local/lib/python3.7/site-packages"
+    "~/.local/lib/python3.8/site-packages"
   ],
+  "python.formatting.autopep8Args": [
+    "--max-line-length=200"
+  ],
+  "typescript.preferences.quoteStyle": "single",
   // ##############
   // ## Terminal ##
   // ##############
@@ -62,7 +84,7 @@
   // ###########
   // ## Style ##
   // ###########
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Default Light+",
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.useSplitJSON": true,
@@ -89,6 +111,8 @@
     "**/CVS": true,
     "**/bin": true,
     "**/obj": true,
+    "**/__pycache__": true,
+    "**/Price.egg-info": true,
   },
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
