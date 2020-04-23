@@ -34,7 +34,6 @@ apps=(
     rename
     shellcheck
     silversearcher-ag
-    texlive-full
     thunderbird
     tlp
     translate-shell
@@ -153,6 +152,7 @@ if type "code" &>/dev/null; then
         albert.TabOut
         dbaeumer.vscode-eslint
         eamodio.gitlens
+        foxundermoon.shell-format
         geeklearningio.graphviz-markdown-preview
         humao.rest-client
         jmrog.vscode-nuget-package-manager
@@ -165,7 +165,6 @@ if type "code" &>/dev/null; then
         ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
         ritwickdey.LiveServer
-        shakram02.bash-beautify
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         sumneko.lua
@@ -175,8 +174,7 @@ if type "code" &>/dev/null; then
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
     )
-    for extension in ${extensions[*]}
-    do
+    for extension in ${extensions[*]}; do
         code --install-extension "$extension"
     done
 fi
