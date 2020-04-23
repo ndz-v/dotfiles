@@ -17,7 +17,6 @@ sudo apt upgrade -y
 apps=(
     calibre
     curl
-    emacs
     entr
     ffmpeg
     git
@@ -34,6 +33,7 @@ apps=(
     rename
     shellcheck
     silversearcher-ag
+    texlive-full
     tlp
     translate-shell
     tree

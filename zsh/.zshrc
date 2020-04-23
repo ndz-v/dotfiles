@@ -26,7 +26,6 @@ export FCEDIT=code
 [ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
 [ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
 [ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH
-[ -d "/usr/local/texlive" ] && export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH && export MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH && export INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH
 
 source "$ZSH/oh-my-zsh.sh"
 
