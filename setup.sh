@@ -34,7 +34,6 @@ apps=(
     rename
     shellcheck
     silversearcher-ag
-    thunderbird
     tlp
     translate-shell
     tree
@@ -226,6 +225,8 @@ ln -sfn "$zshrc" "$zshrc_location"
 theme="$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 theme_location="$HOME/.oh-my-zsh/themes/nidzo.zsh-theme"
 ln -sfn "$theme" "$theme_location"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Dotfiles dir with git
 mkdir "$HOME/dev/temp"
