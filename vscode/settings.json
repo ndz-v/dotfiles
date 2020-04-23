@@ -23,6 +23,7 @@
   "editor.suggestSelection": "first",
   "editor.fontLigatures": false,
   "editor.tokenColorCustomizations": {
+    "semanticHighlighting": true,
     "[One Dark Pro]": {
       "textMateRules": [
         {
@@ -40,23 +41,6 @@
         }
       ]
     }
-  },
-  "workbench.colorCustomizations": {
-    "terminal.ansiBlue": "#61afef",
-    "terminal.ansiBrightBlack": "#7f848e",
-    "terminal.ansiBrightBlue": "#528bff",
-    "terminal.ansiBrightCyan": "#56b6c2",
-    "terminal.ansiBrightGreen": "#98c379",
-    "terminal.ansiBrightMagenta": "#7e0097",
-    "terminal.ansiBrightRed": "#f44747",
-    "terminal.ansiBrightWhite": "#d7dae0",
-    "terminal.ansiBrightYellow": "#e5c07b",
-    "terminal.ansiCyan": "#56b6c2",
-    "terminal.ansiGreen": "#98c379",
-    "terminal.ansiMagenta": "#c678dd",
-    "terminal.ansiRed": "#e06c75",
-    "terminal.ansiWhite": "#d7dae0",
-    "terminal.ansiYellow": "#e5c07b",
   },
   // ###############
   // ## Languages ##
@@ -81,13 +65,33 @@
   // ##############
   "terminal.integrated.shell.linux": "/bin/zsh",
   "terminal.integrated.showExitAlert": false,
+  "terminal.integrated.rendererType": "experimentalWebgl",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "hack",
   // ###########
   // ## Style ##
   // ###########
   "workbench.colorTheme": "Default Light+",
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.settings.useSplitJSON": true,
+  "workbench.settings.useSplitJSON": false,
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlue": "#61afef",
+    "terminal.ansiBrightBlack": "#7f848e",
+    "terminal.ansiBrightBlue": "#528bff",
+    "terminal.ansiBrightCyan": "#56b6c2",
+    "terminal.ansiBrightGreen": "#98c379",
+    "terminal.ansiBrightMagenta": "#7e0097",
+    "terminal.ansiBrightRed": "#f44747",
+    "terminal.ansiBrightWhite": "#d7dae0",
+    "terminal.ansiBrightYellow": "#e5c07b",
+    "terminal.ansiCyan": "#56b6c2",
+    "terminal.ansiGreen": "#98c379",
+    "terminal.ansiMagenta": "#c678dd",
+    "terminal.ansiRed": "#e06c75",
+    "terminal.ansiWhite": "#d7dae0",
+    "terminal.ansiYellow": "#e5c07b",
+  },
   "window.titleBarStyle": "custom",
   "files.watcherExclude": {
     "**/.direnv/**": true,
@@ -134,10 +138,6 @@
   ],
   "diffEditor.renderSideBySide": true,
   "breadcrumbs.enabled": true,
-  "window.zoomLevel": 0,
   "diffEditor.ignoreTrimWhitespace": false,
   "git.untrackedChanges": "separate",
-  "terminal.integrated.rendererType": "experimentalWebgl",
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.fontFamily": "hack"
 }
