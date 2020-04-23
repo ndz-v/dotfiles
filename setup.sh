@@ -108,11 +108,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 #######################################
 
 # Check if it's a notebook
-if [ -d "/sys/class/power_supply" ]
-then
+if [ -d "/sys/class/power_supply" ]; then
     # Install libinput-gestures for swiping gestures
-    if ! type "libinput-gestures" &> /dev/null
-    then
+    if ! type "libinput-gestures" &>/dev/null; then
         sudo gpasswd -a "$USER" input
         sudo apt install -y xdotool wmctrl libinput-tools
 
@@ -133,9 +131,8 @@ fi
 #####################
 
 # Check if code is installed
-if ! type "code" &> /dev/null
-then
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+if ! type "code" &>/dev/null; then
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
     sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
     sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 
@@ -145,8 +142,7 @@ then
 fi
 
 # Install VS Code extensions
-if type "code" &> /dev/null
-then
+if type "code" &>/dev/null; then
     extensions=(
         Angular.ng-template
         DavidAnson.vscode-markdownlint
@@ -190,11 +186,10 @@ fi
 ##########################################
 
 # Check if pip3 is installed
-if type "pip3" &> /dev/null
-then
+if type "pip3" &>/dev/null; then
     pip3 install youtube-dl pylint autopep8 pandocfilters jupyter
 
-    echo '--output "~/Downloads/%(title)s.%(ext)s"' > "/home/$USER/.config/youtube-dl.conf"
+    echo '--output "~/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
 fi
 
 ###########################

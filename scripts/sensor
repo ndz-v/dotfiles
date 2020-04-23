@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-if  sensors &> /dev/null
-then
+if sensors &>/dev/null; then
     sensordata=$(sensors)
     memorydata=$(free -h)
     echo "$sensordata" | awk '/^Package id 0:/{print "CPU:         "$4}'

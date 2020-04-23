@@ -43,18 +43,17 @@ alias yt="youtube-dl -ic"
 alias yta="youtube-dl -xic --audio-format mp3"
 
 # PostgreSQL
-if type "psql" &> /dev/null
-then
+if type "psql" &>/dev/null; then
     alias startpostgres="sudo service postgresql start; statuspostgres"
     alias statuspostgres="sudo service postgresql status"
     alias stoppostgres="sudo service postgresql stop; statuspostgres"
 fi
 
 # Advanced tab completion
-setopt auto_menu # automatically use menu completion
-zstyle ':completion:*' menu select #select completions with arrow keys
-zstyle ':completion:*' group-name '' # group results by category
-zstyle ':completion:::::' completer _expand _complete _ignored _approximate #enable approximate matches for completion
+setopt auto_menu                                                            # automatically use menu completion
+zstyle ':completion:*' menu select                                          # select completions with arrow keys
+zstyle ':completion:*' group-name ''                                        # group results by category
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
 autoload -U compinit
 compinit
 
