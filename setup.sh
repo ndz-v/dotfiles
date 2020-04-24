@@ -55,24 +55,19 @@ sudo make install
 cd .. || return
 rm -rf guake
 
-#######################
-## Disable bluetooth ##
-#######################
-sudo systemctl disable bluetooth.service
-
 #############################
 ## Add obs ppa and install ##
 #############################
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update
-sudo apt install obs-studio
+sudo apt install -y obs-studio
 
 ##################################
 ## Add kdenlive ppa and install ##
 ##################################
 sudo add-apt-repository ppa:kdenlive/kdenlive-stable
 sudo apt update
-sudo apt install kdenlive
+sudo apt install -y kdenlive
 
 ####################
 ## Install pandoc ##
@@ -238,3 +233,11 @@ rm -rf "$HOME/dev/temp"
 # Change remote url of dotfiles
 cd "$HOME/dev/dotfiles" || return
 git remote set-url origin git@github.com:Nidzo-Vidic/dotfiles.git
+
+#######################
+## Disable Services ##
+#######################
+sudo systemctl disable NetworkManager-wait-online.service # Not needed service, decreases boot time
+sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
+sudo systemctl disable bluetooth.service
+sudo systemctl disable postgresql.service
