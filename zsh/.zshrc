@@ -21,10 +21,11 @@ export EDITOR=nano
 # fc in cli
 export FCEDIT=code
 
-[ -d "$HOME/dotnet" ] && export DOTNET_ROOT=$HOME/dotnet && export PATH=$PATH:$HOME/dotnet
+[ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
+[ -d "$HOME/.dev-binaries/jdk" ] && export PATH=$HOME/.dev-binaries/jdk/bin:$PATH
 [ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
-[ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
 [ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
+[ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
 [ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH
 
 source "$ZSH/oh-my-zsh.sh"
