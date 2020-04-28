@@ -21,7 +21,14 @@ export EDITOR=nano
 # fc in cli
 export FCEDIT=code
 
-[ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
+_dotnet_zsh_complete()
+{
+  local completions=("$(dotnet complete "$words")")
+
+  reply=( "${(ps:\n:)completions}" )
+}
+
+[ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet && compctl -K _dotnet_zsh_complete dotnet
 [ -d "$HOME/.dev-binaries/jdk" ] && export PATH=$HOME/.dev-binaries/jdk/bin:$PATH
 [ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
 [ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
