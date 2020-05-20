@@ -143,6 +143,7 @@ if type "code" &>/dev/null; then
         James-Yu.latex-workshop
         PKief.material-icon-theme
         Tyriar.sort-lines
+        VisualStudioExptTeam.vscodeintellicode
         albert.TabOut
         dbaeumer.vscode-eslint
         eamodio.gitlens
@@ -152,18 +153,21 @@ if type "code" &>/dev/null; then
         jmrog.vscode-nuget-package-manager
         joaompinto.vscode-graphviz
         ms-dotnettools.csharp
+        ms-mssql.sqlops-debug
         ms-python.python
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.cpptools
         ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
+        redhat.java
         ritwickdey.LiveServer
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         sumneko.lua
         timonwong.shellcheck
         vmsynkov.colonize
+        vscjava.vscode-java-debug
         yycalm.linecount
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme

@@ -53,9 +53,8 @@ alias yta="youtube-dl -xic --audio-format mp3"
 
 # PostgreSQL
 if type "psql" &>/dev/null; then
-    alias startpostgres="sudo service postgresql start; statuspostgres"
-    alias statuspostgres="sudo service postgresql status"
-    alias stoppostgres="sudo service postgresql stop; statuspostgres"
+    alias startpostgres="sudo service postgresql start"
+    alias stoppostgres="sudo service postgresql stop"
 fi
 
 # Advanced tab completion

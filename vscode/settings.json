@@ -22,8 +22,8 @@
   },
   "editor.suggestSelection": "first",
   "editor.fontLigatures": false,
+  "editor.semanticHighlighting.enabled": true,
   "editor.tokenColorCustomizations": {
-    "semanticHighlighting": true,
     "[One Dark Pro]": {
       "textMateRules": [
         {
@@ -71,27 +71,10 @@
   // ###########
   // ## Style ##
   // ###########
-  "workbench.colorTheme": "Default Light+",
+  "workbench.settings.useSplitJSON": true,
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.settings.useSplitJSON": false,
-  "workbench.colorCustomizations": {
-    "terminal.ansiBlue": "#61afef",
-    "terminal.ansiBrightBlack": "#7f848e",
-    "terminal.ansiBrightBlue": "#528bff",
-    "terminal.ansiBrightCyan": "#56b6c2",
-    "terminal.ansiBrightGreen": "#98c379",
-    "terminal.ansiBrightMagenta": "#7e0097",
-    "terminal.ansiBrightRed": "#f44747",
-    "terminal.ansiBrightWhite": "#d7dae0",
-    "terminal.ansiBrightYellow": "#e5c07b",
-    "terminal.ansiCyan": "#56b6c2",
-    "terminal.ansiGreen": "#98c379",
-    "terminal.ansiMagenta": "#c678dd",
-    "terminal.ansiRed": "#e06c75",
-    "terminal.ansiWhite": "#d7dae0",
-    "terminal.ansiYellow": "#e5c07b",
-  },
   "window.titleBarStyle": "custom",
   "files.watcherExclude": {
     "**/.direnv/**": true,
