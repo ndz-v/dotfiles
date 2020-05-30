@@ -123,4 +123,5 @@
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "git.untrackedChanges": "separate",
+  "omnisharp.enableRoslynAnalyzers": true,
 }

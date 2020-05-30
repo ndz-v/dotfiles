@@ -5,14 +5,14 @@ export ZSH="/home/$USER/.oh-my-zsh"
 export ZSH_THEME="nidzo"
 
 export plugins=(
-    colored-man-pages
-    colorize
-    git
-    globalias
-    ng
-    node
-    npm
-    zsh-autosuggestions
+  colored-man-pages
+  colorize
+  git
+  globalias
+  ng
+  node
+  npm
+  zsh-autosuggestions
 )
 
 # Ctrl + x Ctrl + e
@@ -21,14 +21,14 @@ export EDITOR=nano
 # fc in cli
 export FCEDIT=code
 
-_dotnet_zsh_complete()
-{
+_dotnet_zsh_complete() {
   local completions=("$(dotnet complete "$words")")
 
-  reply=( "${(ps:\n:)completions}" )
+  reply=("${(ps:\n:)completions}")
 }
 
-[ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet && compctl -K _dotnet_zsh_complete dotnet
+# [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
+[ -d "$HOME/.dotnet" ] && compctl -K _dotnet_zsh_complete dotnet
 [ -d "$HOME/.dev-binaries/jdk" ] && export PATH=$HOME/.dev-binaries/jdk/bin:$PATH
 [ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
 [ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
@@ -53,8 +53,8 @@ alias yta="youtube-dl -xic --audio-format mp3"
 
 # PostgreSQL
 if type "psql" &>/dev/null; then
-    alias startpostgres="sudo service postgresql start"
-    alias stoppostgres="sudo service postgresql stop"
+  alias startpostgres="sudo service postgresql start"
+  alias stoppostgres="sudo service postgresql stop"
 fi
 
 # Advanced tab completion
