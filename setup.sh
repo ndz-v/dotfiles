@@ -31,6 +31,7 @@ apps=(
     powertop
     python3-pip
     rename
+    scrcpy
     shellcheck
     silversearcher-ag
     texlive-full

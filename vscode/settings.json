@@ -52,7 +52,7 @@
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.intellisense.update.aggressive.enabled": true,
   "python.autoComplete.addBrackets": true,
-  "python.jediEnabled": false,
+  "python.languageServer": "Pylance",
   "python.autoComplete.extraPaths": [
     "~/.local/lib/python3.8/site-packages"
   ],
@@ -60,6 +60,7 @@
     "--max-line-length=200"
   ],
   "typescript.preferences.quoteStyle": "single",
+  "omnisharp.enableRoslynAnalyzers": true,
   // ##############
   // ## Terminal ##
   // ##############
@@ -123,5 +124,4 @@
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "git.untrackedChanges": "separate",
-  "omnisharp.enableRoslynAnalyzers": true,
 }
