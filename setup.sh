@@ -156,6 +156,7 @@ if type "code" &>/dev/null; then
         ms-dotnettools.csharp
         ms-mssql.sqlops-debug
         ms-python.python
+        ms-python.vscode-pylance
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.cpptools
