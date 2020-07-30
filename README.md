@@ -10,11 +10,18 @@ sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/nidzo
 
 ## General tips
 
+### Disable wifi powersaving
+
+```bash
+sudo nano /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+```
+
+Change value from 3 to 2
+
 ### Improve boot time for linux
 
 Exists to ensure that the boot process can access remote resources and slows down boot process.
 Disable and mask the service to decrease boot time.
-
 ```bash
 sudo systemctl disable NetworkManager-wait-online.service # disables service on start up
 sudo systemctl mask NetworkManager-wait-online.service # disables dbus based invocation
