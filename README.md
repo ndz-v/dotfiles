@@ -10,6 +10,19 @@ sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/nidzo
 
 ## General tips
 
+### Disable tlp USB autosuspend
+
+```bash
+sudo nano /etc/tlp.conf
+```
+
+Set value to 0
+```bash
+USB_AUTOSUSPEND = 0
+```
+
+File transfer and USB connections were breaking
+
 ### Disable wifi powersaving
 
 ```bash
