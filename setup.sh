@@ -232,13 +232,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Dotfiles dir with git
 mkdir "$HOME/dev/temp"
 cd "$HOME/dev" || return
-git clone https://github.com/nidzov/dotfiles.git "$HOME/dev/temp"
+git clone https://github.com/ndz-v/dotfiles.git "$HOME/dev/temp"
 mv "$HOME/dev/temp/.git" "$HOME/dev/dotfiles"
 rm -rf "$HOME/dev/temp"
 
 # Change remote url of dotfiles
 cd "$HOME/dev/dotfiles" || return
-git remote set-url origin git@github.com:Nidzo-Vidic/dotfiles.git
+git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
 #######################
 ## Disable Services ##
