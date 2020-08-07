@@ -1,11 +1,11 @@
 # dotfiles
 
-<img src="https://github.com/Nidzo-Vidic/dotfiles/blob/master/media/desktop.png" width="300" height="200">
+<img src="https://github.com/ndz-v/dotfiles/blob/master/media/desktop.png" width="300" height="200">
 
 ## Installation
 
 ```shell
-sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/nidzov/dotfiles/master/remote-setup.sh`"
+sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/ndz-v/dotfiles/master/remote-setup.sh`"
 ```
 
 ## General tips
