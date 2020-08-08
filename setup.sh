@@ -257,7 +257,7 @@ rm -rf "$HOME/dev/temp"
 cd "$HOME/dev/dotfiles" || return
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
-echo -ne "################################################################################  95%\r"
+echo -ne "################################################################################      95%\r"
 
 #######################
 ## Disable Services ##
