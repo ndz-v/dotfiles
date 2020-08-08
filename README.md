@@ -47,6 +47,25 @@ GRUB_CMDLINE_LINUX_DEFAULT="nouveau.modeset=0 acpi_rev_override=1 noibrs noibpb 
 ```
 Graphics problem on Dell XPS 15: dedicated graphics is powered although intel hybrid card is selected. Results in greater power consumption and battery drainage.
 
+Uninstall and purge everything from nvidia.
+
+```bash
+sudo apt-get remove --purge "nvidia*"
+sudo apt-get autoremove && sudo apt-get autoclean
+```
+Check if anyithin is still there from nvidia and purge it
+
+```bash
+dpkg -l | grep nvidia
+sudo dpkg -r --purge *nvidia*
+```
+
+Without rebooting install the latest nvidia driver again and reboot
+
+```bash
+sudo apt-get install nvidia-driver-40
+```
+
 ```bash
 nouveau.modeset=0 acpi_rev_override=1
 ```
