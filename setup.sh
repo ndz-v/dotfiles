@@ -3,17 +3,15 @@
 ###############################
 ## Ask for admin credentials ##
 ###############################
+
 sudo -v
 
-###############################
-## Update and upgrade system ##
-###############################
-sudo apt update
-sudo apt upgrade -y
+echo -ne '                                                                                       0%\r'
 
-##################
-## Install apps ##
-##################
+##########################
+## Install apt packages ##
+##########################
+
 apps=(
     calibre
     curl
@@ -28,14 +26,12 @@ apps=(
     libreoffice
     lm-sensors
     postgresql
-    powertop
     python3-pip
     rename
     scrcpy
     shellcheck
     silversearcher-ag
     texlive-full
-    tlp
     translate-shell
     tree
     ufw
@@ -43,7 +39,22 @@ apps=(
     zsh-syntax-highlighting
 )
 
-sudo apt install -y "${apps[@]}" || true
+sudo apt-get install -y "${apps[@]}" || true
+
+echo -ne '########                                                                              10%\r'
+
+##########################################
+## Install youtube-dl, pylint, autopep8 ##
+##########################################
+
+# Check if pip3 is installed
+if type "pip3" &>/dev/null; then
+    pip3 install youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3
+
+    echo '--output "~/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
+fi
+
+echo -ne "################                                                                      20%\r"
 
 ###################
 ## Install Guake ##
@@ -56,19 +67,25 @@ sudo make install
 cd .. || return
 rm -rf guake
 
+echo -ne "########################                                                              30%\r"
+
 #############################
 ## Add obs ppa and install ##
 #############################
 sudo add-apt-repository ppa:obsproject/obs-studio
-sudo apt update
-sudo apt install -y obs-studio
+sudo apt-get update
+sudo apt-get install -y obs-studio
+
+echo -ne "################################                                                      40%\r"
 
 ##################################
 ## Add kdenlive ppa and install ##
 ##################################
 sudo add-apt-repository ppa:kdenlive/kdenlive-stable
-sudo apt update
-sudo apt install -y kdenlive
+sudo apt-get update
+sudo apt-get install -y kdenlive
+
+echo -ne "########################################                                              50%\r"
 
 ####################
 ## Install pandoc ##
@@ -87,26 +104,33 @@ wget "$url_part1$url_part2"
 # Install pandoc
 package=$(ls ./*.deb)
 sudo dpkg -i "$package"
-sudo apt install -f
+sudo apt-get install -f
 
 # Delete .deb file
 rm "$package"
+
+echo -ne "################################################                                      60%\r"
 
 #######################
 ## Install Oh-My-zsh ##
 #######################
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
-#######################################
+echo -ne "########################################################                              70%\r"
+
+###############################
 ## Install libinput-gestures ##
-#######################################
+###############################
 
 # Check if it's a notebook
 if [ -d "/sys/class/power_supply" ]; then
+
+    sudo apt-get install -y tlp powertop
+
     # Install libinput-gestures for swiping gestures
     if ! type "libinput-gestures" &>/dev/null; then
         sudo gpasswd -a "$USER" input
-        sudo apt install -y xdotool wmctrl libinput-tools
+        sudo apt-get install -y xdotool wmctrl libinput-tools
 
         cd ~ || return
         git clone https://github.com/bulletmark/libinput-gestures.git
@@ -120,6 +144,8 @@ if [ -d "/sys/class/power_supply" ]; then
     fi
 fi
 
+echo -ne "################################################################                      80%\r"
+
 #####################
 ## Install VS Code ##
 #####################
@@ -130,9 +156,9 @@ if ! type "code" &>/dev/null; then
     sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
     sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 
-    sudo apt install apt-transport-https
-    sudo apt update
-    sudo apt install -y code
+    sudo apt-get install -y apt-transport-https
+    sudo apt-get update
+    sudo apt-get install -y code
 fi
 
 # Install VS Code extensions
@@ -179,16 +205,7 @@ if type "code" &>/dev/null; then
     done
 fi
 
-##########################################
-## Install youtube-dl, pylint, autopep8 ##
-##########################################
-
-# Check if pip3 is installed
-if type "pip3" &>/dev/null; then
-    pip3 install youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3
-
-    echo '--output "~/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
-fi
+echo -ne "########################################################################              90%\r"
 
 ###########################
 ## Create symbolic links ##
@@ -240,6 +257,8 @@ rm -rf "$HOME/dev/temp"
 cd "$HOME/dev/dotfiles" || return
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
+echo -ne "################################################################################  95%\r"
+
 #######################
 ## Disable Services ##
 #######################
@@ -247,3 +266,6 @@ sudo systemctl disable NetworkManager-wait-online.service # Not needed service, 
 sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
 sudo systemctl disable bluetooth.service
 sudo systemctl disable postgresql.service
+
+echo -ne "#################################################################################### 100%\r"
+echo -ne "\n"
