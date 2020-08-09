@@ -164,21 +164,19 @@ fi
 # Install VS Code extensions
 if type "code" &>/dev/null; then
     extensions=(
+        albert.TabOut
         Angular.ng-template
         DavidAnson.vscode-markdownlint
-        EFanZh.graphviz-preview
-        James-Yu.latex-workshop
-        PKief.material-icon-theme
-        Tyriar.sort-lines
-        VisualStudioExptTeam.vscodeintellicode
-        albert.TabOut
         dbaeumer.vscode-eslint
         eamodio.gitlens
+        EFanZh.graphviz-preview
         foxundermoon.shell-format
         geeklearningio.graphviz-markdown-preview
         humao.rest-client
+        James-Yu.latex-workshop
         jmrog.vscode-nuget-package-manager
         joaompinto.vscode-graphviz
+        mads-hartmann.bash-ide-vscode
         ms-dotnettools.csharp
         ms-mssql.sqlops-debug
         ms-python.python
@@ -188,12 +186,15 @@ if type "code" &>/dev/null; then
         ms-vscode.cpptools
         ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
+        PKief.material-icon-theme
         redhat.java
         ritwickdey.LiveServer
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         sumneko.lua
         timonwong.shellcheck
+        Tyriar.sort-lines
+        VisualStudioExptTeam.vscodeintellicode
         vmsynkov.colonize
         vscjava.vscode-java-debug
         yycalm.linecount
