@@ -21,19 +21,13 @@ export EDITOR=nano
 # fc in cli
 export FCEDIT=code
 
-_dotnet_zsh_complete() {
-  local completions=("$(dotnet complete "$words")")
-
-  reply=("${(ps:\n:)completions}")
-}
-
-# [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
-[ -d "$HOME/.dotnet" ] && compctl -K _dotnet_zsh_complete dotnet
+[ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH
+[ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
+[ -d "$HOME/.dotnet" ] && source "$HOME/dev/dotfiles/scripts/dotnet_zsh_complete" && compctl -K dotnet_zsh_complete dotnet
 [ -d "$HOME/.dev-binaries/jdk" ] && export PATH=$HOME/.dev-binaries/jdk/bin:$PATH
 [ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
 [ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
 [ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
-[ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH
 
 source "$ZSH/oh-my-zsh.sh"
 
