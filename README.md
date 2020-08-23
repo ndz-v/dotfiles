@@ -53,7 +53,7 @@ Uninstall and purge everything from nvidia.
 sudo apt-get remove --purge "nvidia*"
 sudo apt-get autoremove && sudo apt-get autoclean
 ```
-Check if anyithin is still there from nvidia and purge it
+Check if anyithing is still there from nvidia and purge it
 
 ```bash
 dpkg -l | grep nvidia
