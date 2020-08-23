@@ -1,5 +1,8 @@
 # dotfiles
 
+My skript for automating the installation and configuration of a linux system after a fresh install.
+
+
 <img src="https://github.com/ndz-v/dotfiles/blob/master/media/desktop.png" width="300" height="200">
 
 ## Installation
