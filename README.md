@@ -8,6 +8,18 @@
 sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/ndz-v/dotfiles/master/remote-setup.sh`"
 ```
 
+### Explanation
+
+The script above downloads the master branch of this repo and starts setup.sh execution.
+
+### Apps that are installed
+
+* Apt packages: calibre, curl, entr, ffmpeg, git, graphviz, grub-customizer, latexmk, latte-dock, libnotify-bin, libreoffice, lm-sensors, postgresql, python3-pip, rename, scrcpy, shellcheck, silversearcher-ag, texlive-full, translate-shell, tree, ufw, zsh, zsh-syntax-highlighting
+
+* Python packages: youtube-dl, pylint, autopep8, pandocfilters, jupyter, pandas, eyed3
+
+* Individual downloands and installation: Guake, obs-studio, kdenlive, pandoc, Oh-My-Zsh, libinput-gestures, Visual Studio Code and Extensions
+
 ## General tips
 
 ### Disable tlp USB autosuspend
@@ -30,6 +42,23 @@ sudo nano /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
 ```
 
 Change value from 3 to 2
+
+#### Weird WiFi-Problems
+
+If WiFi is disconnecting from time to time, disable wpa_supplicant.service and enable it again
+
+```bash
+sudo systemctl stop wpa_supplicant.service
+sudo systemctl disable wpa_supplicant.service
+```
+
+Reboot
+
+```bash
+sudo systemctl start wpa_supplicant.service
+sudo systemctl enable wpa_supplicant.service
+```
+Reboot again
 
 ### Improve boot time for linux
 
