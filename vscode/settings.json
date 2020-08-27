@@ -50,7 +50,7 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.intellisense.package.enabled": true,
   "latex-workshop.chktex.enabled": true,
-  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.autoClean.run": "onFailed",
   "latex-workshop.intellisense.update.aggressive.enabled": true,
   "python.autoComplete.addBrackets": true,
   "python.languageServer": "Pylance",
@@ -125,4 +125,6 @@
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "git.untrackedChanges": "separate",
+  "C_Cpp.updateChannel": "Insiders",
+  "window.zoomLevel": 0,
 }
