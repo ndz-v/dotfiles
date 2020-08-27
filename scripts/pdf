@@ -3,5 +3,5 @@
 dir_to_open="$(find ~ -name '*.pdf' | fzf)"
 
 if [ -n "$dir_to_open" ]; then
-    okular "$dir_to_open"
+    okular "$dir_to_open" &
 fi
