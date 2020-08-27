@@ -20,6 +20,8 @@ export EDITOR=code
 # fc in cli
 export FCEDIT=code
 
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+
 [ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH
 [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 [ -d "$HOME/.dotnet" ] && source "$HOME/dev/dotfiles/scripts/dotnet_zsh_complete" && compctl -K dotnet_zsh_complete dotnet
@@ -29,6 +31,8 @@ export FCEDIT=code
 [ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
 
 source "$ZSH/oh-my-zsh.sh"
+
+source "$HOME/dev/dotfiles/scripts/go.sh"
 
 # Lazy stuff
 alias ai="sudo apt install"
