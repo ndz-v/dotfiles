@@ -17,6 +17,7 @@ apps=(
     curl
     entr
     ffmpeg
+    fzf
     git
     graphviz
     grub-customizer
