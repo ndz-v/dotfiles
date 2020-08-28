@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
 export ZSH="/home/$USER/.oh-my-zsh"
-
-export ZSH_THEME="nidzo"
-
 export plugins=(
   colored-man-pages
   colorize
@@ -14,25 +11,20 @@ export plugins=(
   zsh-autosuggestions
 )
 
-# Ctrl + x Ctrl + e
-export EDITOR=code
+source "$ZSH/oh-my-zsh.sh"
+source "$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 
-# fc in cli
-export FCEDIT=code
-
+export EDITOR=code # Ctrl + x Ctrl + e
+export FCEDIT=code # fc in cli
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
-[ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH
+[ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH && source "$HOME/dev/dotfiles/scripts/go.sh"
 [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 [ -d "$HOME/.dotnet" ] && source "$HOME/dev/dotfiles/scripts/dotnet_zsh_complete" && compctl -K dotnet_zsh_complete dotnet
 [ -d "$HOME/.dev-binaries/jdk" ] && export PATH=$HOME/.dev-binaries/jdk/bin:$PATH
 [ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
 [ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
 [ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
-
-source "$ZSH/oh-my-zsh.sh"
-
-source "$HOME/dev/dotfiles/scripts/go.sh"
 
 # Lazy stuff
 alias ai="sudo apt install"
