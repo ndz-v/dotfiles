@@ -13,5 +13,9 @@
         "key": "ctrl+shift+enter",
         "command": "-markdown-preview-enhanced.runAllCodeChunks",
         "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "latex-workshop.tab"
     }
 ]
