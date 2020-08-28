@@ -26,6 +26,7 @@ apps=(
     libnotify-bin
     libreoffice
     lm-sensors
+    neovim
     postgresql
     python3-pip
     rename
