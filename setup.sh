@@ -167,9 +167,7 @@ fi
 if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
-        Angular.ng-template
         DavidAnson.vscode-markdownlint
-        dbaeumer.vscode-eslint
         eamodio.gitlens
         EFanZh.graphviz-preview
         foxundermoon.shell-format
@@ -178,15 +176,14 @@ if type "code" &>/dev/null; then
         James-Yu.latex-workshop
         jmrog.vscode-nuget-package-manager
         joaompinto.vscode-graphviz
+        leocamello.vscode-smalltalk
         mads-hartmann.bash-ide-vscode
         ms-dotnettools.csharp
-        ms-mssql.sqlops-debug
         ms-python.python
         ms-python.vscode-pylance
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.cpptools
-        ms-vscode.vscode-typescript-tslint-plugin
         ms-vsliveshare.vsliveshare
         PKief.material-icon-theme
         redhat.java
