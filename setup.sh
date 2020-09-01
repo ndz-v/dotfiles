@@ -225,6 +225,19 @@ nanorc="$HOME/dev/dotfiles/nano/.nanorc"
 nanorc_location="$HOME/.nanorc"
 ln -sfn "$nanorc" "$nanorc_location"
 
+# neovim
+neovim_init="$HOME/dev/dotfiles/nvim/init.vim"
+coc_settings="$HOME/dev/dotfiles/nvim/coc-settings.json"
+plug_config="$HOME/dev/dotfiles/nvim/plug-config"
+
+neovim_init_location="$HOME/.config/nvim/init.vim"
+coc_settings_location="$HOME/.config/nvim/coc-settings.json"
+plug_config_location="$HOME/.config/nvim/plug-config"
+
+ln -sfn "$neovim_init" "$neovim_init_location"
+ln -sfn "$coc_settings" "$coc_settings_location"
+ln -sfn "$plug_config" "$plug_config_location"
+
 # VS Code
 vscode_settings="$HOME/dev/dotfiles/vscode/settings.json"
 vscode_settings_location="$HOME/.config/Code/User/settings.json"
