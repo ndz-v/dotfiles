@@ -13,32 +13,31 @@ echo -ne '                                                                      
 ##########################
 
 apps=(
-    calibre
-    curl
-    entr
-    ffmpeg
-    fzf
-    git
-    graphviz
-    grub-customizer
-    latexmk
-    latte-dock
-    libnotify-bin
-    libreoffice
-    lm-sensors
-    neovim
-    postgresql
-    python3-pip
-    rename
-    scrcpy
-    shellcheck
-    silversearcher-ag
-    texlive-full
-    translate-shell
-    tree
-    ufw
-    zsh
-    zsh-syntax-highlighting
+    calibre                 # Managing ebooks
+    curl                    # Make sure curl is installed
+    entr                    # Rebuild project if sources change
+    ffmpeg                  # Needed for youtube-dl to work
+    fzf                     # General-purpose command-line fuzzy finder
+    git                     # Versioncontrol
+    graphviz                # Create graphs
+    grub-customizer         # Customize grub with GUI
+    latexmk                 # Completely automates the process of generating a LaTeX document
+    latte-dock              # Nice dock for kde plasme
+    libnotify-bin           # Desktop notifications
+    lm-sensors              # Read sensors
+    neovim                  # Text editor
+    postgresql              # Database
+    python3-pip             # Python package manager
+    scrcpy                  # Screen copy android device
+    shellcheck              # script analysis tool
+    silversearcher-ag       # A code searching tool
+    ripgrep                 # Search tool
+    texlive-full            # LaTeX distribution
+    translate-shell         # Command-line translator
+    ufw                     # Firewall
+    zsh                     # Shell
+    zsh-syntax-highlighting # Syntax highlighting for zsh
+    xsel                    # Clipboard support in cli
 )
 
 sudo apt-get install -y "${apps[@]}" || true
