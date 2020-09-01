@@ -14,8 +14,11 @@ export plugins=(
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 
-export EDITOR=code # Ctrl + x Ctrl + e
-export FCEDIT=code # fc in cli
+source "/usr/share/doc/fzf/examples/completion.zsh"   # FZF completion
+source "/usr/share/doc/fzf/examples/key-bindings.zsh" # FZF key bindings for terminal
+
+export EDITOR=nvim # Ctrl + x Ctrl + e
+export FCEDIT=nvim # fc in cli
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
 [ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH && source "$HOME/dev/dotfiles/scripts/go.sh"
@@ -36,7 +39,8 @@ alias aver="apt-cache policy"
 alias counthere="ls -lAh | wc -l"
 alias dotfiles="code ~/dev/dotfiles"
 alias zshconfig="code ~/dev/dotfiles/zsh/.zshrc"
-
+alias vim="nvim"
+alias vi="nvim"
 # Internet
 alias yt="youtube-dl -ic"
 alias yta="youtube-dl -xic --audio-format mp3"
