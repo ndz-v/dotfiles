@@ -43,25 +43,6 @@
       ]
     }
   },
-  // ###############
-  // ## Languages ##
-  // ###############
-  "javascript.preferences.quoteStyle": "single",
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.intellisense.package.enabled": true,
-  "latex-workshop.chktex.enabled": true,
-  "latex-workshop.latex.autoClean.run": "onFailed",
-  "latex-workshop.intellisense.update.aggressive.enabled": true,
-  "python.autoComplete.addBrackets": true,
-  "python.languageServer": "Pylance",
-  "python.autoComplete.extraPaths": [
-    "~/.local/lib/python3.8/site-packages"
-  ],
-  "python.formatting.autopep8Args": [
-    "--max-line-length=200"
-  ],
-  "typescript.preferences.quoteStyle": "single",
-  "omnisharp.enableRoslynAnalyzers": true,
   // ##############
   // ## Terminal ##
   // ##############
@@ -74,7 +55,7 @@
   // ## Style ##
   // ###########
   "workbench.settings.useSplitJSON": true,
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Default Light+",
   "workbench.settings.editor": "json",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
@@ -107,6 +88,9 @@
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
+  "files.associations": {
+    "*.cls": "latex"
+  },
   // ##########
   // ## Misc ##
   // ##########
@@ -126,6 +110,26 @@
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "git.untrackedChanges": "separate",
-  "C_Cpp.updateChannel": "Insiders",
   "window.zoomLevel": 0,
+  // ###############
+  // ## Languages ##
+  // ###############
+  "C_Cpp.updateChannel": "Insiders",
+  "javascript.preferences.quoteStyle": "single",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.chktex.enabled": true,
+  "latex-workshop.latex.autoClean.run": "onFailed",
+  "latex-workshop.intellisense.update.aggressive.enabled": true,
+  "latex-workshop.latex.outDir": "out",
+  "python.autoComplete.addBrackets": true,
+  "python.languageServer": "Pylance",
+  "python.autoComplete.extraPaths": [
+    "~/.local/lib/python3.8/site-packages"
+  ],
+  "python.formatting.autopep8Args": [
+    "--max-line-length=200"
+  ],
+  "typescript.preferences.quoteStyle": "single",
+  "omnisharp.enableRoslynAnalyzers": true,
 }
