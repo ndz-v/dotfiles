@@ -44,6 +44,9 @@ alias vi="nvim"
 # Internet
 alias yt="youtube-dl -ic"
 alias yta="youtube-dl -xic --audio-format mp3"
+alias de="trans :de"
+alias en="trans :en"
+alias sr="trans :sr"
 
 # PostgreSQL
 if type "psql" &>/dev/null; then
