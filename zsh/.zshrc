@@ -23,7 +23,6 @@ export FZF_DEFAULT_OPTS="--layout=reverse"
 
 [ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH && source "$HOME/dev/dotfiles/scripts/go.sh"
 [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
-[ -d "$HOME/.dotnet" ] && source "$HOME/dev/dotfiles/scripts/dotnet_zsh_complete" && compctl -K dotnet_zsh_complete dotnet
 [ -d "$HOME/.dev-binaries/jdk" ] && export PATH=$HOME/.dev-binaries/jdk/bin:$PATH
 [ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
 [ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
@@ -47,6 +46,8 @@ alias yta="youtube-dl -xic --audio-format mp3"
 alias de="trans :de"
 alias en="trans :en"
 alias sr="trans :sr"
+
+alias rm="rm -I"
 
 # PostgreSQL
 if type "psql" &>/dev/null; then
