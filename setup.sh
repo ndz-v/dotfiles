@@ -166,7 +166,9 @@ fi
 if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
+        Angular.ng-template
         DavidAnson.vscode-markdownlint
+        dbaeumer.vscode-eslint
         eamodio.gitlens
         EFanZh.graphviz-preview
         foxundermoon.shell-format
@@ -187,11 +189,10 @@ if type "code" &>/dev/null; then
         PKief.material-icon-theme
         redhat.java
         ritwickdey.LiveServer
-        streetsidesoftware.code-spell-checker
-        streetsidesoftware.code-spell-checker-german
         sumneko.lua
         timonwong.shellcheck
         Tyriar.sort-lines
+        valentjn.vscode-ltex
         VisualStudioExptTeam.vscodeintellicode
         vmsynkov.colonize
         vscjava.vscode-java-debug
