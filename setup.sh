@@ -55,6 +55,13 @@ if type "pip3" &>/dev/null; then
     echo '--output "~/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
 fi
 
+#######################
+## Install nodejs 14 ##
+#######################
+
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 echo -ne "################                                                                      20%\r"
 
 ###################
@@ -217,8 +224,8 @@ gitconfig_location="$HOME/.gitconfig"
 ln -sfn "$gitconfig" "$gitconfig_location"
 
 # guake
-guake="$HOME/dev/dotfiles/guake/user"
-guake_location="$HOME/.config/dconf/user"
+guake="$HOME/dev/dotfiles/guake"
+guake_location="$HOME/.config/dconf"
 ln -sfn "$guake" "$guake_location"
 
 # nano
