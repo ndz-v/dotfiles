@@ -39,7 +39,7 @@ alias counthere="ls -lAh | wc -l"
 alias dotfiles="code ~/dev/dotfiles"
 alias zshconfig="code ~/dev/dotfiles/zsh/.zshrc"
 alias vim="nvim"
-alias vi="nvim"
+
 # Internet
 alias yt="youtube-dl -ic"
 alias yta="youtube-dl -xic --audio-format mp3"
