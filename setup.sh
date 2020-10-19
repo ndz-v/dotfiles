@@ -77,24 +77,6 @@ rm -rf guake
 
 echo -ne "########################                                                              30%\r"
 
-#############################
-## Add obs ppa and install ##
-#############################
-sudo add-apt-repository ppa:obsproject/obs-studio
-sudo apt-get update
-sudo apt-get install -y obs-studio
-
-echo -ne "################################                                                      40%\r"
-
-##################################
-## Add kdenlive ppa and install ##
-##################################
-sudo add-apt-repository ppa:kdenlive/kdenlive-stable
-sudo apt-get update
-sudo apt-get install -y kdenlive
-
-echo -ne "########################################                                              50%\r"
-
 ####################
 ## Install pandoc ##
 ####################
