@@ -174,6 +174,8 @@ if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
         Angular.ng-template
+        bierner.markdown-mermaid
+        bpruitt-goddard.mermaid-markdown-syntax-highlighting
         DavidAnson.vscode-markdownlint
         dbaeumer.vscode-eslint
         eamodio.gitlens
