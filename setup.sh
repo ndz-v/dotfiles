@@ -210,6 +210,7 @@ ln -sfn "$gitconfig" "$gitconfig_location"
 # guake
 guake="$HOME/dev/dotfiles/guake"
 guake_location="$HOME/.config/dconf"
+rm -rf "$guake_location"
 ln -sfn "$guake" "$guake_location"
 
 # nano
