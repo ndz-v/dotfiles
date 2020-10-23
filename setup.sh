@@ -6,8 +6,6 @@
 
 sudo -v
 
-echo -ne '                                                                                       0%\r'
-
 ##########################
 ## Install apt packages ##
 ##########################
@@ -42,8 +40,6 @@ apps=(
 
 sudo apt-get install -y "${apps[@]}" || true
 
-echo -ne '########                                                                              10%\r'
-
 ##########################################
 ## Install youtube-dl, pylint, autopep8 ##
 ##########################################
@@ -62,8 +58,6 @@ fi
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-echo -ne "################                                                                      20%\r"
-
 ###################
 ## Install Guake ##
 ###################
@@ -74,8 +68,6 @@ make
 sudo make install
 cd .. || return
 rm -rf guake
-
-echo -ne "########################                                                              30%\r"
 
 ####################
 ## Install pandoc ##
@@ -99,14 +91,10 @@ sudo apt-get install -f
 # Delete .deb file
 rm "$package"
 
-echo -ne "################################################                                      60%\r"
-
 #######################
 ## Install Oh-My-zsh ##
 #######################
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
-
-echo -ne "########################################################                              70%\r"
 
 ###############################
 ## Install libinput-gestures ##
@@ -133,8 +121,6 @@ if [ -d "/sys/class/power_supply" ]; then
         libinput-gestures-setup start
     fi
 fi
-
-echo -ne "################################################################                      80%\r"
 
 #####################
 ## Install VS Code ##
@@ -195,8 +181,6 @@ if type "code" &>/dev/null; then
         code --install-extension "$extension"
     done
 fi
-
-echo -ne "########################################################################              90%\r"
 
 ###########################
 ## Create symbolic links ##
@@ -267,8 +251,6 @@ rm -rf "$HOME/dev/temp"
 cd "$HOME/dev/dotfiles" || return
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
-echo -ne "################################################################################      95%\r"
-
 #######################
 ## Disable Services ##
 #######################
@@ -276,6 +258,3 @@ sudo systemctl disable NetworkManager-wait-online.service # Not needed service, 
 sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
 sudo systemctl disable bluetooth.service
 sudo systemctl disable postgresql.service
-
-echo -ne "#################################################################################### 100%\r"
-echo -ne "\n"
