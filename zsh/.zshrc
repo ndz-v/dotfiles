@@ -47,8 +47,6 @@ alias de="trans :de"
 alias en="trans :en"
 alias sr="trans :sr"
 
-alias rm="rm -I"
-
 # PostgreSQL
 if type "psql" &>/dev/null; then
   alias startpostgres="sudo service postgresql start"
