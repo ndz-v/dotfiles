@@ -11,6 +11,7 @@ export plugins=(
   zsh-autosuggestions
 )
 
+source "$HOME/.profile"
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 
