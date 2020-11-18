@@ -258,3 +258,11 @@ sudo systemctl disable NetworkManager-wait-online.service # Not needed service, 
 sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
 sudo systemctl disable bluetooth.service
 sudo systemctl disable postgresql.service
+
+#######################
+## Remove snapd ##
+#######################
+sudo rm -rf /snap
+sudo rm -rf /var/snap
+sudo rm -rf /var/lib/snapd
+sudo apt-get remove --purge snapd
