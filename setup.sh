@@ -30,6 +30,7 @@ apps=(
     shellcheck              # script analysis tool
     silversearcher-ag       # A code searching tool
     ripgrep                 # Search tool
+    testdisk                # Tool for scanning/repairing disks, undeleting files
     texlive-full            # LaTeX distribution
     translate-shell         # Command-line translator
     ufw                     # Firewall
