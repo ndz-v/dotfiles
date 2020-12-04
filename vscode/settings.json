@@ -73,7 +73,6 @@
   // ##########
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "gitlens.advanced.telemetry.enabled": false,
   "diffEditor.renderSideBySide": true,
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -82,14 +81,21 @@
   // ###############
   // ## Languages ##
   // ###############
-  "C_Cpp.updateChannel": "Insiders",
   "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.intellisense.package.enabled": true,
   "latex-workshop.chktex.enabled": true,
   "latex-workshop.latex.autoClean.run": "onFailed",
   "latex-workshop.intellisense.update.aggressive.enabled": true,
   "latex-workshop.latex.outDir": "out",
+  "latex-workshop.latexindent.args": [
+    "-c",
+    "%DIR%/%OUTDIR%/",
+    "%TMPFILE%",
+    "-y=defaultIndent: '%INDENT%'"
+  ],
+  "omnisharp.enableRoslynAnalyzers": true,
   "python.autoComplete.addBrackets": true,
   "python.languageServer": "Pylance",
   "python.autoComplete.extraPaths": [
@@ -98,10 +104,9 @@
   "python.formatting.autopep8Args": [
     "--max-line-length=200"
   ],
-  "typescript.preferences.quoteStyle": "single",
-  "omnisharp.enableRoslynAnalyzers": true,
   "python.analysis.extraPaths": [
     "~/.local/lib/python3.8/site-packages"
   ],
   "python.analysis.completeFunctionParens": true,
+  "python.pythonPath": "/usr/bin/python3",
 }
