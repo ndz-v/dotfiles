@@ -20,15 +20,14 @@ apps=(
     graphviz                # Create graphs
     grub-customizer         # Customize grub with GUI
     latexmk                 # Completely automates the process of generating a LaTeX document
-    latte-dock              # Nice dock for kde plasme
+    latte-dock              # Dock for kde plasma desktop
     libnotify-bin           # Desktop notifications
     lm-sensors              # Read sensors
     neovim                  # Text editor
     postgresql              # Database
     python3-pip             # Python package manager
-    scrcpy                  # Screen copy android device
     shellcheck              # script analysis tool
-    silversearcher-ag       # A code searching tool
+    silversearcher-ag       # Code searching tool
     ripgrep                 # Search tool
     testdisk                # Tool for scanning/repairing disks, undeleting files
     texlive-full            # LaTeX distribution
