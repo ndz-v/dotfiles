@@ -91,6 +91,7 @@
   "latex-workshop.latex.outDir": "out",
   "latex-workshop.latex.magic.args": [
     "-output-directory=%OUTDIR%",
+    "--shell-escape",
     "-synctex=1",
     "-interaction=nonstopmode",
     "-file-line-error",
