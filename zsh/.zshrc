@@ -30,23 +30,21 @@ export FZF_DEFAULT_OPTS="--layout=reverse"
 [ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
 
 # Lazy stuff
-alias ai="sudo apt install"
-alias alu="apt list --upgradeable"
-alias aud="sudo apt update"
-alias aug="sudo apt upgrade"
-alias clean="sudo apt autoremove && sudo apt autoclean"
-alias aver="apt-cache policy"
-alias counthere="ls -lAh | wc -l"
-alias dotfiles="code ~/dev/dotfiles"
-alias zshconfig="code ~/dev/dotfiles/zsh/.zshrc"
-alias vim="nvim"
-
-# Internet
-alias yt="youtube-dl -ic"
-alias yta="youtube-dl -xic --audio-format mp3"
-alias de="trans -d :de"
-alias en="trans -d :en"
-alias sr="trans -d :sr"
+alias ai="sudo apt install" \
+  alu="apt list --upgradeable" \
+  aud="sudo apt update" \
+  aug="sudo apt upgrade" \
+  clean="sudo apt autoremove && sudo apt autoclean" \
+  aver="apt-cache policy" \
+  counthere="ls -lAh | wc -l" \
+  dotfiles="code ~/dev/dotfiles" \
+  zshconfig="code ~/dev/dotfiles/zsh/.zshrc" \
+  vim="nvim" \
+  yt="youtube-dl -ic" \
+  yta="youtube-dl -xic --audio-format mp3" \
+  de="trans -d :de" \
+  en="trans -d :en" \
+  sr="trans -d :sr"
 
 # PostgreSQL
 if type "psql" &>/dev/null; then
