@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
 
-function go() {
+function goto() {
     cd "$(find ~ -type d | fzf)" || exit
 }
