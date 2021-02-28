@@ -19,6 +19,7 @@ apps=(
     git                     # Versioncontrol
     graphviz                # Create graphs
     grub-customizer         # Customize grub with GUI
+    kbibtex                 # Reference management software primarily for BibTeX
     latexmk                 # Completely automates the process of generating a LaTeX document
     latte-dock              # Dock for kde plasma desktop
     libnotify-bin           # Desktop notifications
@@ -26,16 +27,16 @@ apps=(
     neovim                  # Text editor
     postgresql              # Database
     python3-pip             # Python package manager
+    ripgrep                 # Search tool
     shellcheck              # script analysis tool
     silversearcher-ag       # Code searching tool
-    ripgrep                 # Search tool
     testdisk                # Tool for scanning/repairing disks, undeleting files
     texlive-full            # LaTeX distribution
     translate-shell         # Command-line translator
     ufw                     # Firewall
+    xsel                    # Clipboard support in cli
     zsh                     # Shell
     zsh-syntax-highlighting # Syntax highlighting for zsh
-    xsel                    # Clipboard support in cli
 )
 
 sudo apt-get install -y "${apps[@]}" || true
