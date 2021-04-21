@@ -13,5 +13,15 @@
         "key": "ctrl+shift+enter",
         "command": "-markdown-preview-enhanced.runAllCodeChunks",
         "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+alt+z",
+        "command": "zoterolatex.addCitation",
+        "when": "editorTextFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "alt+z",
+        "command": "-zoterolatex.addCitation",
+        "when": "editorTextFocus && editorLangId == 'latex'"
     }
 ]
