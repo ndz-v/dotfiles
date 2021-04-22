@@ -58,7 +58,7 @@ fi
 ## Install nodejs 14 ##
 #######################
 
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 ###################
@@ -98,6 +98,7 @@ rm "$package"
 ## Install Oh-My-zsh ##
 #######################
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions # install zsh-autosuggestions plugin
 
 ###############################
 ## Install libinput-gestures ##

@@ -121,5 +121,10 @@
   ],
   "python.analysis.completeFunctionParens": true,
   "python.pythonPath": "/usr/bin/python3",
-  "workbench.editorAssociations": [],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
 }
