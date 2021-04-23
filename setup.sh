@@ -114,7 +114,7 @@ if [ -d "/sys/class/power_supply" ]; then
         sudo gpasswd -a "$USER" input
         sudo apt-get install -y xdotool wmctrl libinput-tools
 
-        cd ~ || return
+        cd "$HOME" || return
         git clone https://github.com/bulletmark/libinput-gestures.git
         cd libinput-gestures || return
         sudo make install
@@ -244,15 +244,11 @@ ln -sfn "$theme" "$theme_location"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
-# Dotfiles dir with git
-mkdir "$HOME/dev/temp"
-cd "$HOME/dev" || return
-git clone https://github.com/ndz-v/dotfiles.git "$HOME/dev/temp"
-mv "$HOME/dev/temp/.git" "$HOME/dev/dotfiles"
-rm -rf "$HOME/dev/temp"
+# Add .git folder to dotfiles
+cd "$HOME/dev/dotfiles" || return
+git clone --bare https://github.com/ndz-v/dotfiles.git .git
 
 # Change remote url of dotfiles
-cd "$HOME/dev/dotfiles" || return
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
 #######################
