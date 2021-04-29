@@ -1,0 +1,16 @@
+[Animation]
+Frames=1
+
+[Appearance]
+BackgroundColor=18,38,55
+
+[Desktop Entry]
+DefaultProfile=Profile 1.profile
+
+[Dialogs]
+FirstRun=false
+
+[Window]
+Height=100
+Position=100
+Width=50

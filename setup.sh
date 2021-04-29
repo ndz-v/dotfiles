@@ -54,23 +54,12 @@ if type "pip3" &>/dev/null; then
     echo '--output "$HOME/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
 fi
 
-#######################
-## Install nodejs 14 ##
-#######################
+####################
+## Install nodejs ##
+####################
 
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
-
-###################
-## Install Guake ##
-###################
-git clone https://github.com/Guake/guake.git
-cd guake || return
-./scripts/bootstrap-dev-debian.sh run make
-make
-sudo make install
-cd .. || return
-rm -rf guake
 
 ####################
 ## Install pandoc ##
@@ -187,11 +176,17 @@ gitconfig="$HOME/dev/dotfiles/git/.gitconfig"
 gitconfig_location="$HOME/.gitconfig"
 ln -sfn "$gitconfig" "$gitconfig_location"
 
-# guake
-guake="$HOME/dev/dotfiles/guake"
-guake_location="$HOME/.config/dconf"
-rm -rf "$guake_location"
-ln -sfn "$guake" "$guake_location"
+# Konsole
+konsole="$HOME/dev/dotfiles/kon_and_yak/konsole"
+konsole_location="$HOME/.local/share/konsole"
+rm -rf "$konsole_location"
+ln -sfn "$konsole" "$konsole_location"
+
+# Yakuake
+yakuake="$HOME/dev/dotfiles/kon_and_yak/yakuakerc"
+yakuake_location="$HOME/.config/yakuakerc"
+rm "$yakuake_location"
+ln -sfn "$yakuake" "$yakuake_location"
 
 # nano
 nanorc="$HOME/dev/dotfiles/nano/.nanorc"
