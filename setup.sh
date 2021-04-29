@@ -51,7 +51,7 @@ sudo apt-get install -y "${apps[@]}" || true
 if type "pip3" &>/dev/null; then
     pip3 install youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3
 
-    echo '--output "~/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
+    echo '--output "$HOME/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
 fi
 
 #######################
@@ -98,8 +98,7 @@ rm "$package"
 ## Install Oh-My-zsh ##
 #######################
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions # install zsh-autosuggestions plugin
-
+git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" # install zsh-autosuggestions plugin
 ###############################
 ## Install libinput-gestures ##
 ###############################
@@ -241,8 +240,6 @@ ln -sfn "$zshrc" "$zshrc_location"
 theme="$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 theme_location="$HOME/.oh-my-zsh/themes/nidzo.zsh-theme"
 ln -sfn "$theme" "$theme_location"
-
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
 # Add .git folder to dotfiles
 cd "$HOME/dev/dotfiles" || return
