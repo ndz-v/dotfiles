@@ -144,11 +144,6 @@ fi
 if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
-        Angular.ng-template
-        bierner.markdown-mermaid
-        bpruitt-goddard.mermaid-markdown-syntax-highlighting
-        DavidAnson.vscode-markdownlint
-        dbaeumer.vscode-eslint
         eamodio.gitlens
         EFanZh.graphviz-preview
         foxundermoon.shell-format
@@ -157,27 +152,22 @@ if type "code" &>/dev/null; then
         James-Yu.latex-workshop
         jmrog.vscode-nuget-package-manager
         joaompinto.vscode-graphviz
-        leocamello.vscode-smalltalk
         mads-hartmann.bash-ide-vscode
         ms-dotnettools.csharp
         ms-python.python
         ms-python.vscode-pylance
+        ms-toolsai.jupyter
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.cpptools
-        ms-vsliveshare.vsliveshare
         PKief.material-icon-theme
-        redhat.java
-        ritwickdey.LiveServer
         sumneko.lua
         timonwong.shellcheck
         Tyriar.sort-lines
         valentjn.vscode-ltex
         VisualStudioExptTeam.vscodeintellicode
         vmsynkov.colonize
-        vscjava.vscode-java-debug
         yycalm.linecount
-        yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
     )
     for extension in ${extensions[*]}; do
