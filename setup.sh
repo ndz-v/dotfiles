@@ -11,7 +11,6 @@ sudo -v
 ##########################
 
 apps=(
-    calibre                 # Managing ebooks
     curl                    # Make sure curl is installed
     entr                    # Rebuild project if sources change
     exfat-fuse              # exFat
@@ -37,6 +36,7 @@ apps=(
     translate-shell         # Command-line translator
     ufw                     # Firewall
     xsel                    # Clipboard support in cli
+    yakuake                 # Konsole but Quake style
     zsh                     # Shell
     zsh-syntax-highlighting # Syntax highlighting for zsh
 )
