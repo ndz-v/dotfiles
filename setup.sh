@@ -51,7 +51,7 @@ sudo apt-get install -y "${apps[@]}" || true
 if type "pip3" &>/dev/null; then
     pip3 install youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3
 
-    echo '--output "$HOME/Downloads/%(title)s.%(ext)s"' >"/home/$USER/.config/youtube-dl.conf"
+    echo '--output '"$HOME/Downloads/%(title)s.%(ext)s" >"/home/$USER/.config/youtube-dl.conf"
 fi
 
 ####################
