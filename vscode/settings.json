@@ -80,7 +80,6 @@
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "git.untrackedChanges": "separate",
-  "window.zoomLevel": 0,
   // ###############
   // ## Languages ##
   // ###############

@@ -24,6 +24,7 @@ Environment=TERM=xterm-256color,COLORTERM=truecolor
 Icon=utilities-terminal
 LocalTabTitleFormat=%d : %n
 Name=Profile 1
+Parent=FALLBACK/
 RemoteTabTitleFormat=(%u) %H
 ShowTerminalSizeHint=true
 SilenceSeconds=10
@@ -38,18 +39,18 @@ AllowEscapedLinks=false
 AlternateScrolling=true
 AutoCopySelectedText=false
 CopyTextAsHTML=true
-CtrlRequiredForDrag=true
+CtrlRequiredForDrag=false
 DropUrlsAsText=true
 EscapedLinksSchema=http://;https://;file://
 MiddleClickPasteMode=0
 MouseWheelZoomEnabled=true
-OpenLinksByDirectClickEnabled=false
+OpenLinksByDirectClickEnabled=true
 PasteFromClipboardEnabled=false
 PasteFromSelectionEnabled=true
-TrimLeadingSpacesInSelectedText=false
-TrimTrailingSpacesInSelectedText=false
+TrimLeadingSpacesInSelectedText=true
+TrimTrailingSpacesInSelectedText=true
 TripleClickMode=0
-UnderlineFilesEnabled=false
+UnderlineFilesEnabled=true
 UnderlineLinksEnabled=true
 WordCharacters=:@-./_~?&=%+#
 
@@ -59,7 +60,7 @@ KeyBindings=default
 [Scrolling]
 HighlightScrolledLines=true
 HistoryMode=1
-HistorySize=1000
+HistorySize=2000
 ScrollBarPosition=1
 ScrollFullPage=false
 
