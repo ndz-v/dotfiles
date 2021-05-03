@@ -172,26 +172,18 @@ echo "export ELECTRON_TRASH=gio" >"$HOME/.config/plasma-workspace/env/electron-t
 ###########################
 
 # git
-gitconfig="$HOME/dev/dotfiles/git/.gitconfig"
-gitconfig_location="$HOME/.gitconfig"
-ln -sfn "$gitconfig" "$gitconfig_location"
+ln -sfn "$HOME/dev/dotfiles/git/.gitconfig" "$gitconfig_location" "$HOME/.gitconfig"
 
 # Konsole
-konsole="$HOME/dev/dotfiles/kon_and_yak/konsole"
-konsole_location="$HOME/.local/share/konsole"
-rm -rf "$konsole_location"
-ln -sfn "$konsole" "$konsole_location"
+rm -rf "$HOME/.local/share/konsole"
+ln -sfn "$HOME/dev/dotfiles/kon_and_yak/konsole" "$HOME/.local/share/konsole"
 
 # Yakuake
-yakuake="$HOME/dev/dotfiles/kon_and_yak/yakuakerc"
-yakuake_location="$HOME/.config/yakuakerc"
-rm "$yakuake_location"
-ln -sfn "$yakuake" "$yakuake_location"
+rm "$HOME/.config/yakuakerc"
+ln -sfn "$HOME/dev/dotfiles/kon_and_yak/yakuakerc" "$HOME/.config/yakuakerc"
 
 # nano
-nanorc="$HOME/dev/dotfiles/nano/.nanorc"
-nanorc_location="$HOME/.nanorc"
-ln -sfn "$nanorc" "$nanorc_location"
+ln -sfn "$HOME/dev/dotfiles/nano/.nanorc" "$HOME/.nanorc"
 
 # neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -199,35 +191,20 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 nvim_config_dir="$HOME/.config/nvim"
 [ -d "$nvim_config_dir" ] || mkdir -p "$nvim_config_dir"
 
-neovim_init="$HOME/dev/dotfiles/nvim/init.vim"
-coc_settings="$HOME/dev/dotfiles/nvim/coc-settings.json"
-plug_config="$HOME/dev/dotfiles/nvim/plug-config"
-
-neovim_init_location="$HOME/.config/nvim/init.vim"
-coc_settings_location="$HOME/.config/nvim/coc-settings.json"
-plug_config_location="$HOME/.config/nvim/plug-config"
-
-ln -sfn "$neovim_init" "$neovim_init_location"
-ln -sfn "$coc_settings" "$coc_settings_location"
-ln -sfn "$plug_config" "$plug_config_location"
+ln -sfn "$HOME/dev/dotfiles/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+ln -sfn "$HOME/dev/dotfiles/nvim/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
+ln -sfn "$HOME/dev/dotfiles/nvim/plug-config" "$HOME/.config/nvim/plug-config"
 
 # VS Code
-vscode_settings="$HOME/dev/dotfiles/vscode/settings.json"
-vscode_settings_location="$HOME/.config/Code/User/settings.json"
-ln -sfn "$vscode_settings" "$vscode_settings_location"
+ln -sfn "$HOME/dev/dotfiles/vscode/settings.json" "$HOME/.config/Code/User/settings.json"
+ln -sfn "$HOME/dev/dotfiles/vscode/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
 
-vscode_keybindings="$HOME/dev/dotfiles/vscode/keybindings.json"
-vscode_keybindings_location="$HOME/.config/Code/User/keybindings.json"
-ln -sfn "$vscode_keybindings" "$vscode_keybindings_location"
+# Latte Dock
+ln -sfn "$HOME/dev/dotfiles/lattedock/lattedockrc" "$HOME/.config/lattedockrc"
+ln -sfn "$HOME/dev/dotfiles/lattedock/Default.layout.latte" "$HOME/.config/latte/Default.layout.latte"
 
 # zsh
-zshrc="$HOME/dev/dotfiles/zsh/.zshrc"
-zshrc_location="$HOME/.zshrc"
-ln -sfn "$zshrc" "$zshrc_location"
-
-theme="$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
-theme_location="$HOME/.oh-my-zsh/themes/nidzo.zsh-theme"
-ln -sfn "$theme" "$theme_location"
+ln -sfn "$HOME/dev/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 
 # Add .git folder to dotfiles
 cd "$HOME/dev/dotfiles" || return
