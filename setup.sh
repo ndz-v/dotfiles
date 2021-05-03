@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-###############################
-## Ask for admin credentials ##
-###############################
+sudo -v # sk for admin credentials
 
-sudo -v
+sudo apt-get update
+sudo apt-get upgrade
 
 ##########################
 ## Install apt packages ##
@@ -86,8 +85,10 @@ rm "$package"
 #######################
 ## Install Oh-My-zsh ##
 #######################
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" # install zsh-autosuggestions plugin
+
 ###############################
 ## Install libinput-gestures ##
 ###############################
@@ -213,17 +214,19 @@ git clone --bare https://github.com/ndz-v/dotfiles.git .git
 # Change remote url of dotfiles
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
-#######################
+######################
 ## Disable Services ##
-#######################
+######################
+
 sudo systemctl disable NetworkManager-wait-online.service # Not needed service, decreases boot time
 sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
 sudo systemctl disable bluetooth.service
 sudo systemctl disable postgresql.service
 
-#######################
+##################
 ## Remove snapd ##
-#######################
+##################
+
 sudo rm -rf /snap
 sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
