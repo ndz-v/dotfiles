@@ -134,29 +134,26 @@ fi
 if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
+        bierner.markdown-mermaid
         eamodio.gitlens
-        EFanZh.graphviz-preview
         foxundermoon.shell-format
-        geeklearningio.graphviz-markdown-preview
-        humao.rest-client
         James-Yu.latex-workshop
-        jmrog.vscode-nuget-package-manager
-        joaompinto.vscode-graphviz
         mads-hartmann.bash-ide-vscode
         ms-dotnettools.csharp
+        ms-dotnettools.dotnet-interactive-vscode
         ms-python.python
-        ms-python.vscode-pylance
         ms-toolsai.jupyter
-        ms-vscode-remote.remote-ssh
-        ms-vscode-remote.remote-ssh-edit
         ms-vscode.cpptools
         PKief.material-icon-theme
+        streetsidesoftware.code-spell-checker
+        streetsidesoftware.code-spell-checker-german
         sumneko.lua
         timonwong.shellcheck
         Tyriar.sort-lines
         valentjn.vscode-ltex
         VisualStudioExptTeam.vscodeintellicode
         vmsynkov.colonize
+        XadillaX.viml
         yycalm.linecount
         zhuangtongfa.material-theme
     )
