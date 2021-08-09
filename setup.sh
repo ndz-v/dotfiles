@@ -9,6 +9,9 @@ sudo apt-get upgrade
 ## Install apt packages ##
 ##########################
 
+apt-add-repository ppa:git-core/ppa
+sudo apt-get update
+
 apps=(
     curl                    # Make sure curl is installed
     entr                    # Rebuild project if sources change
