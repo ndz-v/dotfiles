@@ -23,5 +23,13 @@
         "key": "alt+z",
         "command": "-zoterolatex.addCitation",
         "when": "editorTextFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "alt+n",
+        "command": "extension.advancedNewFile",
+    },
+    {
+        "key": "alt+meta+c",
+        "command": "workbench.action.toggleCenteredLayout"
     }
 ]
