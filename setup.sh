@@ -51,7 +51,7 @@ sudo apt-get install -y "${apps[@]}" || true
 
 # Check if pip3 is installed
 if type "pip3" &>/dev/null; then
-    pip3 install youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3
+    pip3 install --user youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3
 
     echo '--output '"$HOME/Downloads/%(title)s.%(ext)s" >"/home/$USER/.config/youtube-dl.conf"
 fi
@@ -137,17 +137,20 @@ fi
 if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
-        bierner.markdown-mermaid
         eamodio.gitlens
         foxundermoon.shell-format
         James-Yu.latex-workshop
         mads-hartmann.bash-ide-vscode
+        ms-azuretools.vscode-docker
         ms-dotnettools.csharp
         ms-dotnettools.dotnet-interactive-vscode
         ms-python.python
+        ms-python.vscode-pylance
         ms-toolsai.jupyter
+        ms-toolsai.jupyter-keymap
         ms-vscode.cpptools
         PKief.material-icon-theme
+        rangav.vscode-thunder-client
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         sumneko.lua
@@ -156,8 +159,7 @@ if type "code" &>/dev/null; then
         valentjn.vscode-ltex
         VisualStudioExptTeam.vscodeintellicode
         vmsynkov.colonize
-        XadillaX.viml
-        yycalm.linecount
+        yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
     )
     for extension in ${extensions[*]}; do
