@@ -26,6 +26,7 @@
     "editor.suggestSelection": "first",
     "editor.fontLigatures": false,
     "editor.semanticHighlighting.enabled": true,
+    "editor.suggest.preview": true,
     "editor.tokenColorCustomizations": {
         "[One Dark Pro]": {
             "textMateRules": [
@@ -122,8 +123,11 @@
         "*.ipynb": "jupyter-notebook",
         "*.pdf": "default"
     },
+    "python.analysis.extraPaths": [
+        "~/.local/lib/python3.9/site-packages"
+    ],
+    "python.analysis.completeFunctionParens": true,
     "security.workspace.trust.enabled": false,
-    "editor.suggest.preview": true,
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
