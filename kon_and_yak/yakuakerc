@@ -1,24 +1,16 @@
 [Animation]
-Frames=1
-
+Frames=0
 [Appearance]
-BackgroundColor=18,38,55
 Blur=true
-
 [Desktop Entry]
 DefaultProfile=Profile 1.profile
 
 [Dialogs]
 FirstRun=false
 
-[DownloadDialog Settings]
-HDMI-1 Height 2560x1440=805
-HDMI-1 Width 2560x1440=935
-
-[KFileDialog Settings]
-detailViewIconSize=16
-
 [Window]
 Height=100
 Position=100
+ShowTabBar=false
+ShowTitleBar=false
 Width=50
