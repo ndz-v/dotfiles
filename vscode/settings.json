@@ -49,13 +49,7 @@
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontFamily": "hack",
-    "terminal.integrated.defaultProfile.linux": "/bin/zsh (migrated)",
-    "terminal.integrated.profiles.linux": {
-        "/bin/zsh (migrated)": {
-            "path": "/bin/zsh",
-            "args": []
-        }
-    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
     // ###########
     // ## Style ##
     // ###########
