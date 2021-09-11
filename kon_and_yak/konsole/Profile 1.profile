@@ -37,7 +37,7 @@ TerminalRows=28
 [Interaction Options]
 AllowEscapedLinks=false
 AlternateScrolling=true
-AutoCopySelectedText=false
+AutoCopySelectedText=true
 CopyTextAsHTML=true
 CtrlRequiredForDrag=false
 DropUrlsAsText=true
@@ -47,6 +47,8 @@ MouseWheelZoomEnabled=true
 OpenLinksByDirectClickEnabled=true
 PasteFromClipboardEnabled=false
 PasteFromSelectionEnabled=true
+TextEditorCmd=6
+TextEditorCmdCustom=code PATH:LINE:COLUMN
 TrimLeadingSpacesInSelectedText=true
 TrimTrailingSpacesInSelectedText=true
 TripleClickMode=0
