@@ -1,17 +1,29 @@
+[LatteSettingsDialog]
+downloadWindowSize=980,600
+windowSize=1100,750
+
+[LatteSettingsDialog][TabLayouts]
+columnWidths=49,508,129,104
+sortColumn=3
+sortOrder=0
+
 [PlasmaThemeExtended]
 outlineWidth=1
 
 [ScreenConnectors]
-10=HDMI-1
-11=eDP-1
-12=eDP-1-1
-13=HDMI-1-1
+10=HDMI-1:::0,0 2560x1440
+11=eDP-1:::0,0 1920x1080
+12=eDP-1-1:::0,0 1920x1080
+13=HDMI-1-1:::0,0 1920x1080
 
 [UniversalSettings]
 badges3DStyle=false
 canDisableBorders=false
+contextMenuActionsAlwaysShown=
 currentLayout=Default
 downloadWindowSize=800,550
+inAdvancedModeForEditSettings=true
+isAvailableGeometryBroadcastedToPlasma=true
 lastNonAssignedLayout=Default
 launchers=
 layoutsColumnWidths=112,70,63,0
@@ -21,4 +33,5 @@ metaPressAndHoldEnabled=true
 mouseSensitivity=2
 screenTrackerInterval=2500
 showInfoWindow=true
+singleModeLayoutName=Default
 version=2
