@@ -175,7 +175,7 @@ echo "export ELECTRON_TRASH=gio" >"$HOME/.config/plasma-workspace/env/electron-t
 ###########################
 
 # git
-ln -sfn "$HOME/dev/dotfiles/git/.gitconfig" "$gitconfig_location" "$HOME/.gitconfig"
+ln -sfn "$HOME/dev/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 
 # Konsole
 rm -rf "$HOME/.local/share/konsole"
