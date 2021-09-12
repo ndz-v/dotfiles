@@ -57,7 +57,7 @@
     "workbench.editor.decorations.badges": true,
     "workbench.editor.wrapTabs": true,
     "workbench.settings.useSplitJSON": true,
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.panel.defaultLocation": "right",
@@ -105,7 +105,7 @@
     ],
     "omnisharp.enableRoslynAnalyzers": true,
     "python.autoComplete.addBrackets": true,
-    "python.languageServer": "Default",
+    "python.languageServer": "Pylance",
     "python.autoComplete.extraPaths": [
         "~/.local/lib/python3.9/site-packages"
     ],

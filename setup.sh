@@ -2,15 +2,15 @@
 
 sudo -v # sk for admin credentials
 
-sudo apt-get update
-sudo apt-get upgrade
-
 ##########################
 ## Install apt packages ##
 ##########################
 
-apt-add-repository ppa:git-core/ppa
+apt-add-repository ppa:git-core/ppa         # Get newest git version
+sudo add-apt-repository ppa:mozillateam/ppa # Get newest Firefox and Thunderbird version
+
 sudo apt-get update
+sudo apt-get upgrade
 
 APPS=(
     curl                    # Make sure curl is installed
