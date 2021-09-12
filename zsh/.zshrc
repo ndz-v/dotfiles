@@ -9,6 +9,7 @@ export plugins=(
   node
   npm
   zsh-autosuggestions
+  sudo
 )
 
 source "$HOME/.profile"
