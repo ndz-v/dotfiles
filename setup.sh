@@ -8,6 +8,7 @@ sudo -v # sk for admin credentials
 
 apt-add-repository ppa:git-core/ppa         # Get newest git version
 sudo add-apt-repository ppa:mozillateam/ppa # Get newest Firefox and Thunderbird version
+sudo add-apt-repository ppa:libreoffice/ppa # Get newest libreoffice version
 
 sudo apt-get update
 sudo apt-get upgrade
