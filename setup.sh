@@ -6,9 +6,10 @@ sudo -v # sk for admin credentials
 ## Install apt packages ##
 ##########################
 
-apt-add-repository ppa:git-core/ppa         # Get newest git version
-sudo add-apt-repository ppa:mozillateam/ppa # Get newest Firefox and Thunderbird version
-sudo add-apt-repository ppa:libreoffice/ppa # Get newest libreoffice version
+sudo add-apt-repository ppa:kubuntu-ppa/backports # Get newest kde version
+sudo add-apt-repository ppa:git-core/ppa          # Get newest git version
+sudo add-apt-repository ppa:mozillateam/ppa       # Get newest Firefox and Thunderbird version
+sudo add-apt-repository ppa:libreoffice/ppa       # Get newest libreoffice version
 
 sudo apt-get update
 sudo apt-get upgrade
