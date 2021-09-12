@@ -22,13 +22,11 @@ export EDITOR=nvim # Ctrl + x Ctrl + e
 export FCEDIT=nvim # fc in cli
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
-[ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$HOME/dev/dotfiles/scripts:$PATH && source "$HOME/dev/dotfiles/scripts/goto.sh"
+[ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$PATH:$HOME/dev/dotfiles/scripts && source "$HOME/dev/dotfiles/scripts/goto.sh"
 [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
-[ -d "$HOME/.dev-binaries/jdk" ] && export PATH=$HOME/.dev-binaries/jdk/bin:$PATH && export JAVA_HOME=/home/nidzo/.dev-binaries/jdk
-[ -d "/opt/gradle-6.8.3" ] && export PATH=$PATH:/opt/gradle-6.8.3/bin
-[ -d "$HOME/.dotnet/tools" ] && export PATH=~/.dotnet/tools:$PATH
-[ -d "$HOME/.local/bin" ] && export PATH=~/.local/bin:$PATH
-[ -d "$HOME/.npm-global/bin" ] && export PATH=~/.npm-global/bin:$PATH # npm config set prefix '~/.npm-global'
+[ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools
+[ -d "$HOME/.local/bin" ] && export PATH=$PATH:~/.local/bin
+[ -d "$HOME/.npm-global/bin" ] && export PATH=$PATH:~/.npm-global/bin # npm config set prefix '~/.npm-global'
 
 # Lazy stuff
 alias ai="sudo apt install" \
