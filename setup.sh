@@ -14,7 +14,7 @@ sudo add-apt-repository ppa:libreoffice/ppa       # Get newest libreoffice versi
 sudo apt-get update
 sudo apt-get upgrade
 
-APPS=(
+apps=(
     curl                    # Make sure curl is installed
     entr                    # Rebuild project if sources change
     exfat-fuse              # exFat
@@ -45,7 +45,7 @@ APPS=(
     zsh-syntax-highlighting # Syntax highlighting for zsh
 )
 
-sudo apt-get install -y "${APPS[@]}" || true
+sudo apt-get install -y "${apps[@]}" || true
 
 ##########################################
 ## Install youtube-dl, pylint, autopep8 ##
@@ -70,22 +70,22 @@ sudo apt-get install -y nodejs
 ####################
 
 # Create the url
-URL_PART1="https://github.com"
-TEMPVAR=$(curl "$URL_PART1/jgm/pandoc/releases")
+url_part1="https://github.com"
+tempvar=$(curl "$url_part1/jgm/pandoc/releases")
 
 # Get the first link with a .deb file ending, it's the latest pandoc linux release
-URL_PART2=$(echo "$TEMPVAR" | sed -n '/amd64.deb/p' | awk '/<a href/{print $2;exit;}' | sed 's/href=//; s/\"//g')
+url_part2=$(echo "$tempvar" | sed -n '/amd64.deb/p' | awk '/<a href/{print $2;exit;}' | sed 's/href=//; s/\"//g')
 
 # Download pandoc
-wget "$URL_PART1$URL_PART2"
+wget "$url_part1$url_part2"
 
 # Install pandoc
-PACKAGE=$(ls ./*.deb)
-sudo dpkg -i "$PACKAGE"
+package=$(ls ./*.deb)
+sudo dpkg -i "$package"
 sudo apt-get install -f
 
 # Delete .deb file
-rm "$PACKAGE"
+rm "$package"
 
 #######################
 ## Install Oh-My-zsh ##
@@ -137,7 +137,7 @@ fi
 
 # Install VS Code extensions
 if type "code" &>/dev/null; then
-    EXTENSIONS=(
+    extensions=(
         albert.TabOut
         eamodio.gitlens
         foxundermoon.shell-format
@@ -164,8 +164,8 @@ if type "code" &>/dev/null; then
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
     )
-    for EXTENSION in ${EXTENSIONS[*]}; do
-        code --install-extension "$EXTENSION"
+    for extension in ${extensions[*]}; do
+        code --install-extension "$extension"
     done
 fi
 
@@ -176,46 +176,46 @@ echo "export ELECTRON_TRASH=gio" >"$HOME/.config/plasma-workspace/env/electron-t
 ## Create symbolic links ##
 ###########################
 
-DOTFILES_DIR="$HOME/dev/dotfiles"
-CONFIG_DIR="$HOME/.config"
+dotfiles_dir="$HOME/dev/dotfiles"
+config_dir="$HOME/.config"
 
 # git
-ln -sfn "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
+ln -sfn "$dotfiles_dir/git/.gitconfig" "$HOME/.gitconfig"
 
 # Konsole
 rm -rf "$HOME/.local/share/konsole"
-ln -sfn "$DOTFILES_DIR/kon_and_yak/konsole" "$HOME/.local/share/konsole"
+ln -sfn "$dotfiles_dir/kon_and_yak/konsole" "$HOME/.local/share/konsole"
 
 # Yakuake
-rm "$CONFIG_DIR/yakuakerc"
-ln -sfn "$DOTFILES_DIR/kon_and_yak/yakuakerc" "$CONFIG_DIR/yakuakerc"
+rm "$config_dir/yakuakerc"
+ln -sfn "$dotfiles_dir/kon_and_yak/yakuakerc" "$config_dir/yakuakerc"
 
 # nano
-ln -sfn "$DOTFILES_DIR/nano/.nanorc" "$HOME/.nanorc"
+ln -sfn "$dotfiles_dir/nano/.nanorc" "$HOME/.nanorc"
 
 # neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-NVIM_CONFIG_DIR="$CONFIG_DIR/nvim"
-[ -d "$NVIM_CONFIG_DIR" ] || mkdir -p "$NVIM_CONFIG_DIR"
+nvim_config_dir="$config_dir/nvim"
+[ -d "$nvim_config_dir" ] || mkdir -p "$nvim_config_dir"
 
-ln -sfn "$DOTFILES_DIR/nvim/init.vim" "$CONFIG_DIR/nvim/init.vim"
-ln -sfn "$DOTFILES_DIR/nvim/coc-settings.json" "$CONFIG_DIR/nvim/coc-settings.json"
-ln -sfn "$DOTFILES_DIR/nvim/plug-config" "$CONFIG_DIR/nvim/plug-config"
+ln -sfn "$dotfiles_dir/nvim/init.vim" "$config_dir/nvim/init.vim"
+ln -sfn "$dotfiles_dir/nvim/coc-settings.json" "$config_dir/nvim/coc-settings.json"
+ln -sfn "$dotfiles_dir/nvim/plug-config" "$config_dir/nvim/plug-config"
 
 # VS Code
-ln -sfn "$DOTFILES_DIR/vscode/settings.json" "$CONFIG_DIR/Code/User/settings.json"
-ln -sfn "$DOTFILES_DIR/vscode/keybindings.json" "$CONFIG_DIR/Code/User/keybindings.json"
+ln -sfn "$dotfiles_dir/vscode/settings.json" "$config_dir/Code/User/settings.json"
+ln -sfn "$dotfiles_dir/vscode/keybindings.json" "$config_dir/Code/User/keybindings.json"
 
 # Latte Dock
-ln -sfn "$DOTFILES_DIR/lattedock/lattedockrc" "$CONFIG_DIR/lattedockrc"
-ln -sfn "$DOTFILES_DIR/lattedock/Default.layout.latte" "$CONFIG_DIR/latte/Default.layout.latte"
+ln -sfn "$dotfiles_dir/lattedock/lattedockrc" "$config_dir/lattedockrc"
+ln -sfn "$dotfiles_dir/lattedock/Default.layout.latte" "$config_dir/latte/Default.layout.latte"
 
 # zsh
-ln -sfn "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+ln -sfn "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
 
 # Add .git folder to dotfiles
-cd "$DOTFILES_DIR" || return
+cd "$dotfiles_dir" || return
 git clone --bare https://github.com/ndz-v/dotfiles.git .git
 
 # Change remote url of dotfiles
