@@ -26,7 +26,6 @@ export FZF_DEFAULT_OPTS="--layout=reverse"
 [ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$PATH:$HOME/dev/dotfiles/scripts && source "$HOME/dev/dotfiles/scripts/goto.sh"
 [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 [ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools
-[ -d "$HOME/.local/bin" ] && export PATH=$PATH:~/.local/bin
 [ -d "$HOME/.npm-global/bin" ] && export PATH=$PATH:~/.npm-global/bin # npm config set prefix '~/.npm-global'
 
 # Lazy stuff
