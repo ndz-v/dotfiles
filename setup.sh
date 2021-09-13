@@ -15,10 +15,12 @@ sudo apt-get update
 sudo apt-get upgrade
 
 apps=(
+    bat                     # Alternative to cat
     curl                    # Make sure curl is installed
     entr                    # Rebuild project if sources change
     exfat-fuse              # exFat
     exfat-utils             # exFat
+    fd-find                 # Alternative to find
     ffmpeg                  # Needed for youtube-dl to work
     fzf                     # General-purpose command-line fuzzy finder
     git                     # Versioncontrol
@@ -38,6 +40,7 @@ apps=(
     testdisk                # Tool for scanning/repairing disks, undeleting files
     texlive-full            # LaTeX distribution
     translate-shell         # Command-line translator
+    tree                    # Show directory in a tree
     ufw                     # Firewall
     xsel                    # Clipboard support in cli
     yakuake                 # Konsole but Quake style
@@ -57,6 +60,13 @@ if type "pip3" &>/dev/null; then
 
     echo '--output '"$HOME/Downloads/%(title)s.%(ext)s" >"/home/$USER/.config/youtube-dl.conf"
 fi
+
+#################
+## Install fzf ##
+#################
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 ####################
 ## Install nodejs ##
