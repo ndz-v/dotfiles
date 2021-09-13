@@ -2,14 +2,14 @@
 
 export ZSH="/home/$USER/.oh-my-zsh"
 export plugins=(
-  colored-man-pages
-  colorize
-  globalias
-  ng
-  node
-  npm
-  zsh-autosuggestions
-  sudo
+    colored-man-pages
+    colorize
+    globalias
+    ng
+    node
+    npm
+    zsh-autosuggestions
+    sudo
 )
 
 source "$HOME/.profile"
@@ -37,25 +37,26 @@ export FCEDIT=nvim # fc in cli
 
 # Lazy stuff
 alias ai="sudo apt install" \
-  alu="apt list --upgradeable" \
-  aud="sudo apt update" \
-  aug="sudo apt upgrade" \
-  clean="sudo apt autoremove && sudo apt autoclean" \
-  aver="apt-cache policy" \
-  counthere="ls -lAh | wc -l" \
-  dotfiles="code ~/dev/dotfiles" \
-  zshconfig="code ~/dev/dotfiles/zsh/.zshrc" \
-  vim="nvim" \
-  yt="youtube-dl -ic" \
-  yta="youtube-dl -xic --audio-format mp3" \
-  de="trans -d :de" \
-  en="trans -d :en" \
-  sr="trans -d :sr"
+    alu="apt list --upgradeable" \
+    aud="sudo apt update" \
+    aug="sudo apt upgrade" \
+    clean="sudo apt autoremove && sudo apt autoclean" \
+    aver="apt-cache policy" \
+    counthere="ls -lAh | wc -l" \
+    dotfiles="code ~/dev/dotfiles" \
+    zshconfig="code ~/dev/dotfiles/zsh/.zshrc" \
+    vim="nvim" \
+    yt="youtube-dl -ic" \
+    yta="youtube-dl -xic --audio-format mp3" \
+    de="trans -d :de" \
+    en="trans -d :en" \
+    sr="trans -d :sr" \
+    bat=batcat
 
 # PostgreSQL
 if type "psql" &>/dev/null; then
-  alias startpostgres="sudo service postgresql start"
-  alias stoppostgres="sudo service postgresql stop"
+    alias startpostgres="sudo service postgresql start"
+    alias stoppostgres="sudo service postgresql stop"
 fi
 
 # Advanced tab completion
