@@ -16,12 +16,19 @@ source "$HOME/.profile"
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 
-source "/usr/share/doc/fzf/examples/completion.zsh"   # FZF completion
-source "/usr/share/doc/fzf/examples/key-bindings.zsh" # FZF key bindings for terminal
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # FZF completion and key bindings for terminal
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden'
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview='batcat --color=always  {}'"
+
+export FZF_ALT_C_COMMAND='fdfind --type d . --hidden --exclude .git --exclude node_modules'
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+
+export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-height --bind='f2:toggle-preview'"
 
 export EDITOR=nvim # Ctrl + x Ctrl + e
 export FCEDIT=nvim # fc in cli
-export FZF_DEFAULT_OPTS="--layout=reverse"
 
 [ -d "$HOME/dev/dotfiles/scripts" ] && export PATH=$PATH:$HOME/dev/dotfiles/scripts && source "$HOME/dev/dotfiles/scripts/goto.sh"
 [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
