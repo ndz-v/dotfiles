@@ -5,9 +5,6 @@ export plugins=(
     colored-man-pages
     colorize
     globalias
-    ng
-    node
-    npm
     zsh-autosuggestions
     sudo
 )
