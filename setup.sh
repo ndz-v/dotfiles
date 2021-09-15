@@ -18,18 +18,13 @@ apps=(
     bat                     # Alternative to cat
     curl                    # Make sure curl is installed
     entr                    # Rebuild project if sources change
-    exfat-fuse              # exFat
-    exfat-utils             # exFat
     fd-find                 # Alternative to find
     ffmpeg                  # Needed for youtube-dl to work
-    fzf                     # General-purpose command-line fuzzy finder
     git                     # Versioncontrol
     graphviz                # Create graphs
     grub-customizer         # Customize grub with GUI
-    kid3                    # Tagging mp3 files
     latexmk                 # Completely automates the process of generating a LaTeX document
     latte-dock              # Dock for kde plasma desktop
-    libnotify-bin           # Desktop notifications
     lm-sensors              # Read sensors
     neovim                  # Text editor
     postgresql              # Database
