@@ -146,6 +146,7 @@ if type "code" &>/dev/null; then
         albert.TabOut
         eamodio.gitlens
         foxundermoon.shell-format
+        ionutvmi.path-autocomplete
         James-Yu.latex-workshop
         mads-hartmann.bash-ide-vscode
         ms-azuretools.vscode-docker
