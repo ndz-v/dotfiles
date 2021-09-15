@@ -31,5 +31,9 @@
     {
         "key": "alt+meta+c",
         "command": "workbench.action.toggleCenteredLayout"
+    },
+    {
+        "key": "alt+m",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
 ]
