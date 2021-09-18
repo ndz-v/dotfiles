@@ -27,7 +27,6 @@ apps=(
     latte-dock              # Dock for kde plasma desktop
     lm-sensors              # Read sensors
     neovim                  # Text editor
-    postgresql              # Database
     python3-pip             # Python package manager
     ripgrep                 # Search tool
     shellcheck              # script analysis tool
@@ -37,7 +36,6 @@ apps=(
     translate-shell         # Command-line translator
     tree                    # Show directory in a tree
     ufw                     # Firewall
-    xsel                    # Clipboard support in cli
     yakuake                 # Konsole but Quake style
     zsh                     # Shell
     zsh-syntax-highlighting # Syntax highlighting for zsh

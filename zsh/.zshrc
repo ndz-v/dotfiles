@@ -13,15 +13,14 @@ source "$HOME/.profile"
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 
+export LC_CTYPE=en_US.UTF-8
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # FZF completion and key bindings for terminal
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden'
-
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview='batcat --color=always  {}'"
-
 export FZF_ALT_C_COMMAND='fdfind --type d . --hidden --exclude .git --exclude node_modules'
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
-
 export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-height --bind='f2:toggle-preview'"
 
 export EDITOR=nvim # Ctrl + x Ctrl + e
@@ -49,12 +48,6 @@ alias ai="sudo apt install" \
     en="trans -d :en" \
     sr="trans -d :sr" \
     bat=batcat
-
-# PostgreSQL
-if type "psql" &>/dev/null; then
-    alias startpostgres="sudo service postgresql start"
-    alias stoppostgres="sudo service postgresql stop"
-fi
 
 # Advanced tab completion
 setopt auto_menu                                                            # automatically use menu completion
