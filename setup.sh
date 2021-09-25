@@ -2,6 +2,9 @@
 
 sudo -v # sk for admin credentials
 
+dotfiles_dir="$HOME/dev/dotfiles"
+config_dir="$HOME/.config"
+
 ##########################
 ## Install apt packages ##
 ##########################
@@ -90,12 +93,12 @@ sudo apt-get install -f
 # Delete .deb file
 rm "$package"
 
-#######################
-## Install Oh-My-zsh ##
-#######################
+#########################
+## Install zsh plugins ##
+#########################
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" # install zsh-autosuggestions plugin
+git clone git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh"
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$dotfiles_dir/zsh"
 
 ###############################
 ## Install libinput-gestures ##
@@ -180,8 +183,8 @@ echo "export ELECTRON_TRASH=gio" >"$HOME/.config/plasma-workspace/env/electron-t
 ## Create symbolic links ##
 ###########################
 
-dotfiles_dir="$HOME/dev/dotfiles"
-config_dir="$HOME/.config"
+# bat
+sudo ln -sfn /usr/bin/batcat
 
 # git
 ln -sfn "$dotfiles_dir/git/.gitconfig" "$HOME/.gitconfig"
@@ -217,6 +220,7 @@ ln -sfn "$dotfiles_dir/lattedock/Default.layout.latte" "$config_dir/latte/Defaul
 
 # zsh
 ln -sfn "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
+ln -sfn "$dotfiles_dir//zsh/.zshenv" "$HOME/.zshenv"
 
 # Add .git folder to dotfiles
 cd "$dotfiles_dir" || return
