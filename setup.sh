@@ -23,6 +23,7 @@ apps=(
     entr                    # Rebuild project if sources change
     fd-find                 # Alternative to find
     ffmpeg                  # Needed for youtube-dl to work
+    fonts-powerline         # For vim-powerline
     git                     # Versioncontrol
     graphviz                # Create graphs
     grub-customizer         # Customize grub with GUI
@@ -52,10 +53,21 @@ sudo apt-get install -y "${apps[@]}" || true
 
 # Check if pip3 is installed
 if type "pip3" &>/dev/null; then
-    pip3 install --user youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3
+    pip3 install --user youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3 pynvim
 
     echo '--output '"$HOME/Downloads/%(title)s.%(ext)s" >"/home/$USER/.config/youtube-dl.conf"
 fi
+
+##################
+## Install font ##
+##################
+
+git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
+cd nerd-fonts || return
+git sparse-checkout add patched-fonts/Hack
+./install.sh Hack
+rm -r nerd-fonts
+cd "$HOME" || return
 
 #################
 ## Install fzf ##
@@ -70,6 +82,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+npm config set prefix "$HOME/.npm-global"
 
 ####################
 ## Install pandoc ##
