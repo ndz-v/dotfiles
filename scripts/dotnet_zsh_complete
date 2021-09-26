@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-dotnet_zsh_complete() {
-  local completions=("$(dotnet complete "$words")")
-  reply=("${(ps:\n:)completions}")
-}
