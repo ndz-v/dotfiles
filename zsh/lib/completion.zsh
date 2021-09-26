@@ -47,7 +47,7 @@ zstyle ':completion:*' cache-path $ZSH_CACHE_DIR
 # Advanced tab completion
 zstyle ':completion:*' group-name ''                                        # group results by category
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
-zstyle ':autocomplete:*' widget-style menu-select
+zstyle ':autocomplete:*' widget-style complete-word
 
 # Don't complete uninteresting users
 zstyle ':completion:*:*:*:users' ignored-patterns \
@@ -75,6 +75,16 @@ if [[ $COMPLETION_WAITING_DOTS = true ]]; then
   bindkey -M viins "^I" expand-or-complete-with-dots
   bindkey -M vicmd "^I" expand-or-complete-with-dots
 fi
+
+_dotnet_zsh_complete(){
+  local completions=("$(dotnet complete "$words")")
+  reply=( "${(ps:\n:)completions}" )
+}
+
+compctl -K _dotnet_zsh_complete dotnet
+
+eval "$(pip completion --zsh)"
+compctl -K _pip_completion pip3
 
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
