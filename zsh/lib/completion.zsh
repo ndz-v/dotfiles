@@ -81,11 +81,6 @@ _dotnet_zsh_complete(){
   reply=( "${(ps:\n:)completions}" )
 }
 
-compctl -K _dotnet_zsh_complete dotnet
-
-eval "$(pip completion --zsh)"
-compctl -K _pip_completion pip3
-
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
 
