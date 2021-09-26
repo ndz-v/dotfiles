@@ -243,6 +243,14 @@ git clone --bare https://github.com/ndz-v/dotfiles.git .git
 # Change remote url of dotfiles
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
+##################################
+## Install auto sync to usb hdd ##
+##################################
+
+sudo sh -c 'echo "username  ALL=(ALL) NOPASSWD: $HOME/dev/dotfiles/auto_scripts/rsyunc_to_usb.sh" >> /etc/sudoers'
+sudo ln -sfn /home/nidzo/dev/dotfiles/auto_scripts/rsync_up.rules /etc/udev/rules.d/rsync_up.rules
+sudo udevadm control --reload-rules && udevadm trigger
+
 ######################
 ## Disable Services ##
 ######################

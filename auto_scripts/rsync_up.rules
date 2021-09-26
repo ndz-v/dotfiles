@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEMS=="usb", ATTRS{idVendor}=="174c", ATTRS{idProduct}=="1153", RUN+="/home/nidzo/dev/dotfiles/auto_scripts/rsync_to_usb.sh"
