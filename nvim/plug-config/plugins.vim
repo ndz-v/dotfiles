@@ -7,27 +7,24 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-
-
-Plug 'jiangmiao/auto-pairs'     " Auto pairs for ( [ {
-
-Plug 'joshdick/onedark.vim'     " Themes
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
-
-Plug 'sheerun/vim-polyglot' " syntax highlighting for various languages
-
-Plug 'scrooloose/nerdtree'
-Plug 'mhinz/vim-startify'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Plug 'justinmk/vim-sneak'
-
-" Plug 'lervag/vimtex'
-
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'scrooloose/nerdtree'
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat'}
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'}
+    Plug 'jiangmiao/auto-pairs'     " Auto pairs for ( [ {
+    Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+    Plug 'mhinz/vim-startify'
+    Plug 'rbgrouleff/bclose.vim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'sheerun/vim-polyglot' " syntax highlighting for various languages
 call plug#end()
 
 " Automatically install missing plugins on startup
@@ -47,25 +44,3 @@ let g:coc_global_extensions=[
   \ 'coc-sh',
   \ 'coc-texlab',
   \]
-
-
-" enable tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-
-" enable powerline fonts
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-" Switch to your current theme
-let g:airline_theme = 'onedark'
-
-" Always show tabs
-set showtabline=2
-
-" We don't need to see things like -- INSERT -- anymore
-set noshowmode

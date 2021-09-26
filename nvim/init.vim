@@ -7,9 +7,10 @@
 
 
 source $HOME/.config/nvim/plug-config/plugins.vim " Plugins
-source $HOME/.config/nvim/plug-config/coc.vim " Coc config file
-source $HOME/.config/nvim/plug-config/colors.vim " colors
+source $HOME/.config/nvim/plug-config/coc.vim     " Coc config file
+source $HOME/.config/nvim/plug-config/airline.vim " airline
 
+colorscheme material
 syntax enable                           " Enables syntax highlighing
 set number                              " Line numbers
 set relativenumber                      " Relative line numbers
@@ -17,7 +18,7 @@ set autoindent                          " Good auto indent
 set tabstop=2                           " Insert 2 spaces for a tab
 set shiftwidth=4                        " Change the number of space characters inserted for indentation
 set encoding=utf-8                      " The encoding displayed
-set pumheight=10                        " Makes popup menu smaller
+set pumheight=50                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler              			        " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
@@ -30,20 +31,21 @@ set smarttab                            " Makes tabbing smarter will realize you
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
-set laststatus=2                        " Always display the status line
+set laststatus=0                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
-
+set ignorecase                          " ignore case
+set smartcase                           " but don't ignore it, when search string contains uppercase letters
+set completeopt=menu,menuone,noselect
 set showtabline=4                       " Always show tabs
-set noshowmode                          " We don't need to see things like -- INSERT -- anymore
-" set nobackup                            " This is recommended by coc
-" set nowritebackup                       " This is recommended by coc
+" set nobackup                           " This is recommended by coc
+" set nowritebackup                      " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=100                      " Faster completion
 set timeoutlen=100                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
-" set guifont=Fira\ Code\ Nerd\ Font
+set guifont=Hack\ Nerd\ Font\ Mono\
 
 " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -52,3 +54,13 @@ set incsearch
 
 let g:python3_host_prog = '/usr/bin/python3'
 let g:tex_flavor = 'lualatex'
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+map <F2> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
+
+nnoremap <silent> <C-PageDown> :bn<CR>
+nnoremap <silent> <C-PageUp> :bp<CR>
+let g:ranger_map_keys = 0
+" map <C-f> :Ranger<CR>
