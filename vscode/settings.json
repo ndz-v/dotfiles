@@ -130,4 +130,5 @@
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
     "path-autocomplete.triggerOutsideStrings": true,
+    "terminal.integrated.tabs.enabled": false,
 }
