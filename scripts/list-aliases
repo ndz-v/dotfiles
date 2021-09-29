@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-sed -n "s/^\\s*//g; s/^#.*//; /^alias/p; /^$/ d;" "$HOME/.zshrc"
+# s/^\\s*//g => deletes white space in the beginning of the line
+# s/\#.*$// => removes # and every thing after that
+# /^$/ d => delete empty line
+# /^alias/p => prints every line that begins with alias
+sed -n "s/^\\s*//g;s/\#.*$//;/^$/ d;/^alias/p;" "$HOME/dev/dotfiles/zsh/aliases.sh"
