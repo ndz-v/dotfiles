@@ -29,7 +29,6 @@ alias grep='grep --color'
 
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
-alias fd='fdfind . -type d -name'
 alias h='history'
 
 alias p='ps -f'

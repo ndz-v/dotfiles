@@ -21,10 +21,10 @@ source "$HOME/dev/dotfiles/zsh/nidzo.zsh-theme"
 source "$HOME/dev/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # FZF completion and key bindings for terminal
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview='batcat --color=always  {}'"
-export FZF_ALT_C_COMMAND='fdfind --type d . --hidden --exclude .git --exclude node_modules'
+export FZF_ALT_C_COMMAND='fd --type d . --hidden --exclude .git --exclude node_modules'
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-height --bind='f2:toggle-preview'"
 
