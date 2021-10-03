@@ -53,7 +53,7 @@ sudo apt-get install -y "${apps[@]}" || true
 
 # Check if pip3 is installed
 if type "pip3" &>/dev/null; then
-    pip3 install --user youtube-dl pylint autopep8 pandocfilters jupyter pandas eyed3 pynvim
+    pip3 install --user youtube-dl pylint autopep8 pandocfilters jupyter pandas pynvim
 
     echo '--output '"$HOME/Downloads/%(title)s.%(ext)s" >"/home/$USER/.config/youtube-dl.conf"
 fi
@@ -84,6 +84,8 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 npm config set prefix "$HOME/.npm-global"
+
+npm i -g bash-language-server pyright vim-language-server tree-sitter-cli
 
 ####################
 ## Install pandoc ##
@@ -242,6 +244,10 @@ git clone --bare https://github.com/ndz-v/dotfiles.git .git
 
 # Change remote url of dotfiles
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
+
+# fd-find
+sudo rm /usr/bin/fdfind
+sudo ln -sfn /usr/lib/cargo/bin/fd /usr/bin/fd
 
 ##################################
 ## Install auto sync to usb hdd ##
