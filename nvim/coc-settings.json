@@ -1,4 +1,0 @@
-{
-    "latex.build.onSave": true,
-    "latex.forwardSearch.executable": "okular"
-}

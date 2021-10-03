@@ -7,8 +7,14 @@
 
 
 source $HOME/.config/nvim/plug-config/plugins.vim " Plugins
-source $HOME/.config/nvim/plug-config/coc.vim     " Coc config file
 source $HOME/.config/nvim/plug-config/airline.vim " airline
+
+source $HOME/dev/dotfiles/nvim/lua-config/lsp_config.lua
+source $HOME/dev/dotfiles/nvim/lua-config/treesitter_config.lua
+
+source $HOME/dev/dotfiles/nvim/lua-config/signature.lua
+
+
 
 colorscheme material
 syntax enable                           " Enables syntax highlighing
@@ -20,7 +26,7 @@ set shiftwidth=4                        " Change the number of space characters 
 set encoding=utf-8                      " The encoding displayed
 set pumheight=50                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
-set ruler              			        " Show the cursor position all the time
+set ruler                           " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
@@ -35,7 +41,7 @@ set laststatus=0                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
 set ignorecase                          " ignore case
 set smartcase                           " but don't ignore it, when search string contains uppercase letters
-set completeopt=menu,menuone,noselect
+set completeopt=menuone,noselect
 set showtabline=4                       " Always show tabs
 " set nobackup                           " This is recommended by coc
 " set nowritebackup                      " This is recommended by coc
@@ -60,7 +66,18 @@ nnoremap <C-n> :NERDTree<CR>
 map <F2> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
-nnoremap <silent> <C-PageDown> :bn<CR>
-nnoremap <silent> <C-PageUp> :bp<CR>
-let g:ranger_map_keys = 0
+nnoremap <silent> <C-PageDown> :bn<CR> " Next buffer
+nnoremap <silent> <C-PageUp> :bp<CR> " Previous buffer
+" let g:ranger_map_keys = 0
 " map <C-f> :Ranger<CR>
+
+noremap <F3> :Autoformat<CR>
+au BufWrite * :Autoformat
+
+let mapleader = ","
+
+
+nnoremap <leader>p <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>h <cmd>Telescope help_tags<cr>
