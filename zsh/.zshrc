@@ -30,6 +30,14 @@ export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-
 export EDITOR=nvim # Ctrl + x Ctrl + e
 export FCEDIT=nvim # fc in cli
 
+export HISTFILESIZE=100000
+export HISTSIZE=100000
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+
 export PATH=$PATH:$HOME/dev/dotfiles/scripts && source "$HOME/dev/dotfiles/scripts/rsync_functions.sh"
 [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 [ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools
