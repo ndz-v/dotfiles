@@ -6,47 +6,37 @@ dotfiles_dir="$HOME/dev/dotfiles"
 config_dir="$HOME/.config"
 
 ##########################
-## Install apt packages ##
+## Install dnf packages ##
 ##########################
 
-sudo add-apt-repository ppa:git-core/ppa          # Get newest git version
-sudo add-apt-repository ppa:kubuntu-ppa/backports # Get newest kde version
-sudo add-apt-repository ppa:libreoffice/ppa       # Get newest libreoffice version
-sudo add-apt-repository ppa:mozillateam/ppa       # Get newest Firefox and Thunderbird version
-sudo add-apt-repository ppa:neovim-ppa/unstable   #
+sudo dnf update
 
-sudo apt-get update
-sudo apt-get upgrade
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 apps=(
-    bat                     # Alternative to cat
-    curl                    # Make sure curl is installed
-    entr                    # Rebuild project if sources change
-    fd-find                 # Alternative to find
-    ffmpeg                  # Needed for youtube-dl to work
-    fonts-powerline         # For vim-powerline
-    git                     # Versioncontrol
-    graphviz                # Create graphs
-    grub-customizer         # Customize grub with GUI
-    latexmk                 # Completely automates the process of generating a LaTeX document
-    latte-dock              # Dock for kde plasma desktop
-    lm-sensors              # Read sensors
-    neovim                  # Text editor
-    python3-pip             # Python package manager
-    ripgrep                 # Search tool
-    shellcheck              # script analysis tool
-    silversearcher-ag       # Code searching tool
-    testdisk                # Tool for scanning/repairing disks, undeleting files
-    texlive-full            # LaTeX distribution
-    translate-shell         # Command-line translator
-    tree                    # Show directory in a tree
-    ufw                     # Firewall
-    yakuake                 # Konsole but Quake style
-    zsh                     # Shell
-    zsh-syntax-highlighting # Syntax highlighting for zsh
+    ShellCheck          # script analysis tool
+    bat                 # Alternative to cat
+    curl                # Make sure curl is installed
+    entr                # Rebuild project if sources change
+    fd-find             # Alternative to find
+    g++                 # Needed for neovim treesitter
+    git                 # Versioncontrol
+    latte-dock          # Dock for kde plasma desktop
+    neovim              # Text editor
+    pandoc              # Universal markup converter
+    python3-pip         # Python package manager
+    ripgrep             # Search tool
+    the_silver_searcher # Code searching tool
+    testdisk            # Tool for scanning/repairing disks, undeleting files
+    thunderbird         # Mail client
+    translate-shell     # Command-line translator
+    tree                # Show directory in a tree
+    vlc                 # Video and audio player
+    yakuake             # Konsole but Quake style
+    zsh                 # Shell
 )
 
-sudo apt-get install -y "${apps[@]}" || true
+sudo dnf install -y "${apps[@]}" || true
 
 ##########################################
 ## Install youtube-dl, pylint, autopep8 ##
@@ -81,41 +71,18 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ## Install nodejs ##
 ####################
 
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo dnf install nodejs
 
 npm config set prefix "$HOME/.npm-global"
 
-npm i -g bash-language-server pyright vim-language-server tree-sitter-cli
-
-####################
-## Install pandoc ##
-####################
-
-# Create the url
-url_part1="https://github.com"
-tempvar=$(curl "$url_part1/jgm/pandoc/releases")
-
-# Get the first link with a .deb file ending, it's the latest pandoc linux release
-url_part2=$(echo "$tempvar" | sed -n '/amd64.deb/p' | awk '/<a href/{print $2;exit;}' | sed 's/href=//; s/\"//g')
-
-# Download pandoc
-wget "$url_part1$url_part2"
-
-# Install pandoc
-package=$(ls ./*.deb)
-sudo dpkg -i "$package"
-sudo apt-get install -f
-
-# Delete .deb file
-rm "$package"
+npm i -g bash-language-server pyright vim-language-server tree-sitter-cli noevim tree-sitter-cli
 
 #########################
 ## Install zsh plugins ##
 #########################
 
-git clone git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh"
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$dotfiles_dir/zsh"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/zsh-syntax-highlighting"
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$dotfiles_dir/zsh/zsh-autocomplete"
 
 ###############################
 ## Install libinput-gestures ##
@@ -124,12 +91,12 @@ git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$d
 # Check if it's a notebook
 if [ -d "/sys/class/power_supply" ]; then
 
-    sudo apt-get install -y tlp powertop
+    sudo dnf install -y tlp powertop
 
     # Install libinput-gestures for swiping gestures
     if ! type "libinput-gestures" &>/dev/null; then
         sudo gpasswd -a "$USER" input
-        sudo apt-get install -y xdotool wmctrl libinput-tools
+        sudo dnf install -y xdotool wmctrl
 
         cd "$HOME" || return
         git clone https://github.com/bulletmark/libinput-gestures.git
@@ -149,13 +116,10 @@ fi
 
 # Check if code is installed
 if ! type "code" &>/dev/null; then
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
-    sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-    sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-
-    sudo apt-get install -y apt-transport-https
-    sudo apt-get update
-    sudo apt-get install -y code
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+    sudo dnf check-update
+    sudo dnf install code
 fi
 
 # Install VS Code extensions
@@ -200,9 +164,6 @@ echo "export ELECTRON_TRASH=gio" >"$HOME/.config/plasma-workspace/env/electron-t
 ## Create symbolic links ##
 ###########################
 
-# bat
-sudo ln -sfn /usr/bin/batcat
-
 # git
 ln -sfn "$dotfiles_dir/git/.gitconfig" "$HOME/.gitconfig"
 
@@ -241,14 +202,10 @@ ln -sfn "$dotfiles_dir//zsh/.zshenv" "$HOME/.zshenv"
 
 # Add .git folder to dotfiles
 cd "$dotfiles_dir" || return
-git clone --bare https://github.com/ndz-v/dotfiles.git .git
+git clone -b fedora --bare https://github.com/ndz-v/dotfiles.git .git
 
 # Change remote url of dotfiles
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
-
-# fd-find
-sudo rm /usr/bin/fdfind
-sudo ln -sfn /usr/lib/cargo/bin/fd /usr/bin/fd
 
 ##################################
 ## Install auto sync to usb hdd ##
@@ -258,20 +215,15 @@ sudo sh -c 'echo "username  ALL=(ALL) NOPASSWD: $HOME/dev/dotfiles/auto_scripts/
 sudo ln -sfn /home/nidzo/dev/dotfiles/auto_scripts/rsync_up.rules /etc/udev/rules.d/rsync_up.rules
 sudo udevadm control --reload-rules && udevadm trigger
 
+##################
+## Speed up dnf ##
+##################
+
+sudo sh -c 'echo "defaultyes=1\nmax_parallel_downloads=10\nfastestmirror=1" >> /etc/dnf/dnf.conf'
+
 ######################
 ## Disable Services ##
 ######################
 
 sudo systemctl disable NetworkManager-wait-online.service # Not needed service, decreases boot time
 sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
-sudo systemctl disable bluetooth.service
-sudo systemctl disable postgresql.service
-
-##################
-## Remove snapd ##
-##################
-
-sudo rm -rf /snap
-sudo rm -rf /var/snap
-sudo rm -rf /var/lib/snapd
-sudo apt-get remove --purge snapd

@@ -48,7 +48,7 @@
     },
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontFamily": "hack",
+    // "terminal.integrated.fontFamily": "hack",
     "terminal.integrated.defaultProfile.linux": "zsh",
     // ###########
     // ## Style ##
@@ -131,4 +131,12 @@
     },
     "path-autocomplete.triggerOutsideStrings": true,
     "terminal.integrated.tabs.enabled": false,
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "gitlens.codeLens.scopes": [
+            "document"
+        ]
+    },
 }

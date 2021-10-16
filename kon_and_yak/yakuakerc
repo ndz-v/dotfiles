@@ -1,9 +1,11 @@
 [Animation]
 Frames=0
+
 [Appearance]
 Blur=true
+
 [Desktop Entry]
-DefaultProfile=Profile 1.profile
+DefaultProfile=
 
 [Dialogs]
 FirstRun=false

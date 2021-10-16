@@ -1,5 +1,4 @@
-include /usr/share/nano/**/*
-set smooth
+include /usr/share/nano/*
 set autoindent
 set tabsize 4
 set tabstospaces
