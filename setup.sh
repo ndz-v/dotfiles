@@ -44,7 +44,7 @@ sudo dnf install -y "${apps[@]}" || true
 
 # Check if pip3 is installed
 if type "pip3" &>/dev/null; then
-    pip3 install --user youtube-dl pylint autopep8 pandocfilters jupyter pandas pynvim
+    pip3 install --user yt-dlp pylint autopep8 pandocfilters jupyter pandas pynvim
 
     echo '--output '"$HOME/Downloads/%(title)s.%(ext)s" >"/home/$USER/.config/youtube-dl.conf"
 fi
@@ -188,6 +188,7 @@ ln -sfn "$dotfiles_dir/nvim/init.vim" "$config_dir/nvim/init.vim"
 ln -sfn "$dotfiles_dir/nvim/coc-settings.json" "$config_dir/nvim/coc-settings.json"
 ln -sfn "$dotfiles_dir/nvim/plug-config" "$config_dir/nvim/plug-config"
 
+ln -s /lib64/libstdc++.so.6 /lib64/libstdc++.so # Needed for Treesitter to compile
 # VS Code
 ln -sfn "$dotfiles_dir/vscode/settings.json" "$config_dir/Code/User/settings.json"
 ln -sfn "$dotfiles_dir/vscode/keybindings.json" "$config_dir/Code/User/keybindings.json"
