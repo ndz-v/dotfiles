@@ -219,7 +219,7 @@ sudo udevadm control --reload-rules && udevadm trigger
 ## Speed up dnf ##
 ##################
 
-sudo sh -c 'echo "defaultyes=1\nmax_parallel_downloads=10\nfastestmirror=1" >> /etc/dnf/dnf.conf'
+sudo sh -c 'echo -e "defaultyes=1\nmax_parallel_downloads=10\nfastestmirror=1" >> /etc/dnf/dnf.conf'
 
 ######################
 ## Disable Services ##
