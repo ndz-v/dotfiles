@@ -1,23 +1,22 @@
 #! /usrr/bin/env bash
 
 # Lazy stuff
-alias ai="sudo apt install"                             #
-alias alu="apt list --upgradeable"                      #
-alias aud="sudo apt update"                             #
-alias aug="sudo apt upgrade"                            #
-alias clean="sudo apt autoremove && sudo apt autoclean" #
-alias aver="apt-cache policy"                           #
+alias di="sudo dnf install"      #
+alias dcu="dnf check-update"     #
+alias sdu="sudo dnf update"      #
+alias clean="sudo dnf clean all" #
+alias di="dnf info"              #
 
 alias counthere="ls -lAh | wc -l" #
 
 alias dotfiles="code ~/dev/dotfiles"             #
 alias zshconfig="code ~/dev/dotfiles/zsh/.zshrc" #
 
-alias yt="youtube-dl -ic"                      #
-alias yta="youtube-dl -xic --audio-format mp3" #
-alias de="trans -d :de"                        #
-alias en="trans -d :en"                        #
-alias sr="trans -d :sr"                        #
+alias yt="yt-dlp -ic"                      #
+alias yta="yt-dlp -xic --audio-format mp3" #
+alias de="trans -d :de"                    #
+alias en="trans -d :en"                    #
+alias sr="trans -d :sr"                    #
 
 alias l='ls -lFh'   # size,show type,human readable
 alias la='ls -lAFh' # long list,show almost all,show type,human readable
