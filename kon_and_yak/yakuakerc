@@ -5,7 +5,7 @@ Frames=0
 Blur=true
 
 [Desktop Entry]
-DefaultProfile=
+DefaultProfile=Profile 1.profile
 
 [Dialogs]
 FirstRun=false
