@@ -62,7 +62,7 @@ KeyBindings=default
 [Scrolling]
 HighlightScrolledLines=true
 HistoryMode=1
-HistorySize=5000
+HistorySize=10000
 ScrollBarPosition=1
 ScrollFullPage=false
 
