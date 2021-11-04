@@ -60,7 +60,7 @@
     "workbench.colorTheme": "One Dark Pro",
     "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.panel.defaultLocation": "right",
+    "workbench.panel.defaultLocation": "bottom",
     "window.titleBarStyle": "custom",
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
@@ -139,4 +139,5 @@
             "document"
         ]
     },
+    "docker.host": "unix:///run/user/1000/podman/podman.sock",
 }

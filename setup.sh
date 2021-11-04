@@ -57,8 +57,8 @@ git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
 cd nerd-fonts || return
 git sparse-checkout add patched-fonts/Hack
 ./install.sh Hack
-rm -r nerd-fonts
 cd "$HOME" || return
+rm -r nerd-fonts
 
 #################
 ## Install fzf ##
