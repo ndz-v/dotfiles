@@ -19,6 +19,7 @@ apps=(
     curl                # Make sure curl is installed
     entr                # Rebuild project if sources change
     fd-find             # Alternative to find
+    ffmpeg              # Needed for yt-dlp
     g++                 # Needed for neovim treesitter
     git                 # Versioncontrol
     latte-dock          # Dock for kde plasma desktop
@@ -26,8 +27,8 @@ apps=(
     pandoc              # Universal markup converter
     python3-pip         # Python package manager
     ripgrep             # Search tool
-    the_silver_searcher # Code searching tool
     testdisk            # Tool for scanning/repairing disks, undeleting files
+    the_silver_searcher # Code searching tool
     thunderbird         # Mail client
     translate-shell     # Command-line translator
     tree                # Show directory in a tree
