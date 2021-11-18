@@ -139,6 +139,7 @@ if type "code" &>/dev/null; then
         ms-python.vscode-pylance
         ms-toolsai.jupyter
         ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
         ms-vscode.cpptools
         PKief.material-icon-theme
         rangav.vscode-thunder-client
