@@ -16,8 +16,6 @@ rsync_up() {
         rsync "${rsync_args[@]}" "$HOME/dev/" /run/media/nidzo/DATA/all_dev --log-file="$HOME/rsync.log"
 
         rsync "${rsync_args[@]}" --exclude='dotfiles' --delete \
-            "$HOME/.ssh" \
-            "$HOME/.thunderbird" \
             "$HOME/Desktop" \
             "$HOME/Documents" \
             "$HOME/Downloads" \
