@@ -5,6 +5,9 @@ sudo -v # sk for admin credentials
 dotfiles_dir="$HOME/dev/dotfiles"
 config_dir="$HOME/.config"
 
+# Create bootable usb
+# sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
+
 ##########################
 ## Install dnf packages ##
 ##########################
