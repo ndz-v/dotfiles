@@ -1,8 +1,11 @@
 [Animation]
-Frames=0
+Frames=3
 
 [Appearance]
 Blur=true
+
+[Behavior]
+RememberFullscreen=true
 
 [Desktop Entry]
 DefaultProfile=Profile 1.profile
@@ -11,8 +14,8 @@ DefaultProfile=Profile 1.profile
 FirstRun=false
 
 [Window]
+DynamicTabTitles=true
 Height=100
 Position=100
-ShowTabBar=false
 ShowTitleBar=false
 Width=50

@@ -35,7 +35,7 @@ TerminalMargin=1
 TerminalRows=28
 
 [Interaction Options]
-AllowEscapedLinks=false
+AllowEscapedLinks=true
 AlternateScrolling=true
 AutoCopySelectedText=true
 CopyTextAsHTML=true
