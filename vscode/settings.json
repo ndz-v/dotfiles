@@ -50,6 +50,8 @@
     "terminal.integrated.fontSize": 12,
     // "terminal.integrated.fontFamily": "hack",
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.tabs.enabled": false,
+    "terminal.integrated.enablePersistentSessions": false,
     // ###########
     // ## Style ##
     // ###########
@@ -57,7 +59,6 @@
     "workbench.editor.decorations.badges": true,
     "workbench.editor.wrapTabs": true,
     "workbench.settings.useSplitJSON": true,
-    "workbench.colorTheme": "One Dark Pro",
     "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.panel.defaultLocation": "bottom",
@@ -71,8 +72,7 @@
     // ##########
     // ## Misc ##
     // ##########
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "diffEditor.renderSideBySide": true,
     "breadcrumbs.enabled": true,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -104,23 +104,22 @@
         "-y=defaultIndent: '%INDENT%'"
     ],
     "omnisharp.enableRoslynAnalyzers": true,
-    "python.autoComplete.addBrackets": true,
     "python.languageServer": "Pylance",
     "python.autoComplete.extraPaths": [
-        "~/.local/lib/python3.9/site-packages"
+        "~/.local/lib/python3.10/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "~/.local/lib/python3.10/site-packages"
     ],
     "python.formatting.autopep8Args": [
         "--max-line-length=200"
     ],
-    "python.pythonPath": "/usr/bin/python3.9",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook",
         "*.pdf": "default"
     },
-    "python.analysis.extraPaths": [
-        "~/.local/lib/python3.9/site-packages"
-    ],
     "python.analysis.completeFunctionParens": true,
+    "python.linting.pylintEnabled": true,
     "security.workspace.trust.enabled": false,
     "notebook.cellToolbarLocation": {
         "default": "right",
@@ -130,7 +129,6 @@
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
     "path-autocomplete.triggerOutsideStrings": true,
-    "terminal.integrated.tabs.enabled": false,
     "[yaml]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
@@ -140,4 +138,8 @@
         ]
     },
     "docker.host": "unix:///run/user/1000/podman/podman.sock",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "shellcheck.ignorePatterns": {
+        "**/*.zshrc": "false"
+    },
 }
