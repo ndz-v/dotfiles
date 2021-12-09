@@ -3,9 +3,9 @@ zmodload -i zsh/complist
 
 WORDCHARS=''
 
-unsetopt menu_complete # do not autoselect the first completion entry
+unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
-setopt auto_menu # show completion menu on successive tab press
+setopt auto_menu         # show completion menu on successive tab press
 setopt complete_in_word
 setopt always_to_end
 
@@ -44,28 +44,26 @@ zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-dir
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path $ZSH_CACHE_DIR
 
-# Advanced tab completion
-zstyle ':completion:*' group-name ''                                        # group results by category
-zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
-zstyle ':autocomplete:*' widget-style complete-word
-
 # Don't complete uninteresting users
 zstyle ':completion:*:*:*:users' ignored-patterns \
-  adm amanda apache at avahi avahi-autoipd beaglidx bin cacti canna \
-  clamav daemon dbus distcache dnsmasq dovecot fax ftp games gdm \
-  gkrellmd gopher hacluster haldaemon halt hsqldb ident junkbust kdm \
-  ldap lp mail mailman mailnull man messagebus mldonkey mysql nagios \
-  named netdump news nfsnobody nobody nscd ntp nut nx obsrun openvpn \
-  operator pcap polkitd postfix postgres privoxy pulse pvm quagga radvd \
-  rpc rpcuser rpm rtkit scard shutdown squid sshd statd svn sync tftp \
-  usbmux uucp vcsa wwwrun xfs '_*'
+        adm amanda apache at avahi avahi-autoipd beaglidx bin cacti canna \
+        clamav daemon dbus distcache dnsmasq dovecot fax ftp games gdm \
+        gkrellmd gopher hacluster haldaemon halt hsqldb ident junkbust kdm \
+        ldap lp mail mailman mailnull man messagebus  mldonkey mysql nagios \
+        named netdump news nfsnobody nobody nscd ntp nut nx obsrun openvpn \
+        operator pcap polkitd postfix postgres privoxy pulse pvm quagga radvd \
+        rpc rpcuser rpm rtkit scard shutdown squid sshd statd svn sync tftp \
+        usbmux uucp vcsa wwwrun xfs '_*'
 
 # ... unless we really want to.
 zstyle '*' single-ignored show
 
-if [[ $COMPLETION_WAITING_DOTS = true ]]; then
+if [[ ${COMPLETION_WAITING_DOTS:-false} != false ]]; then
   expand-or-complete-with-dots() {
-    print -Pn "%F{red}…%f"
+    # use $COMPLETION_WAITING_DOTS either as toggle or as the sequence to show
+    [[ $COMPLETION_WAITING_DOTS = true ]] && COMPLETION_WAITING_DOTS="%F{red}…%f"
+    # turn off line wrapping and print prompt-expanded "dot" sequence
+    printf '\e[?7l%s\e[?7h' "${(%)COMPLETION_WAITING_DOTS}"
     zle expand-or-complete
     zle redisplay
   }
@@ -75,11 +73,6 @@ if [[ $COMPLETION_WAITING_DOTS = true ]]; then
   bindkey -M viins "^I" expand-or-complete-with-dots
   bindkey -M vicmd "^I" expand-or-complete-with-dots
 fi
-
-_dotnet_zsh_complete(){
-  local completions=("$(dotnet complete "$words")")
-  reply=( "${(ps:\n:)completions}" )
-}
 
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
