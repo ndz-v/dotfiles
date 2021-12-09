@@ -120,6 +120,7 @@
         "*.pdf": "default"
     },
     "python.analysis.completeFunctionParens": true,
+    "python.analysis.diagnosticMode": "workspace",
     "python.linting.pylintEnabled": true,
     "security.workspace.trust.enabled": false,
     "notebook.cellToolbarLocation": {
