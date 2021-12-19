@@ -27,34 +27,20 @@
     "editor.suggestSelection": "first",
     "editor.fontLigatures": false,
     "editor.semanticHighlighting.enabled": true,
-    "editor.tokenColorCustomizations": {
-        "[One Dark Pro]": {
-            "textMateRules": [
-                {
-                    "scope": [
-                        "entity.name.variable.local.cs",
-                        "variable.other.object.cs",
-                        "variable.other.object.property.cs",
-                        "variable.other.readwrite.cs",
-                        "entity.name.variable.field.cs",
-                        "entity.name.variable.parameter.cs"
-                    ],
-                    "settings": {
-                        "foreground": "#d6d8dd"
-                    }
-                }
-            ]
-        }
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
     },
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.fontSize": 12,
-    // "terminal.integrated.fontFamily": "hack",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.tabs.enabled": false,
     "terminal.integrated.enablePersistentSessions": false,
     // ###########
     // ## Style ##
     // ###########
+    "explorer.compactFolders": false,
     "workbench.editor.decorations.colors": true,
     "workbench.editor.decorations.badges": true,
     "workbench.editor.wrapTabs": true,
@@ -62,6 +48,12 @@
     "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.panel.defaultLocation": "bottom",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.closeEmptyGroups": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook",
+        "*.pdf": "default"
+    },
     "window.titleBarStyle": "custom",
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
@@ -77,11 +69,10 @@
     "breadcrumbs.enabled": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "git.untrackedChanges": "separate",
+    "security.workspace.trust.enabled": false,
     // ###############
     // ## Languages ##
     // ###############
-    "javascript.preferences.quoteStyle": "single",
-    "typescript.preferences.quoteStyle": "single",
     "latex-workshop.latex.recipe.default": "first",
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.intellisense.package.enabled": true,
@@ -89,6 +80,9 @@
     "latex-workshop.latex.autoClean.run": "onFailed",
     "latex-workshop.intellisense.update.aggressive.enabled": true,
     "latex-workshop.latex.outDir": "out",
+    "latex-workshop.chktex.run": "onType",
+    "latex-workshop.intellisense.citation.backend": "biblatex",
+    "latex-workshop.latex.pdfWatch.delay": 0,
     "latex-workshop.latex.magic.args": [
         "-output-directory=%OUTDIR%",
         "--shell-escape",
@@ -103,7 +97,7 @@
         "%TMPFILE%",
         "-y=defaultIndent: '%INDENT%'"
     ],
-    "omnisharp.enableRoslynAnalyzers": true,
+    "python.analysis.diagnosticMode": "workspace",
     "python.analysis.autoImportCompletions": true,
     "python.languageServer": "Pylance",
     "python.autoComplete.extraPaths": [
@@ -113,39 +107,20 @@
         "~/.local/lib/python3.10/site-packages"
     ],
     "python.formatting.autopep8Args": [
-        "--max-line-length=200"
+        "--max-line-length=200",
     ],
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook",
-        "*.pdf": "default"
-    },
-    "python.analysis.diagnosticMode": "workspace",
     "python.analysis.completeFunctionParens": true,
     "python.linting.pylintEnabled": true,
-    "pylance.insidersChannel": "daily",
-    "python.insidersChannel": "daily",
-    "security.workspace.trust.enabled": false,
+    "python.linting.pylintArgs": [
+        "--disable=C0111",
+        "--max-line-length=200"
+    ],
+    "notebook.lineNumbers": "on",
     "notebook.cellToolbarLocation": {
         "default": "right",
-        "jupyter-notebook": "left"
+        "jupyter-notebook": "right"
     },
-    "[dockerfile]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "path-autocomplete.triggerOutsideStrings": true,
-    "[yaml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-        "editor.autoIndent": "advanced",
-        "gitlens.codeLens.scopes": [
-            "document"
-        ]
-    },
+    "path-autocomplete.triggerOutsideStrings": false,
     "docker.host": "unix:///run/user/1000/podman/podman.sock",
-    "workbench.colorTheme": "Default Light+",
-    "shellcheck.ignorePatterns": {
-        "**/*.zshrc": "false"
-    },
-    "notebook.lineNumbers": "on",
     "docker.dockerPath": "podman",
 }
