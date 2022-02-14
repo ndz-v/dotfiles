@@ -34,7 +34,10 @@ export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-
 export EDITOR=nvim # Ctrl + x Ctrl + e
 export FCEDIT=nvim # fc in cli
 
-export PATH=$PATH:$HOME/dev/dotfiles/scripts && source "$HOME/dev/dotfiles/scripts/rsync_functions.sh"
+export PATH=$PATH:$HOME/dev/dotfiles/scripts &&
+    source "$HOME/dev/dotfiles/scripts/rsync_functions.sh" &&
+    source "$HOME/dev/dotfiles/scripts/podman-functions.sh"
+
 # [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 # [ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools
 [ -d "$HOME/.npm-global/bin" ] && export PATH=$PATH:~/.npm-global/bin # npm config set prefix '~/.npm-global'

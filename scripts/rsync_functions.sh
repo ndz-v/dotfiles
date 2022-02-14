@@ -5,7 +5,7 @@
 # h human readable numbers
 # a archive mode
 # u skip files that are newer on the reciever
-rsync_args=(-rvhu --exclude node_modules --exclude Debug --exclude publish --exclude bin --exclude out)
+rsync_args=(-rvhu --exclude node_modules --exclude Debug --exclude publish --exclude bin --exclude out --exclude env)
 
 rsync_up() {
     if cut -d' ' -f2 /proc/mounts | \grep -q "/run/media/nidzo/DATA\$"; then
