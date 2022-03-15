@@ -25,6 +25,7 @@ apps=(
     ffmpeg              # Needed for yt-dlp
     g++                 # Needed for neovim treesitter
     git                 # Versioncontrol
+    gscan2pdf           # Scanning software
     latte-dock          # Dock for kde plasma desktop
     neovim              # Text editor
     pandoc              # Universal markup converter
