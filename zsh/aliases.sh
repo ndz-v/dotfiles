@@ -14,9 +14,9 @@ alias zshconfig="code ~/dev/dotfiles/zsh/.zshrc" #
 
 alias yt="yt-dlp -ic"                      #
 alias yta="yt-dlp -xic --audio-format mp3" #
-alias de="trans -d :de"                    #
-alias en="trans -d :en"                    #
-alias sr="trans -d :sr"                    #
+alias de="trans :de"                       #
+alias en="trans :en"                       #
+alias sr="trans :sr"                       #
 
 alias l='ls -lFh'   # size,show type,human readable
 alias la='ls -lAFh' # long list,show almost all,show type,human readable

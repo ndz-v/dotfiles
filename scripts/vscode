@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-dir_to_open="$(find ~ -type d | fzf)"
+dir_to_open="$(fd --type d . | fzf)"
 
 if [ -n "$dir_to_open" ]; then
     code "$dir_to_open"

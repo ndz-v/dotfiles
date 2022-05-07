@@ -19,6 +19,7 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 apps=(
     ShellCheck          # script analysis tool
     bat                 # Alternative to cat
+    cifs-utils          # Access to network drives with cli
     curl                # Make sure curl is installed
     entr                # Rebuild project if sources change
     fd-find             # Alternative to find
@@ -29,8 +30,10 @@ apps=(
     latte-dock          # Dock for kde plasma desktop
     neovim              # Text editor
     pandoc              # Universal markup converter
+    podman              # Run containers
     python3-pip         # Python package manager
     ripgrep             # Search tool
+    samba               # Access to network drives
     testdisk            # Tool for scanning/repairing disks, undeleting files
     the_silver_searcher # Code searching tool
     thunderbird         # Mail client
@@ -78,9 +81,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 sudo dnf install nodejs
 
-npm config set prefix "$HOME/.npm-global"
+# npm config set prefix "$HOME/.npm-global"
 
-npm i -g bash-language-server pyright vim-language-server tree-sitter-cli noevim tree-sitter-cli
+# npm i -g bash-language-server pyright vim-language-server tree-sitter-cli noevim tree-sitter-cli
 
 #########################
 ## Install zsh plugins ##
@@ -138,15 +141,17 @@ if type "code" &>/dev/null; then
         mads-hartmann.bash-ide-vscode
         ms-azuretools.vscode-docker
         ms-dotnettools.csharp
-        ms-dotnettools.dotnet-interactive-vscode
         ms-python.python
         ms-python.vscode-pylance
         ms-toolsai.jupyter
         ms-toolsai.jupyter-keymap
         ms-toolsai.jupyter-renderers
-        ms-vscode.cpptools
+        ms-vscode-remote.remote-containers
+        ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-ssh-edit
         PKief.material-icon-theme
-        rangav.vscode-thunder-client
+        redhat.ansible
+        redhat.vscode-yaml
         streetsidesoftware.code-spell-checker
         streetsidesoftware.code-spell-checker-german
         sumneko.lua
@@ -158,7 +163,7 @@ if type "code" &>/dev/null; then
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
     )
-    for extension in ${extensions[*]}; do
+    for extension in "${extensions[@]}"; do
         code --install-extension "$extension"
     done
 fi
@@ -185,16 +190,17 @@ ln -sfn "$dotfiles_dir/kon_and_yak/yakuakerc" "$config_dir/yakuakerc"
 ln -sfn "$dotfiles_dir/nano/.nanorc" "$HOME/.nanorc"
 
 # neovim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-nvim_config_dir="$config_dir/nvim"
-[ -d "$nvim_config_dir" ] || mkdir -p "$nvim_config_dir"
+# nvim_config_dir="$config_dir/nvim"
+# [ -d "$nvim_config_dir" ] || mkdir -p "$nvim_config_dir"
 
-ln -sfn "$dotfiles_dir/nvim/init.vim" "$config_dir/nvim/init.vim"
-ln -sfn "$dotfiles_dir/nvim/coc-settings.json" "$config_dir/nvim/coc-settings.json"
-ln -sfn "$dotfiles_dir/nvim/plug-config" "$config_dir/nvim/plug-config"
+# ln -sfn "$dotfiles_dir/nvim/init.vim" "$config_dir/nvim/init.vim"
+# ln -sfn "$dotfiles_dir/nvim/coc-settings.json" "$config_dir/nvim/coc-settings.json"
+# ln -sfn "$dotfiles_dir/nvim/plug-config" "$config_dir/nvim/plug-config"
 
-ln -s /lib64/libstdc++.so.6 /lib64/libstdc++.so # Needed for Treesitter to compile
+# ln -s /lib64/libstdc++.so.6 /lib64/libstdc++.so # Needed for Treesitter to compile
+
 # VS Code
 ln -sfn "$dotfiles_dir/vscode/settings.json" "$config_dir/Code/User/settings.json"
 ln -sfn "$dotfiles_dir/vscode/keybindings.json" "$config_dir/Code/User/keybindings.json"
@@ -218,9 +224,9 @@ git remote set-url origin git@github.com:ndz-v/dotfiles.git
 ## Install auto sync to usb hdd ##
 ##################################
 
-sudo sh -c 'echo "username  ALL=(ALL) NOPASSWD: $HOME/dev/dotfiles/auto_scripts/rsyunc_to_usb.sh" >> /etc/sudoers'
-sudo ln -sfn /home/nidzo/dev/dotfiles/auto_scripts/rsync_up.rules /etc/udev/rules.d/rsync_up.rules
-sudo udevadm control --reload-rules && udevadm trigger
+# sudo sh -c 'echo "username  ALL=(ALL) NOPASSWD: $HOME/dev/dotfiles/auto_scripts/rsyunc_to_usb.sh" >> /etc/sudoers'
+# sudo ln -sfn /home/nidzo/dev/dotfiles/auto_scripts/rsync_up.rules /etc/udev/rules.d/rsync_up.rules
+# sudo udevadm control --reload-rules && udevadm trigger
 
 ##################
 ## Speed up dnf ##

@@ -41,15 +41,14 @@
     // ## Style ##
     // ###########
     "explorer.compactFolders": false,
+    "workbench.layoutControl.enabled": true,
     "workbench.editor.decorations.colors": true,
     "workbench.editor.decorations.badges": true,
     "workbench.editor.wrapTabs": true,
     "workbench.settings.useSplitJSON": true,
     "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.panel.defaultLocation": "bottom",
     "workbench.colorTheme": "Default Light+",
-    "workbench.editor.closeEmptyGroups": false,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook",
         "*.pdf": "default"
@@ -112,7 +111,8 @@
     "python.analysis.completeFunctionParens": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
-        "--disable=C0111",
+        "--disable=C0116",
+        "--disable=C0114",
         "--max-line-length=200"
     ],
     "notebook.lineNumbers": "on",
@@ -123,4 +123,6 @@
     "path-autocomplete.triggerOutsideStrings": false,
     "docker.host": "unix:///run/user/1000/podman/podman.sock",
     "docker.dockerPath": "podman",
+    "redhat.telemetry.enabled": false,
+    "workbench.layoutControl.type": "menu",
 }
