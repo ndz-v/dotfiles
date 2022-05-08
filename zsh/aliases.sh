@@ -1,7 +1,7 @@
 #! /usrr/bin/env bash
 
 # Lazy stuff
-alias di="sudo dnf install"      #
+alias din="sudo dnf install"     #
 alias dcu="dnf check-update"     #
 alias sdu="sudo dnf update"      #
 alias clean="sudo dnf clean all" #

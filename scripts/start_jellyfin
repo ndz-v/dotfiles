@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+start_jellyfin() {
+
+    data_path="/run/user/1000/kio-fuse-"*"/smb/fritz.box/FRITZ.NAS/DATA"
+
+    movies_path="$(realpath $data_path)/all_movies"
+
+    podman run \
+        --rm \
+        --detach \
+        --label "io.containers.autoupdate=registry" \
+        --name myjellyfin \
+        --publish 8096:8096/tcp \
+        --volume /home/nidzo/.jellyfin/cache:/cache:Z \
+        --volume /home/nidzo/.jellyfin/config:/config:Z \
+        --volume "$movies_path":/media:ro \
+        docker.io/jellyfin/jellyfin:latest
+}
+
+start_jellyfin

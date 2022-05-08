@@ -8,6 +8,14 @@ config_dir="$HOME/.config"
 # Create bootable usb
 # sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
 
+# update grub configuration
+# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+##################
+## Speed up dnf ##
+##################
+
+sudo sh -c 'echo -e "defaultyes=1\nmax_parallel_downloads=10\nfastestmirror=1" >> /etc/dnf/dnf.conf'
+
 ##########################
 ## Install dnf packages ##
 ##########################
@@ -19,7 +27,6 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 apps=(
     ShellCheck          # script analysis tool
     bat                 # Alternative to cat
-    cifs-utils          # Access to network drives with cli
     curl                # Make sure curl is installed
     entr                # Rebuild project if sources change
     fd-find             # Alternative to find
@@ -33,7 +40,6 @@ apps=(
     podman              # Run containers
     python3-pip         # Python package manager
     ripgrep             # Search tool
-    samba               # Access to network drives
     testdisk            # Tool for scanning/repairing disks, undeleting files
     the_silver_searcher # Code searching tool
     thunderbird         # Mail client
@@ -51,22 +57,20 @@ sudo dnf install -y "${apps[@]}" || true
 ##########################################
 
 # Check if pip3 is installed
-if type "pip3" &>/dev/null; then
-    pip3 install --user yt-dlp pylint autopep8 pandocfilters jupyter pandas pynvim
-
-    echo '--output '"$HOME/Downloads/%(title)s.%(ext)s" >"/home/$USER/.config/youtube-dl.conf"
-fi
+# if type "pip3" &>/dev/null; then
+#     pip3 install --user yt-dlp pylint autopep8 pandocfilters jupyter pandas
+# fi
 
 ##################
 ## Install font ##
 ##################
 
-git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
-cd nerd-fonts || return
-git sparse-checkout add patched-fonts/Hack
-./install.sh Hack
-cd "$HOME" || return
-rm -r nerd-fonts
+# git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
+# cd nerd-fonts || return
+# git sparse-checkout add patched-fonts/Hack
+# ./install.sh Hack
+# cd "$HOME" || return
+# rm -r nerd-fonts
 
 #################
 ## Install fzf ##
@@ -212,13 +216,13 @@ ln -sfn "$dotfiles_dir/lattedock/Default.layout.latte" "$config_dir/latte/Defaul
 # zsh
 ln -sfn "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
 ln -sfn "$dotfiles_dir//zsh/.zshenv" "$HOME/.zshenv"
-
-# Add .git folder to dotfiles
-cd "$dotfiles_dir" || return
-git clone -b fedora --bare https://github.com/ndz-v/dotfiles.git .git
-
-# Change remote url of dotfiles
-git remote set-url origin git@github.com:ndz-v/dotfiles.git
+#
+# # Add .git folder to dotfiles
+# cd "$dotfiles_dir" || return
+# git clone -b fedora --bare https://github.com/ndz-v/dotfiles.git .git
+#
+# # Change remote url of dotfiles
+# git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
 ##################################
 ## Install auto sync to usb hdd ##
@@ -228,15 +232,10 @@ git remote set-url origin git@github.com:ndz-v/dotfiles.git
 # sudo ln -sfn /home/nidzo/dev/dotfiles/auto_scripts/rsync_up.rules /etc/udev/rules.d/rsync_up.rules
 # sudo udevadm control --reload-rules && udevadm trigger
 
-##################
-## Speed up dnf ##
-##################
-
-sudo sh -c 'echo -e "defaultyes=1\nmax_parallel_downloads=10\nfastestmirror=1" >> /etc/dnf/dnf.conf'
-
 ######################
 ## Disable Services ##
 ######################
 
 sudo systemctl disable NetworkManager-wait-online.service # Not needed service, decreases boot time
 sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
+$(dirname $(realpath $(echo %k | sed -e 's/^file:\/\///')))\\/zotero -url %U

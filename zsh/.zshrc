@@ -35,8 +35,7 @@ export EDITOR=nvim # Ctrl + x Ctrl + e
 export FCEDIT=nvim # fc in cli
 
 export PATH=$PATH:$HOME/dev/dotfiles/scripts &&
-    source "$HOME/dev/dotfiles/scripts/rsync_functions.sh" &&
-    source "$HOME/dev/dotfiles/scripts/podman-functions.sh"
+    source "$HOME/dev/dotfiles/scripts/rsync_functions.sh"
 
 # [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 # [ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools
