@@ -12,8 +12,8 @@ start_jellyfin() {
         --label "io.containers.autoupdate=registry" \
         --name myjellyfin \
         --publish 8096:8096/tcp \
-        --volume /home/nidzo/.jellyfin/cache:/cache:Z \
-        --volume /home/nidzo/.jellyfin/config:/config:Z \
+        --volume /home/nidzo/.config/jellyfin/cache:/cache:Z \
+        --volume /home/nidzo/.config/jellyfin/config:/config:Z \
         --volume "$movies_path":/media:ro \
         docker.io/jellyfin/jellyfin:latest
 }

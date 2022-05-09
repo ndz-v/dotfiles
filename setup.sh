@@ -2,7 +2,7 @@
 
 sudo -v # sk for admin credentials
 
-dotfiles_dir="$HOME/dev/dotfiles"
+dotfiles_dir="$HOME/.config/dotfiles"
 config_dir="$HOME/.config"
 
 # Create bootable usb

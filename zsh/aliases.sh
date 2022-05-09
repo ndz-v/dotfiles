@@ -9,8 +9,8 @@ alias di="dnf info"              #
 
 alias counthere="ls -lAh | wc -l" #
 
-alias dotfiles="code ~/dev/dotfiles"             #
-alias zshconfig="code ~/dev/dotfiles/zsh/.zshrc" #
+alias dotfiles="code ~/.config/dotfiles"             #
+alias zshconfig="code ~/.config/dotfiles/zsh/.zshrc" #
 
 alias yt="yt-dlp -ic"                      #
 alias yta="yt-dlp -xic --audio-format mp3" #
