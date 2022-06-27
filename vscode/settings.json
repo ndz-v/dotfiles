@@ -51,14 +51,28 @@
     "workbench.colorTheme": "Default Light+",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook",
-        "*.pdf": "default"
+        "*.pdf": "default",
     },
     "window.titleBarStyle": "custom",
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
     "files.associations": {
-        "*.cls": "latex"
+        "*.cls": "latex",
+        // Ansible
+        "**/defaults/**/*.yml": "jinja-yaml",
+        "**/group_vars/**/*": "jinja-yaml",
+        "**/host_vars/**/*": "jinja-yaml",
+        "**/vars/**/*.yml": "jinja-yaml",
+        "**/tasks/**/*.yml": "ansible",
+        "**/handlers/*.yml": "ansible",
+        "**/meta/*.yml": "ansible",
+        "**/roles/**/*.yml": "ansible",
+        "**/playbooks/**/*.yml": "ansible",
+        "playbook.yml": "ansible",
+        "**/ansible/**/hosts": "ini",
+        "**/ansible/**/inventory": "ini",
+        "ansible.cfg": "ini",
     },
     // ##########
     // ## Misc ##
@@ -99,15 +113,23 @@
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.autoImportCompletions": true,
     "python.languageServer": "Pylance",
+    "black-formatter.args": [
+        "--skip-string-normalization",
+        "--line-length",
+        "100"
+    ],
     "python.autoComplete.extraPaths": [
         "~/.local/lib/python3.10/site-packages"
     ],
     "python.analysis.extraPaths": [
         "~/.local/lib/python3.10/site-packages"
     ],
-    "python.formatting.autopep8Args": [
-        "--max-line-length=200",
-    ],
+    // "python.formatting.autopep8Args": [
+    //     "--max-line-length=200",
+    // ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
     "python.analysis.completeFunctionParens": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
@@ -125,4 +147,5 @@
     "docker.dockerPath": "podman",
     "redhat.telemetry.enabled": false,
     "workbench.layoutControl.type": "menu",
+    "yaml.format.singleQuote": true,
 }
