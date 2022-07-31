@@ -17,5 +17,6 @@ FirstRun=false
 DynamicTabTitles=true
 Height=100
 Position=100
+ShowOnAllDesktops=false
 ShowTitleBar=false
 Width=50

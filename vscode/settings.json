@@ -48,7 +48,7 @@
     "workbench.settings.useSplitJSON": true,
     "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook",
         "*.pdf": "default",
@@ -64,6 +64,7 @@
         "**/group_vars/**/*": "jinja-yaml",
         "**/host_vars/**/*": "jinja-yaml",
         "**/vars/**/*.yml": "jinja-yaml",
+        "hosts.yml": "jinja-yaml",
         "**/tasks/**/*.yml": "ansible",
         "**/handlers/*.yml": "ansible",
         "**/meta/*.yml": "ansible",
@@ -124,15 +125,11 @@
     "python.analysis.extraPaths": [
         "~/.local/lib/python3.10/site-packages"
     ],
-    // "python.formatting.autopep8Args": [
-    //     "--max-line-length=200",
-    // ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "python.analysis.completeFunctionParens": true,
-    "python.linting.pylintEnabled": true,
-    "python.linting.pylintArgs": [
+    "pylint.args": [
         "--disable=C0116",
         "--disable=C0114",
         "--max-line-length=200"
@@ -148,4 +145,5 @@
     "redhat.telemetry.enabled": false,
     "workbench.layoutControl.type": "menu",
     "yaml.format.singleQuote": true,
+    "notebook.output.textLineLimit": 200,
 }
