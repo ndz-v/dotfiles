@@ -2,99 +2,61 @@
     // ############
     // ## Editor ##
     // ############
-    "editor.fontSize": 12,
+    "editor.cursorBlinking": "solid",
     "editor.detectIndentation": true,
-    "editor.formatOnSave": true,
+    "editor.fontSize": 13,
     "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.semanticHighlighting.enabled": true,
+    "editor.smoothScrolling": true,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 160,
-    "editor.suggest.showStatusBar": true,
-    "editor.autoIndent": "advanced",
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.smoothScrolling": true,
-    "editor.renderWhitespace": "all",
-    "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "line",
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": true,
-        "strings": true
-    },
-    "editor.codeActionsOnSave": {
-        "source.fixAll.tslint": true
-    },
-    "editor.suggestSelection": "first",
-    "editor.fontLigatures": false,
-    "editor.semanticHighlighting.enabled": true,
     "[yaml]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
     },
-    "terminal.integrated.showExitAlert": false,
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "terminal.integrated.tabs.enabled": false,
-    "terminal.integrated.enablePersistentSessions": false,
-    // ###########
-    // ## Style ##
-    // ###########
+    // ##############
+    // ## Explorer ##
+    // ##############
     "explorer.compactFolders": false,
-    "workbench.layoutControl.enabled": true,
-    "workbench.editor.decorations.colors": true,
+    // ###########
+    // ## Files ##
+    // ###########
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    // #####################
+    // ## Workbench/Style ##
+    // #####################
+    "workbench.colorTheme": "Breeze Dark",
     "workbench.editor.decorations.badges": true,
+    "workbench.editor.decorations.colors": true,
     "workbench.editor.wrapTabs": true,
-    "workbench.settings.useSplitJSON": true,
-    "workbench.settings.editor": "json",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.layoutControl.enabled": true,
+    "workbench.settings.editor": "json",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook",
         "*.pdf": "default",
     },
+    // ############
+    // ## Window ##
+    // ############
     "window.titleBarStyle": "custom",
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-    "files.associations": {
-        "*.cls": "latex",
-        // Ansible
-        "**/defaults/**/*.yml": "jinja-yaml",
-        "**/group_vars/**/*": "jinja-yaml",
-        "**/host_vars/**/*": "jinja-yaml",
-        "**/vars/**/*.yml": "jinja-yaml",
-        "hosts.yml": "jinja-yaml",
-        "**/tasks/**/*.yml": "ansible",
-        "**/handlers/*.yml": "ansible",
-        "**/meta/*.yml": "ansible",
-        "**/roles/**/*.yml": "ansible",
-        "**/playbooks/**/*.yml": "ansible",
-        "playbook.yml": "ansible",
-        "**/ansible/**/hosts": "ini",
-        "**/ansible/**/inventory": "ini",
-        "ansible.cfg": "ini",
-    },
-    // ##########
-    // ## Misc ##
-    // ##########
-    "telemetry.telemetryLevel": "off",
-    "diffEditor.renderSideBySide": true,
-    "breadcrumbs.enabled": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.untrackedChanges": "separate",
-    "security.workspace.trust.enabled": false,
-    // ###############
-    // ## Languages ##
-    // ###############
+    // ####################
+    // ## Latex Workshop ##
+    // ####################
     "latex-workshop.latex.recipe.default": "first",
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.intellisense.package.enabled": true,
-    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.linting.run": "onType",
+    "latex-workshop.linting.chktex.exec.path": "chktex",
     "latex-workshop.latex.autoClean.run": "onFailed",
     "latex-workshop.intellisense.update.aggressive.enabled": true,
     "latex-workshop.latex.outDir": "out",
-    "latex-workshop.chktex.run": "onType",
     "latex-workshop.intellisense.citation.backend": "biblatex",
     "latex-workshop.latex.pdfWatch.delay": 0,
     "latex-workshop.latex.magic.args": [
@@ -111,6 +73,14 @@
         "%TMPFILE%",
         "-y=defaultIndent: '%INDENT%'"
     ],
+    // ##############
+    // ## Notebook ##
+    // ##############
+    "notebook.output.textLineLimit": 200,
+    "notebook.lineNumbers": "on",
+    // ############
+    // ## Python ##
+    // ############
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.autoImportCompletions": true,
     "python.languageServer": "Pylance",
@@ -134,16 +104,20 @@
         "--disable=C0114",
         "--max-line-length=200"
     ],
-    "notebook.lineNumbers": "on",
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "right"
-    },
-    "path-autocomplete.triggerOutsideStrings": false,
-    "docker.host": "unix:///run/user/1000/podman/podman.sock",
-    "docker.dockerPath": "podman",
+    // ##############
+    // ## Terminal ##
+    // ##############
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.enablePersistentSessions": false,
+    // ###############
+    // ## Telemetry ##
+    // ###############
+    "telemetry.telemetryLevel": "off",
     "redhat.telemetry.enabled": false,
-    "workbench.layoutControl.type": "menu",
-    "yaml.format.singleQuote": true,
-    "notebook.output.textLineLimit": 200,
+    // ##############
+    // ## Security ##
+    // ##############
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.enabled": false,
 }

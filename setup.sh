@@ -138,34 +138,34 @@ fi
 if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
+        christian-kohler.path-intellisense
         eamodio.gitlens
         foxundermoon.shell-format
-        ionutvmi.path-autocomplete
         James-Yu.latex-workshop
+        kde.breeze
         mads-hartmann.bash-ide-vscode
         ms-azuretools.vscode-docker
-        ms-dotnettools.csharp
+        ms-python.black-formatter
+        ms-python.isort
+        ms-python.pylint
         ms-python.python
         ms-python.vscode-pylance
         ms-toolsai.jupyter
         ms-toolsai.jupyter-keymap
         ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
         ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
+        ms-vscode-remote.remote-wsl
+        ms-vscode-remote.vscode-remote-extensionpack
         PKief.material-icon-theme
         redhat.ansible
         redhat.vscode-yaml
-        streetsidesoftware.code-spell-checker
-        streetsidesoftware.code-spell-checker-german
-        sumneko.lua
-        timonwong.shellcheck
         Tyriar.sort-lines
-        valentjn.vscode-ltex
-        VisualStudioExptTeam.vscodeintellicode
         vmsynkov.colonize
         yzhang.markdown-all-in-one
-        zhuangtongfa.material-theme
     )
     for extension in "${extensions[@]}"; do
         code --install-extension "$extension"
