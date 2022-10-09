@@ -1,7 +1,8 @@
 {
-    // ############
-    // ## Editor ##
-    // ############
+    //  Docker
+    "docker.dockerPath": "podman",
+    "docker.host": "unix:///run/user/1000/podman/podman.sock",
+    //  Editor
     "editor.cursorBlinking": "solid",
     "editor.detectIndentation": true,
     "editor.fontSize": 13,
@@ -18,19 +19,13 @@
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
     },
-    // ##############
-    // ## Explorer ##
-    // ##############
+    //  Explorer
     "explorer.compactFolders": false,
-    // ###########
-    // ## Files ##
-    // ###########
+    //  Files
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
-    // #####################
-    // ## Workbench/Style ##
-    // #####################
+    //  Workbench/Style
     "workbench.colorTheme": "Breeze Dark",
     "workbench.editor.decorations.badges": true,
     "workbench.editor.decorations.colors": true,
@@ -42,13 +37,9 @@
         "*.ipynb": "jupyter-notebook",
         "*.pdf": "default",
     },
-    // ############
-    // ## Window ##
-    // ############
+    //  Window
     "window.titleBarStyle": "custom",
-    // ####################
-    // ## Latex Workshop ##
-    // ####################
+    //  Latex Workshop
     "latex-workshop.latex.recipe.default": "first",
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.intellisense.package.enabled": true,
@@ -73,14 +64,10 @@
         "%TMPFILE%",
         "-y=defaultIndent: '%INDENT%'"
     ],
-    // ##############
-    // ## Notebook ##
-    // ##############
+    //  Notebook
     "notebook.output.textLineLimit": 200,
     "notebook.lineNumbers": "on",
-    // ############
-    // ## Python ##
-    // ############
+    //  Python
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.autoImportCompletions": true,
     "python.languageServer": "Pylance",
@@ -104,20 +91,14 @@
         "--disable=C0114",
         "--max-line-length=200"
     ],
-    // ##############
-    // ## Terminal ##
-    // ##############
+    //  Terminal
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.enablePersistentSessions": false,
-    // ###############
-    // ## Telemetry ##
-    // ###############
+    //  Telemetry
     "telemetry.telemetryLevel": "off",
     "redhat.telemetry.enabled": false,
-    // ##############
-    // ## Security ##
-    // ##############
+    //  Security
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.enabled": false,
 }
