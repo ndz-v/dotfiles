@@ -160,9 +160,11 @@ if type "code" &>/dev/null; then
         ms-vscode-remote.remote-ssh-edit
         ms-vscode-remote.remote-wsl
         ms-vscode-remote.vscode-remote-extensionpack
+        ms-vscode.remote-explorer
         PKief.material-icon-theme
         redhat.ansible
         redhat.vscode-yaml
+        samuelcolvin.jinjahtml
         Tyriar.sort-lines
         vmsynkov.colonize
         yzhang.markdown-all-in-one

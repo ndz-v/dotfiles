@@ -2,9 +2,7 @@
 
 start_jellyfin() {
 
-    data_path="/run/user/1000/kio-fuse-"*"/smb/fritz.box/FRITZ.NAS/DATA"
-
-    movies_path="$(realpath $data_path)/jellyfin_media"
+    movies_path="/run/media/nidzo/DATA"
 
     podman run \
         --rm \

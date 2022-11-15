@@ -30,8 +30,8 @@ export FZF_ALT_C_COMMAND='fd --type d . --hidden --exclude .git --exclude node_m
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-height --bind='f2:toggle-preview'"
 
-export EDITOR=nvim # Ctrl + x Ctrl + e
-export FCEDIT=nvim # fc in cli
+export EDITOR="code --wait" # Ctrl + x Ctrl + e
+export FCEDIT=nvim          # fc in cli
 
 export PATH=$PATH:$dotfiles_dir/scripts &&
     source "$dotfiles_dir/scripts/rsync_functions.sh"
