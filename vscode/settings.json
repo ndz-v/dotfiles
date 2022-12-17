@@ -1,7 +1,10 @@
 {
-    //  Docker
-    "docker.dockerPath": "podman",
-    "docker.host": "unix:///run/user/1000/podman/podman.sock",
+    //  Docker/Podman
+    // systemctl --user enable --now podman.socket
+    "docker.dockerPath": "/usr/bin/podman",
+    "docker.environment": {
+        "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+    },
     //  Editor
     "editor.cursorBlinking": "solid",
     "editor.detectIndentation": true,
@@ -100,5 +103,5 @@
     "redhat.telemetry.enabled": false,
     //  Security
     "security.workspace.trust.banner": "never",
-    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.enabled": false
 }

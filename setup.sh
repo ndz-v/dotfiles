@@ -37,6 +37,8 @@ apps=(
     latte-dock          # Dock for kde plasma desktop
     neovim              # Text editor
     pandoc              # Universal markup converter
+    pass                # Password manager
+    pass-otp            # One time password generator
     podman              # Run containers
     python3-pip         # Python package manager
     ripgrep             # Search tool
@@ -47,6 +49,9 @@ apps=(
     tree                # Show directory in a tree
     vlc                 # Video and audio player
     yakuake             # Konsole but Quake style
+    zbar                # Read QR code from image
+    zint                # Generate QR code
+    zint-qt             # zint GUI
     zsh                 # Shell
 )
 

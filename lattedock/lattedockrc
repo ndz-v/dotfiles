@@ -10,9 +10,6 @@ sortOrder=0
 [PlasmaThemeExtended]
 outlineWidth=1
 
-[PlasmaTransientsConfig]
-PreloadWeight[$d]
-
 [ScreenConnectors]
 10=HDMI-1:::0,0 2560x1440
 11=eDP-1:::0,0 1920x1080
@@ -38,4 +35,5 @@ mouseSensitivity=2
 screenTrackerInterval=2500
 showInfoWindow=true
 singleModeLayoutName=My Layout
+userConfiguredAutostart=true
 version=2
