@@ -36,6 +36,9 @@ export FCEDIT=nvim          # fc in cli
 export PATH=$PATH:$dotfiles_dir/scripts &&
     source "$dotfiles_dir/scripts/rsync_functions.sh"
 
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$DOTNET_ROOT:$PATH:$DOTNET_ROOT/tools
+
 # [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 # [ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools
 [ -d "$HOME/.local/.npm-global/bin" ] && export PATH=$PATH:~/.npm-global/bin # npm config set prefix '~/.local/.npm-global'

@@ -1,10 +1,4 @@
 {
-    //  Docker/Podman
-    // systemctl --user enable --now podman.socket
-    "docker.dockerPath": "/usr/bin/podman",
-    "docker.environment": {
-        "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
-    },
     //  Editor
     "editor.cursorBlinking": "solid",
     "editor.detectIndentation": true,
