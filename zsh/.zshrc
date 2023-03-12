@@ -8,20 +8,22 @@ export PATH
 
 dotfiles_dir="$HOME/.config/dotfiles"
 
-libs=($dotfiles_dir/zsh/lib/*.zsh)
+libs=($dotfiles_dir/zsh/custom/lib/*.zsh)
 for lib in $libs; do
     source $lib
 done
 
-plugins=($dotfiles_dir/zsh/plugins/**/*.zsh)
+plugins=($dotfiles_dir/zsh/custom/plugins/**/*.zsh)
 for plugin in $plugins; do
     source $plugin
 done
 
-source "$dotfiles_dir/zsh/aliases.sh"
-source "$dotfiles_dir/zsh/nidzo.zsh-theme"
+source "$dotfiles_dir/zsh/.env"
+
+source "$dotfiles_dir/zsh/custom/aliases.sh"
+source "$dotfiles_dir/zsh/custom/nidzo.zsh-theme"
 # source "$dotfiles_dir/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-source "$dotfiles_dir/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
