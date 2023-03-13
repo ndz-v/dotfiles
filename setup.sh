@@ -10,6 +10,7 @@ config_dir="$HOME/.config"
 
 # update grub configuration
 # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+#$(dirname $(realpath $(echo %k | sed -e 's/^file:\/\///')))\\/zotero -url %U
 ##################
 ## Speed up dnf ##
 ##################
@@ -30,7 +31,6 @@ apps=(
     curl                # Make sure curl is installed
     entr                # Rebuild project if sources change
     fd-find             # Alternative to find
-    ffmpeg              # Needed for yt-dlp
     g++                 # Needed for neovim treesitter
     git                 # Versioncontrol
     gscan2pdf           # Scanning software
@@ -98,8 +98,8 @@ sudo dnf install nodejs
 ## Install zsh plugins ##
 #########################
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/zsh-syntax-highlighting"
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$dotfiles_dir/zsh/zsh-autocomplete"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting"
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$dotfiles_dir/zsh/custom/zsh-autocomplete"
 
 ###############################
 ## Install libinput-gestures ##
@@ -222,7 +222,6 @@ ln -sfn "$dotfiles_dir/lattedock/Default.layout.latte" "$config_dir/latte/Defaul
 
 # zsh
 ln -sfn "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
-ln -sfn "$dotfiles_dir//zsh/.zshenv" "$HOME/.zshenv"
 #
 # # Add .git folder to dotfiles
 # cd "$dotfiles_dir" || return
@@ -245,4 +244,3 @@ ln -sfn "$dotfiles_dir//zsh/.zshenv" "$HOME/.zshenv"
 
 sudo systemctl disable NetworkManager-wait-online.service # Not needed service, decreases boot time
 sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
-$(dirname $(realpath $(echo %k | sed -e 's/^file:\/\///')))\\/zotero -url %U
