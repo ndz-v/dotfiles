@@ -23,7 +23,7 @@
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
     //  Workbench/Style
-    "workbench.colorTheme": "Breeze Dark",
+    "workbench.colorTheme": "Default Light+",
     "workbench.editor.decorations.badges": true,
     "workbench.editor.decorations.colors": true,
     "workbench.editor.wrapTabs": true,
@@ -37,6 +37,7 @@
     //  Window
     "window.titleBarStyle": "custom",
     //  Latex Workshop
+    // "latex-workshop.latex.build.forceRecipeUsage": false,
     "latex-workshop.latex.recipe.default": "first",
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.intellisense.package.enabled": true,
@@ -64,6 +65,7 @@
     //  Notebook
     "notebook.output.textLineLimit": 200,
     "notebook.lineNumbers": "on",
+    "notebook.formatOnSave.enabled": true,
     //  Python
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.autoImportCompletions": true,
@@ -71,8 +73,9 @@
     "black-formatter.args": [
         "--skip-string-normalization",
         "--line-length",
-        "100"
+        "180"
     ],
+    "python.formatting.provider": "none",
     "python.autoComplete.extraPaths": [
         "~/.local/lib/python3.10/site-packages"
     ],
@@ -80,7 +83,8 @@
         "~/.local/lib/python3.10/site-packages"
     ],
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
     },
     "python.analysis.completeFunctionParens": true,
     "pylint.args": [
@@ -97,5 +101,6 @@
     "redhat.telemetry.enabled": false,
     //  Security
     "security.workspace.trust.banner": "never",
-    "security.workspace.trust.enabled": false
+    "security.workspace.trust.enabled": false,
+    "terminal.external.linuxExec": "konsole",
 }

@@ -108,8 +108,6 @@ git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$d
 # Check if it's a notebook
 if [ -d "/sys/class/power_supply" ]; then
 
-    sudo dnf install -y tlp powertop
-
     # Install libinput-gestures for swiping gestures
     if ! type "libinput-gestures" &>/dev/null; then
         sudo gpasswd -a "$USER" input
