@@ -23,7 +23,7 @@
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
     //  Workbench/Style
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Default Light Modern",
     "workbench.editor.decorations.badges": true,
     "workbench.editor.decorations.colors": true,
     "workbench.editor.wrapTabs": true,
@@ -71,9 +71,9 @@
     "python.analysis.autoImportCompletions": true,
     "python.languageServer": "Pylance",
     "black-formatter.args": [
-        "--skip-string-normalization",
+        // "--skip-string-normalization",
         "--line-length",
-        "180"
+        "180",
     ],
     "python.formatting.provider": "none",
     "python.autoComplete.extraPaths": [
@@ -87,10 +87,13 @@
         "editor.formatOnSave": true
     },
     "python.analysis.completeFunctionParens": true,
-    "pylint.args": [
-        "--disable=C0116",
-        "--disable=C0114",
-        "--max-line-length=200"
+    "ruff.args": [
+        "--line-length=180",
+        "--select",
+        "ALL",
+        "--ignore",
+        "D",
+        "ANN"
     ],
     //  Terminal
     "terminal.integrated.fontSize": 12,
@@ -103,4 +106,7 @@
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.enabled": false,
     "terminal.external.linuxExec": "konsole",
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
 }

@@ -8,23 +8,6 @@ export PATH
 
 dotfiles_dir="$HOME/.config/dotfiles"
 
-libs=($dotfiles_dir/zsh/custom/lib/*.zsh)
-for lib in $libs; do
-    source $lib
-done
-
-plugins=($dotfiles_dir/zsh/custom/plugins/**/*.zsh)
-for plugin in $plugins; do
-    source $plugin
-done
-
-source "$dotfiles_dir/zsh/.env"
-
-source "$dotfiles_dir/zsh/custom/aliases.sh"
-source "$dotfiles_dir/zsh/custom/nidzo.zsh-theme"
-# source "$dotfiles_dir/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-source "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview='bat --color=always  {}'"
@@ -40,6 +23,31 @@ export PATH=$PATH:$dotfiles_dir/scripts &&
 
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$DOTNET_ROOT:$PATH:$DOTNET_ROOT/tools
+
+zstyle ':completion:*:*:docker:*' option-stacking yes
+
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+FPATH="$HOME/.zfunc:${FPATH}"
+
+libs=($dotfiles_dir/zsh/custom/lib/*.zsh)
+for lib in $libs; do
+    source $lib
+done
+
+plugins=($dotfiles_dir/zsh/custom/plugins/**/*.zsh)
+for plugin in $plugins; do
+    source $plugin
+done
+
+source "$dotfiles_dir/zsh/.env"
+source "$dotfiles_dir/zsh/custom/aliases.sh"
+source "$dotfiles_dir/zsh/custom/nidzo.zsh-theme"
+# source "$dotfiles_dir/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# export RUSTUP_HOME=/home/nidzo/.config/rustup
+# export CARGO_HOME=/home/nidzo/.config/cargo
 
 # [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
 # [ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools

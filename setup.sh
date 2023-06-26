@@ -35,7 +35,11 @@ apps=(
     git                 # Versioncontrol
     gscan2pdf           # Scanning software
     latte-dock          # Dock for kde plasma desktop
+    mold                # faster linker, needed for rust
     neovim              # Text editor
+    openssl-devel       # Needed for tarpaulin cargo package
+    lld                 # Needed for mold linker
+    clang               # Needed for mold linker
     pandoc              # Universal markup converter
     pass                # Password manager
     pass-otp            # One time password generator
@@ -56,6 +60,10 @@ apps=(
 )
 
 sudo dnf install -y "${apps[@]}" || true
+
+# Install NordVPN
+
+sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
 
 ##########################################
 ## Install youtube-dl, pylint, autopep8 ##
@@ -220,6 +228,9 @@ ln -sfn "$dotfiles_dir/lattedock/Default.layout.latte" "$config_dir/latte/Defaul
 
 # zsh
 ln -sfn "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
+
+# cargo toml file
+ln -sfn "$dotfiles_dir/cargo/config.toml" "$HOME/.cargo/config.toml"
 #
 # # Add .git folder to dotfiles
 # cd "$dotfiles_dir" || return
