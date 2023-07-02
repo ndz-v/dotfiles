@@ -67,7 +67,7 @@
     "notebook.lineNumbers": "on",
     "notebook.formatOnSave.enabled": true,
     //  Python
-    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.diagnosticMode": "openFilesOnly",
     "python.analysis.autoImportCompletions": true,
     "python.languageServer": "Pylance",
     "black-formatter.args": [

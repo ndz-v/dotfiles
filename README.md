@@ -9,6 +9,13 @@ My skript for automating the installation and configuration of a linux system af
 
 ```shell
 sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/ndz-v/dotfiles/fedora/remote-setup.sh`"
+
+
+# Cargo Packages
+cargo install cargo-expand # Expand makro code
+cargo install cargo-audit # Code coverage
+cargo install cargo-tarpaulin # Code coverage
+cargo install cargo-watch # Safe and cargo command is executed
 ```
 
 ### Explanation

@@ -1,2 +1,5 @@
 [target.x86_64-pc-windows-gnu]
 rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+
+[build]
+incremental = true
