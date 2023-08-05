@@ -26,9 +26,7 @@ export PATH=$DOTNET_ROOT:$PATH:$DOTNET_ROOT/tools
 
 zstyle ':completion:*:*:docker:*' option-stacking yes
 
-zstyle ':completion:*:*:docker-*:*' option-stacking yes
-
-FPATH="$HOME/.zfunc:${FPATH}"
+FPATH="$dotfiles_dir/completion:${FPATH}"
 
 libs=($dotfiles_dir/zsh/custom/lib/*.zsh)
 for lib in $libs; do

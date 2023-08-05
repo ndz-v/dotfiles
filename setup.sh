@@ -185,8 +185,6 @@ if type "code" &>/dev/null; then
     done
 fi
 
-# KDE Plasma makes VSCode slow, when deleting files in VSCode. This is a fix.
-echo "export ELECTRON_TRASH=gio" >"$HOME/.config/plasma-workspace/env/electron-trash-gio.sh"
 
 ###########################
 ## Create symbolic links ##

@@ -2,7 +2,11 @@
 name = nidzo
 email = 16163816+ndz-v@users.noreply.github.com
 [core]
-editor = code --wait
+	editor = code --wait
+	pager = delta
+	excludesfile = /home/nidzo/.config/dotfiles/git/.gitignore
+[interactive]
+    diffFilter = delta --color-only
 [merge]
 tool = vscode
 [mergetool "vscode"]
@@ -19,3 +23,5 @@ updated = green bold
 changed = green
 untracked = cyan bold
 branch = yellow black bold ul
+[rebase]
+	autosquash = true
