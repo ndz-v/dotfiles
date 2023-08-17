@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo -v # sk for admin credentials
-
+# #122637
 dotfiles_dir="$HOME/.config/dotfiles"
 config_dir="$HOME/.config"
 
@@ -149,16 +149,8 @@ fi
 if type "code" &>/dev/null; then
     extensions=(
         albert.TabOut
-        christian-kohler.path-intellisense
-        eamodio.gitlens
-        foxundermoon.shell-format
         James-Yu.latex-workshop
-        kde.breeze
-        mads-hartmann.bash-ide-vscode
         ms-azuretools.vscode-docker
-        ms-python.black-formatter
-        ms-python.isort
-        ms-python.pylint
         ms-python.python
         ms-python.vscode-pylance
         ms-toolsai.jupyter
@@ -166,19 +158,20 @@ if type "code" &>/dev/null; then
         ms-toolsai.jupyter-renderers
         ms-toolsai.vscode-jupyter-cell-tags
         ms-toolsai.vscode-jupyter-slideshow
-        ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
-        ms-vscode-remote.remote-wsl
-        ms-vscode-remote.vscode-remote-extensionpack
         ms-vscode.remote-explorer
         PKief.material-icon-theme
         redhat.ansible
         redhat.vscode-yaml
-        samuelcolvin.jinjahtml
-        Tyriar.sort-lines
+        rogalmic.bash-debug
+        rust-lang.rust-analyzer
+        tamasfe.even-better-toml
+        timonwong.shellcheck
+        usernamehw.errorlens
+        vadimcn.vscode-lldb
         vmsynkov.colonize
-        yzhang.markdown-all-in-one
+        yy0931.save-as-root
     )
     for extension in "${extensions[@]}"; do
         code --install-extension "$extension"
