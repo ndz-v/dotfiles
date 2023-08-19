@@ -96,7 +96,8 @@
         "ANN"
     ],
     //  Terminal
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "Hack",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.enablePersistentSessions": false,
     //  Telemetry

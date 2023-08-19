@@ -26,6 +26,7 @@ sudo dnf update
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 apps=(
+    gcc-c++
     ShellCheck          # script analysis tool
     bat                 # Alternative to cat
     curl                # Make sure curl is installed
@@ -107,7 +108,6 @@ sudo dnf install nodejs
 #########################
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting"
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$dotfiles_dir/zsh/custom/zsh-autocomplete"
 
 ###############################
 ## Install libinput-gestures ##
@@ -140,9 +140,9 @@ fi
 # Check if code is installed
 if ! type "code" &>/dev/null; then
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-    sudo dnf check-update
-    sudo dnf install code
+    sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
+    sudo zypper refresh
+    sudo zypper install code
 fi
 
 # Install VS Code extensions
@@ -193,9 +193,6 @@ ln -sfn "$dotfiles_dir/kon_and_yak/konsole" "$HOME/.local/share/konsole"
 # Yakuake
 rm "$config_dir/yakuakerc"
 ln -sfn "$dotfiles_dir/kon_and_yak/yakuakerc" "$config_dir/yakuakerc"
-
-# nano
-ln -sfn "$dotfiles_dir/nano/.nanorc" "$HOME/.nanorc"
 
 # neovim
 # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
