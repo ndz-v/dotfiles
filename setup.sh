@@ -34,6 +34,7 @@ apps=(
     fd-find             # Alternative to find
     g++                 # Needed for neovim treesitter
     git                 # Versioncontrol
+    sshpass
     gscan2pdf           # Scanning software
     latte-dock          # Dock for kde plasma desktop
     mold                # faster linker, needed for rust
@@ -47,7 +48,6 @@ apps=(
     podman              # Run containers
     python3-pip         # Python package manager
     ripgrep             # Search tool
-    testdisk            # Tool for scanning/repairing disks, undeleting files
     the_silver_searcher # Code searching tool
     thunderbird         # Mail client
     translate-shell     # Command-line translator
@@ -60,7 +60,7 @@ apps=(
     zsh                 # Shell
 )
 
-sudo dnf install -y "${apps[@]}" || true
+sudo zypper install -y "${apps[@]}" || true
 
 # Install NordVPN
 
