@@ -1,8 +1,0 @@
-for file in ' Rick'*.mkv; do
-    file_name=${file_name##*' '}
-    echo $file_name.mkv
-done
-
-# file_name=${file%'[BDRip]'*}
-# file_name=${file_name%*' '*}
-# mv $file "$file_name.mkv"

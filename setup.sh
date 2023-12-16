@@ -26,15 +26,21 @@ sudo dnf update
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 apps=(
-    gcc-c++
-    ShellCheck          # script analysis tool
-    bat                 # Alternative to cat
-    curl                # Make sure curl is installed
-    entr                # Rebuild project if sources change
-    fd-find             # Alternative to find
-    g++                 # Needed for neovim treesitter
-    git                 # Versioncontrol
+    lua54-devel
+    lua54-luarocks
+    nodejs21
+    go1.21
+    gcc-c++    # Needed for treesitter
+    ShellCheck # script analysis tool
+    bat        # Alternative to cat
+    curl       # Make sure curl is installed
+    entr       # Rebuild project if sources change
+    fd-find    # Alternative to find
+    g++        # Needed for neovim treesitter
+    git        # Versioncontrol
     sshpass
+    cifs-utils
+    samba-client
     gscan2pdf           # Scanning software
     latte-dock          # Dock for kde plasma desktop
     mold                # faster linker, needed for rust
@@ -177,7 +183,6 @@ if type "code" &>/dev/null; then
         code --install-extension "$extension"
     done
 fi
-
 
 ###########################
 ## Create symbolic links ##

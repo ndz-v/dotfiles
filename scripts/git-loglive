@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-while :; do
-    clear
-    git --no-pager log --graph --date=short --pretty=format:'%Cred%h%Creset %n -%C(yellow)%d%Creset %s %n %Creset %C(bold blue)%an%Creset %n %Cgreen(%ad)' --abbrev-commit --decorate --all -10 "$@"
-    sleep 1
-done

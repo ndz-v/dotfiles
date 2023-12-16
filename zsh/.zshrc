@@ -23,19 +23,21 @@ export PATH=$PATH:$dotfiles_dir/scripts &&
 
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$DOTNET_ROOT:$PATH:$DOTNET_ROOT/tools
-
 zstyle ':completion:*:*:docker:*' option-stacking yes
 
 FPATH="$dotfiles_dir/completion:${FPATH}"
 
 libs=($dotfiles_dir/zsh/custom/lib/*.zsh)
 for lib in $libs; do
-    source $lib
+    source "$lib"
 done
+
+alias vim=nvim
+alias vi=nvim
 
 plugins=($dotfiles_dir/zsh/custom/plugins/**/*.zsh)
 for plugin in $plugins; do
-    source $plugin
+    source "$plugin"
 done
 
 source "$dotfiles_dir/zsh/.env"
