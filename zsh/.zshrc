@@ -18,9 +18,6 @@ export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-
 export EDITOR="code --wait" # Ctrl + x Ctrl + e
 export FCEDIT=nvim          # fc in cli
 
-export PATH=$PATH:$dotfiles_dir/scripts &&
-    source "$dotfiles_dir/scripts/rsync_functions.sh"
-
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$DOTNET_ROOT:$PATH:$DOTNET_ROOT/tools
 zstyle ':completion:*:*:docker:*' option-stacking yes
