@@ -26,34 +26,36 @@ sudo dnf update
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 apps=(
-    lua54-devel
-    lua54-luarocks
-    nodejs21
-    go1.21
-    gcc-c++    # Needed for treesitter
-    ShellCheck # script analysis tool
-    bat        # Alternative to cat
-    curl       # Make sure curl is installed
-    entr       # Rebuild project if sources change
-    fd-find    # Alternative to find
-    g++        # Needed for neovim treesitter
-    git        # Versioncontrol
-    sshpass
-    cifs-utils
-    samba-client
+    ShellCheck          # script analysis tool
+    bat                 # Alternative to cat
+    cifs-utils          #
+    clang               # Needed for mold linker
+    curl                # Make sure curl is installed
+    entr                # Rebuild project if sources change
+    fd-find             # Alternative to find
+    g++                 # Needed for neovim treesitter
+    gcc-c++             # Needed for treesitter
+    git                 # Versioncontrol
+    go1.21              #
     gscan2pdf           # Scanning software
     latte-dock          # Dock for kde plasma desktop
+    i3                  #
+    i3blocks            #
+    lld                 # Needed for mold linker
+    lua54-devel         #
+    lua54-luarocks      #
     mold                # faster linker, needed for rust
     neovim              # Text editor
+    nodejs21            #
     openssl-devel       # Needed for tarpaulin cargo package
-    lld                 # Needed for mold linker
-    clang               # Needed for mold linker
     pandoc              # Universal markup converter
     pass                # Password manager
     pass-otp            # One time password generator
     podman              # Run containers
     python3-pip         # Python package manager
     ripgrep             # Search tool
+    samba-client        #
+    sshpass             #
     the_silver_searcher # Code searching tool
     thunderbird         # Mail client
     translate-shell     # Command-line translator
@@ -157,13 +159,6 @@ if type "code" &>/dev/null; then
         albert.TabOut
         James-Yu.latex-workshop
         ms-azuretools.vscode-docker
-        ms-python.python
-        ms-python.vscode-pylance
-        ms-toolsai.jupyter
-        ms-toolsai.jupyter-keymap
-        ms-toolsai.jupyter-renderers
-        ms-toolsai.vscode-jupyter-cell-tags
-        ms-toolsai.vscode-jupyter-slideshow
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.remote-explorer

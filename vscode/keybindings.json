@@ -35,5 +35,5 @@
     {
         "key": "alt+m",
         "command": "workbench.action.toggleMaximizedPanel"
-    }
+    },
 ]
