@@ -36,22 +36,14 @@ apps=(
     g++                 # Needed for neovim treesitter
     gcc-c++             # Needed for treesitter
     git                 # Versioncontrol
-    go1.21              #
-    gscan2pdf           # Scanning software
     latte-dock          # Dock for kde plasma desktop
     i3                  #
     i3blocks            #
     lld                 # Needed for mold linker
-    lua54-devel         #
-    lua54-luarocks      #
     mold                # faster linker, needed for rust
     neovim              # Text editor
-    nodejs21            #
     openssl-devel       # Needed for tarpaulin cargo package
     pandoc              # Universal markup converter
-    pass                # Password manager
-    pass-otp            # One time password generator
-    podman              # Run containers
     python3-pip         # Python package manager
     ripgrep             # Search tool
     samba-client        #
@@ -62,9 +54,6 @@ apps=(
     tree                # Show directory in a tree
     vlc                 # Video and audio player
     yakuake             # Konsole but Quake style
-    zbar                # Read QR code from image
-    zint                # Generate QR code
-    zint-qt             # zint GUI
     zsh                 # Shell
 )
 
