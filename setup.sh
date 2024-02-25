@@ -36,12 +36,13 @@ apps=(
     g++                 # Needed for neovim treesitter
     gcc-c++             # Needed for treesitter
     git                 # Versioncontrol
-    latte-dock          # Dock for kde plasma desktop
     i3                  #
     i3blocks            #
+    latte-dock          # Dock for kde plasma desktop
     lld                 # Needed for mold linker
     mold                # faster linker, needed for rust
     neovim              # Text editor
+    polybar             #
     openssl-devel       # Needed for tarpaulin cargo package
     pandoc              # Universal markup converter
     python3-pip         # Python package manager
