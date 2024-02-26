@@ -196,3 +196,4 @@ exec_always --no-startup-id xset r rate 200 40
 exec_always --no-startup-id xrandr -s 2560x1440 -r 144
 exec_always --no-startup-id "/home/nidzo/.config/dotfiles/polybar/launch.sh"
 exec_always --no-startup-id feh --bg-scale /home/nidzo/Pictures/default-1600x1200.jpg
+exec_always --no-startup-id numlockx on
