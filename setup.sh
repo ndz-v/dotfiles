@@ -1,61 +1,33 @@
 #!/usr/bin/env bash
 
 sudo -v # sk for admin credentials
-# #122637
-dotfiles_dir="$HOME/.config/dotfiles"
-config_dir="$HOME/.config"
-
-# Create bootable usb
-# sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
-
-# update grub configuration
-# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-#$(dirname $(realpath $(echo %k | sed -e 's/^file:\/\///')))\\/zotero -url %U
-##################
-## Speed up dnf ##
-##################
-
-sudo sh -c 'echo -e "defaultyes=1\nmax_parallel_downloads=10\nfastestmirror=1" >> /etc/dnf/dnf.conf'
-
-##########################
-## Install dnf packages ##
-##########################
-
-sudo dnf update
-
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 apps=(
-    ShellCheck          # script analysis tool
-    bat                 # Alternative to cat
-    cifs-utils          #
-    clang               # Needed for mold linker
-    curl                # Make sure curl is installed
-    entr                # Rebuild project if sources change
-    fd-find             # Alternative to find
-    g++                 # Needed for neovim treesitter
-    gcc-c++             # Needed for treesitter
-    git                 # Versioncontrol
-    i3                  #
-    i3blocks            #
-    latte-dock          # Dock for kde plasma desktop
-    lld                 # Needed for mold linker
-    mold                # faster linker, needed for rust
-    neovim              # Text editor
-    polybar             #
-    openssl-devel       # Needed for tarpaulin cargo package
-    pandoc              # Universal markup converter
-    python3-pip         # Python package manager
-    ripgrep             # Search tool
-    samba-client        #
-    sshpass             #
-    the_silver_searcher # Code searching tool
-    thunderbird         # Mail client
-    translate-shell     # Command-line translator
-    tree                # Show directory in a tree
-    vlc                 # Video and audio player
-    yakuake             # Konsole but Quake style
-    zsh                 # Shell
+    ShellCheck
+    alacritty
+    bat
+    clang
+    curl
+    entr
+    fd
+    gcc-c++
+    git
+    i3
+    lld
+    mold
+    neovim
+    nodejs21
+    openssl-devel
+    pandoc
+    polybar
+    python3-pip
+    ripgrep
+    sshpass
+    thunderbird
+    translate-shell
+    vlc
+    yakuake
+    zsh
 )
 
 sudo zypper install -y "${apps[@]}" || true
@@ -64,76 +36,38 @@ sudo zypper install -y "${apps[@]}" || true
 
 sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
 
-##########################################
-## Install youtube-dl, pylint, autopep8 ##
-##########################################
+#############################
+## Install Python Packages ##
 
-# Check if pip3 is installed
-# if type "pip3" &>/dev/null; then
-#     pip3 install --user yt-dlp pylint autopep8 pandocfilters jupyter pandas
-# fi
+Check if pip3 is installed
+if type "pip3" &>/dev/null; then
+    pip3 install --break-system-packages --user yt-dlp
+fi
 
 ##################
 ## Install font ##
-##################
 
-# git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
-# cd nerd-fonts || return
-# git sparse-checkout add patched-fonts/Hack
-# ./install.sh Hack
-# cd "$HOME" || return
-# rm -r nerd-fonts
+git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts || return
+git sparse-checkout add patched-fonts/Hack
+./install.sh Hack
+cd "$HOME" || return
+rm -r nerd-fonts
 
 #################
 ## Install fzf ##
-#################
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 ####################
 ## Install nodejs ##
-####################
 
-sudo dnf install nodejs
-
-# npm config set prefix "$HOME/.npm-global"
-
-# npm i -g bash-language-server pyright vim-language-server tree-sitter-cli noevim tree-sitter-cli
-
-#########################
-## Install zsh plugins ##
-#########################
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting"
-
-###############################
-## Install libinput-gestures ##
-###############################
-
-# Check if it's a notebook
-if [ -d "/sys/class/power_supply" ]; then
-
-    # Install libinput-gestures for swiping gestures
-    if ! type "libinput-gestures" &>/dev/null; then
-        sudo gpasswd -a "$USER" input
-        sudo dnf install -y xdotool wmctrl
-
-        cd "$HOME" || return
-        git clone https://github.com/bulletmark/libinput-gestures.git
-        cd libinput-gestures || return
-        sudo make install
-        cd .. || return
-        rm -rf libinput-gestures
-
-        libinput-gestures-setup autostart
-        libinput-gestures-setup start
-    fi
-fi
+npm config set prefix "$HOME/.local"
+npm i -g bash-language-server
 
 #####################
 ## Install VS Code ##
-#####################
 
 # Check if code is installed
 if ! type "code" &>/dev/null; then
@@ -171,63 +105,33 @@ fi
 
 ###########################
 ## Create symbolic links ##
-###########################
+
+dotfiles_dir="$HOME/.config/dotfiles"
+config_dir="$HOME/.config"
 
 # git
 ln -sfn "$dotfiles_dir/git/.gitconfig" "$HOME/.gitconfig"
 
-# Konsole
-rm -rf "$HOME/.local/share/konsole"
-ln -sfn "$dotfiles_dir/kon_and_yak/konsole" "$HOME/.local/share/konsole"
-
-# Yakuake
-rm "$config_dir/yakuakerc"
-ln -sfn "$dotfiles_dir/kon_and_yak/yakuakerc" "$config_dir/yakuakerc"
-
-# neovim
-# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# nvim_config_dir="$config_dir/nvim"
-# [ -d "$nvim_config_dir" ] || mkdir -p "$nvim_config_dir"
-
-# ln -sfn "$dotfiles_dir/nvim/init.vim" "$config_dir/nvim/init.vim"
-# ln -sfn "$dotfiles_dir/nvim/coc-settings.json" "$config_dir/nvim/coc-settings.json"
-# ln -sfn "$dotfiles_dir/nvim/plug-config" "$config_dir/nvim/plug-config"
-
-# ln -s /lib64/libstdc++.so.6 /lib64/libstdc++.so # Needed for Treesitter to compile
+# alacritty
+mkdir "$config_dir/alacritty/"
+ln -sfn "$dotfiles_dir/alacritty/alacritty.toml" "$config_dir/alacritty/alacritty.toml"
 
 # VS Code
 ln -sfn "$dotfiles_dir/vscode/settings.json" "$config_dir/Code/User/settings.json"
 ln -sfn "$dotfiles_dir/vscode/keybindings.json" "$config_dir/Code/User/keybindings.json"
-
-# Latte Dock
-ln -sfn "$dotfiles_dir/lattedock/lattedockrc" "$config_dir/lattedockrc"
-ln -sfn "$dotfiles_dir/lattedock/Default.layout.latte" "$config_dir/latte/Default.layout.latte"
 
 # zsh
 ln -sfn "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
 
 # cargo toml file
 ln -sfn "$dotfiles_dir/cargo/config.toml" "$HOME/.cargo/config.toml"
-#
-# # Add .git folder to dotfiles
-# cd "$dotfiles_dir" || return
-# git clone -b fedora --bare https://github.com/ndz-v/dotfiles.git .git
-#
-# # Change remote url of dotfiles
-# git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
-##################################
-## Install auto sync to usb hdd ##
-##################################
+# Change remote url of dotfiles
+git remote set-url origin git@github.com:ndz-v/dotfiles.git
 
-# sudo sh -c 'echo "username  ALL=(ALL) NOPASSWD: $HOME/dev/dotfiles/auto_scripts/rsyunc_to_usb.sh" >> /etc/sudoers'
-# sudo ln -sfn /home/nidzo/dev/dotfiles/auto_scripts/rsync_up.rules /etc/udev/rules.d/rsync_up.rules
-# sudo udevadm control --reload-rules && udevadm trigger
+########################
+## Clone needed repos ##
 
-######################
-## Disable Services ##
-######################
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting"
 
-sudo systemctl disable NetworkManager-wait-online.service # Not needed service, decreases boot time
-sudo systemctl mask NetworkManager-wait-online.service    # Not needed service, decreases boot time
+git clone https://github.com/ndz-v/nvim.git "$config_dir/nvim"

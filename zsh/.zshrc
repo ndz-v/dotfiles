@@ -40,14 +40,11 @@ done
 source "$dotfiles_dir/zsh/.env"
 source "$dotfiles_dir/zsh/custom/aliases.sh"
 source "$dotfiles_dir/zsh/custom/nidzo.zsh-theme"
-# source "$dotfiles_dir/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 source "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # export RUSTUP_HOME=/home/nidzo/.config/rustup
 # export CARGO_HOME=/home/nidzo/.config/cargo
 
-# [ -d "$HOME/.dev-binaries/dotnet" ] && export DOTNET_ROOT=$HOME/.dev-binaries/dotnet && export PATH=$PATH:$HOME/.dev-binaries/dotnet
-# [ -d "$HOME/.dotnet/tools" ] && export PATH=$PATH:~/.dotnet/tools
-# [ -d "$HOME/.local/.npm-global/bin" ] && export PATH=$PATH:~/.npm-global/bin # npm config set prefix '~/.local/.npm-global'
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(dircolors -b $dotfiles_dir/zsh/.dircolors)"
