@@ -13,8 +13,14 @@ sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/ndz-v
 
 The script above downloads the master branch of this repo and starts setup.sh execution.
 
-# Create bootable usb
+### Create bootable usb
 
 ```bash
 sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
+```
+
+### Connect Wifi with nmcli
+
+```bash
+nmcli device wifi connect <AP name> password <password>
 ```
