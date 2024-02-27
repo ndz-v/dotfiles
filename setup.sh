@@ -135,3 +135,12 @@ git remote set-url origin git@github.com:ndz-v/dotfiles.git
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting"
 
 git clone https://github.com/ndz-v/nvim.git "$config_dir/nvim"
+
+###################
+## Install Chrome##
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub >linux_signing_key.pub
+sudo rpm --import linux_signing_key.pub
+sudo zypper addrepo http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
+sudo zypper refresh
+sudo zypper install google-chrome-stable
