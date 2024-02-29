@@ -22,6 +22,7 @@ apps=(
     polybar
     python3-pip
     ripgrep
+    rofi
     sshpass
     thunderbird
     translate-shell
@@ -64,7 +65,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ## Install nodejs ##
 
 npm config set prefix "$HOME/.local"
-npm i -g bash-language-server
+npm i -g bash-language-server neovim
 
 #####################
 ## Install VS Code ##
