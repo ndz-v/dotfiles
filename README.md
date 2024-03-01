@@ -24,3 +24,9 @@ sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
 ```bash
 nmcli device wifi connect <AP name> password <password>
 ```
+
+### Connect Wifi with nmcli
+
+```bash
+sudo nmcli device connect wlp9s0
+```
