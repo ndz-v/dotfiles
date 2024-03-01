@@ -10,6 +10,7 @@ apps=(
     curl
     entr
     fd
+    feh
     gcc-c++
     git
     i3
@@ -23,6 +24,7 @@ apps=(
     python3-pip
     ripgrep
     rofi
+    shfmt
     sshpass
     thunderbird
     translate-shell
@@ -72,10 +74,10 @@ npm i -g bash-language-server neovim
 
 # Check if code is installed
 if ! type "code" &>/dev/null; then
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
-sudo zypper refresh
-sudo zypper install code
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
+    sudo zypper refresh
+    sudo zypper install code
 fi
 
 # Install VS Code extensions
@@ -149,7 +151,7 @@ git clone https://github.com/ndz-v/nvim.git "$config_dir/nvim"
 ###################
 ## Install Chrome##
 
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > linux_signing_key.pub
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub >linux_signing_key.pub
 sudo rpm --import linux_signing_key.pub
 sudo zypper addrepo http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
 sudo zypper refresh
