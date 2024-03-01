@@ -1,0 +1,13 @@
+[Animation]
+Frames=2
+
+[Desktop Entry]
+DefaultProfile=Profile 1.profile
+
+[Dialogs]
+FirstRun=false
+
+[Window]
+Height=99
+Position=100
+Width=50

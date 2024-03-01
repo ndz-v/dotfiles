@@ -72,10 +72,10 @@ npm i -g bash-language-server neovim
 
 # Check if code is installed
 if ! type "code" &>/dev/null; then
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
-    sudo zypper refresh
-    sudo zypper install code
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
+sudo zypper refresh
+sudo zypper install code
 fi
 
 # Install VS Code extensions
@@ -113,9 +113,18 @@ config_dir="$HOME/.config"
 # git
 ln -sfn "$dotfiles_dir/git/.gitconfig" "$HOME/.gitconfig"
 
+# yakuake
+ln -sfn "$dotfiles_dir/yakuake/yakuake" "$config_dir/yakuake"
+
 # alacritty
 mkdir "$config_dir/alacritty/"
-ln -sfn "$dotfiles_dir/alacritty/alacritty.toml" "$config_dir/alacritty/alacritty.toml"
+ln -sfn "$dotfiles_dir/alacritty" "$config_dir/alacritty"
+
+# i3
+ln -sfn "$dotfiles_dir/i3" "$config_dir/i3"
+
+# NeoVim
+ln -sfn "$dotfiles_dir/nvim" "$config_dir/nvim"
 
 # VS Code
 ln -sfn "$dotfiles_dir/vscode/settings.json" "$config_dir/Code/User/settings.json"
@@ -140,7 +149,7 @@ git clone https://github.com/ndz-v/nvim.git "$config_dir/nvim"
 ###################
 ## Install Chrome##
 
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub >linux_signing_key.pub
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > linux_signing_key.pub
 sudo rpm --import linux_signing_key.pub
 sudo zypper addrepo http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
 sudo zypper refresh

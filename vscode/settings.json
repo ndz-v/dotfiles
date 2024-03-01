@@ -12,7 +12,7 @@
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 160,
     "editor.insertSpaces": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "[yaml]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
@@ -125,4 +125,5 @@
     "terminal.integrated.smoothScrolling": true,
     "editor.fontFamily": "'Hack Nerd Font', 'monospace', monospace",
     "editor.lineNumbers": "relative",
+    "editor.occurrencesHighlight": "multiFile",
 }

@@ -37,7 +37,6 @@ for plugin in $plugins; do
     source "$plugin"
 done
 
-source "$dotfiles_dir/zsh/.env"
 source "$dotfiles_dir/zsh/custom/aliases.sh"
 source "$dotfiles_dir/zsh/custom/nidzo.zsh-theme"
 source "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -45,6 +44,7 @@ source "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting/zsh-syntax-highlighting
 # export RUSTUP_HOME=/home/nidzo/.config/rustup
 # export CARGO_HOME=/home/nidzo/.config/cargo
 
+[ -f "$dotfiles_dir/zsh/.env" ] && source "$dotfiles_dir/zsh/.env"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(dircolors -b $dotfiles_dir/zsh/.dircolors)"
