@@ -126,4 +126,7 @@
     "editor.fontFamily": "'Hack Nerd Font', 'monospace', monospace",
     "editor.lineNumbers": "relative",
     "editor.occurrencesHighlight": "multiFile",
+    "files.associations": {
+        "config": "i3"
+    },
 }

@@ -179,6 +179,8 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 # }
 
+
+exec_always "setxkbmap -model pc104 -layout us,de -variant ,, -option grp:meta_alt_k_toggle"
 exec_always --no-startup-id klipper
 exec_always --no-startup-id yakuake
 exec_always --no-startup-id xset r rate 200 40
