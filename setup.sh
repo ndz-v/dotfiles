@@ -39,6 +39,7 @@ sudo zypper install -y "${apps[@]}" || true
 # Install NordVPN
 
 sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+/usr/bin/nordvpn set notify off
 
 #############################
 ## Install Python Packages ##
