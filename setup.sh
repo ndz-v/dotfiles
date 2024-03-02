@@ -13,6 +13,7 @@ apps=(
     feh
     gcc-c++
     git
+    git-delta
     i3
     lld
     mold

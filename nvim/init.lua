@@ -7,7 +7,9 @@ opt.expandtab = true
 opt.smartindent = true
 opt.autoindent = true
 opt.wrap = false
-
+opt.tabstop = 4    -- number of tabs
+opt.shiftwidth = 4 -- number of indentation
+opt.softtabstop = 4
 opt.iskeyword:append('-')
 opt.mouse:append('a')
 opt.clipboard:append('unnamedplus')
@@ -21,7 +23,7 @@ opt.smartcase = true
 opt.hlsearch = true
 
 -- Behavior
-opt.hidden = true
+-- opt.hidden = true
 opt.errorbells = false
 opt.swapfile = false
 opt.backup = false
@@ -39,18 +41,24 @@ if vim.g.vscode then
     local explorer = function()
         vim.fn.VSCodeNotify("workbench.view.explorer")
     end
+    vim.keymap.set({ 'n', 'v' }, "<leader>e", explorer)
 
     local toggleSidebarVisibility = function()
         vim.fn.VSCodeNotify("workbench.action.toggleSidebarVisibility")
     end
+    vim.keymap.set({ 'n', 'v' }, "<leader>m", toggleSidebarVisibility)
 
     local openRecent = function()
         vim.fn.VSCodeNotify("workbench.action.openRecent")
     end
-
-    vim.keymap.set({ 'n', 'v' }, "<leader>m", toggleSidebarVisibility)
-    vim.keymap.set({ 'n', 'v' }, "<leader>e", explorer)
     vim.keymap.set({ 'n', 'v' }, "<leader>r", openRecent)
+
+    -- quick search
+
+    local quickTextSearch = function()
+        vim.fn.VSCodeNotify("workbench.action.experimental.quickTextSearch")
+    end
+    vim.keymap.set({ 'n', 'v' }, "<leader>q", quickTextSearch)
 
 else
 

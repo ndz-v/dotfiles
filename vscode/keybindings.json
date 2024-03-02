@@ -12,9 +12,4 @@
         "key": "alt+m",
         "command": "workbench.action.toggleMaximizedPanel"
     },
-    {
-        "key": "space q",
-        "command": "workbench.action.experimental.quickTextSearch",
-        "when": "editorTextFocus"
-    },
 ]
