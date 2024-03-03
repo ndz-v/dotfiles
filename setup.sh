@@ -8,6 +8,7 @@ apps=(
     bat
     clang
     curl
+    docker
     entr
     fd
     feh
@@ -48,6 +49,16 @@ Check if pip3 is installed
 if type "pip3" &>/dev/null; then
     pip3 install --break-system-packages --user yt-dlp
 fi
+
+##################
+## Install font ##
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+sudo systemctl enable docker --now
+sudo systemctl restart docker
+docker run hello-world
 
 ##################
 ## Install font ##
