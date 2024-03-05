@@ -172,14 +172,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always "setxkbmap -model pc104 -layout us,de -variant ,, -option grp:shifts_toggle "
-exec_always --no-startup-id /usr/libexec/polkit-kde-authentication-agent-1
-exec_always --no-startup-id klipper &
-exec_always --no-startup-id yakuake &
-exec_always --no-startup-id xset r rate 200 40
-exec_always --no-startup-id xrandr -s 2560x1440 -r 165
-exec_always --no-startup-id feh --bg-scale "/home/nidzo/.config/dotfiles/media/default.jpg"
-exec_always --no-startup-id numlockx on
 focus_follows_mouse no
 
 # Press $mod+o followed by either key, Escape or Return to launch an app
@@ -196,3 +188,12 @@ mode "$mode_launcher" {
 }
 
 exec_always --no-startup-id "/home/nidzo/.config/dotfiles/polybar/launch.sh"
+exec_always "setxkbmap -model pc104 -layout us,de -variant ,, -option grp:shifts_toggle "
+exec_always --no-startup-id /usr/libexec/polkit-kde-authentication-agent-1
+exec_always --no-startup-id klipper
+exec_always --no-startup-id dunst
+exec_always --no-startup-id yakuake &
+exec_always --no-startup-id xset r rate 200 40
+exec_always --no-startup-id xrandr -s 2560x1440 -r 144
+exec_always --no-startup-id feh --bg-scale "/home/nidzo/.config/dotfiles/media/default.jpg"
+exec_always --no-startup-id numlockx on

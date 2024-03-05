@@ -9,6 +9,7 @@ apps=(
     clang
     curl
     docker
+    dunst
     entr
     fd
     feh

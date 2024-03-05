@@ -21,6 +21,7 @@ opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
+keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
 -- Behavior
 -- opt.hidden = true
