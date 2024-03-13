@@ -188,12 +188,14 @@ mode "$mode_launcher" {
 }
 
 exec_always --no-startup-id "/home/nidzo/.config/dotfiles/polybar/launch.sh"
-exec_always "setxkbmap -model pc104 -layout us,de -variant ,, -option grp:shifts_toggle "
+exec_always --no-startup-id "setxkbmap -model pc104 -layout us,de -variant ,, -option grp:shifts_toggle "
 exec_always --no-startup-id /usr/libexec/polkit-kde-authentication-agent-1
-exec_always --no-startup-id klipper
+exec_always --no-startup-id /usr/libexec/kglobalacceld
 exec_always --no-startup-id dunst
-exec_always --no-startup-id yakuake &
+exec_always --no-startup-id yakuake
 exec_always --no-startup-id xset r rate 200 40
+exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Master 2S' 'libinput Accel Speed' 0.9
 exec_always --no-startup-id xrandr -s 2560x1440 -r 144
 exec_always --no-startup-id feh --bg-scale "/home/nidzo/.config/dotfiles/media/default.jpg"
 exec_always --no-startup-id numlockx on
+for_window [title="KCalc"] floating enable

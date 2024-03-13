@@ -1,4 +1,3 @@
-
 vim.g.mapleader = " "
 
 local opt = vim.opt
@@ -21,7 +20,7 @@ opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
-keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
 -- Behavior
 -- opt.hidden = true
@@ -37,8 +36,18 @@ opt.autochdir = false
 opt.modifiable = true
 opt.encoding = 'UTF-8'
 
-if vim.g.vscode then
+local function augroup(name)
+    return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = augroup("highlight_yank"),
+    callback = function()
+        vim.highlight.on_yank({ timeout = 500 })
+    end,
+})
+
+if vim.g.vscode then
     local explorer = function()
         vim.fn.VSCodeNotify("workbench.view.explorer")
     end
@@ -60,9 +69,7 @@ if vim.g.vscode then
         vim.fn.VSCodeNotify("workbench.action.experimental.quickTextSearch")
     end
     vim.keymap.set({ 'n', 'v' }, "<leader>q", quickTextSearch)
-
 else
-
     -- Appearance
     opt.number = true
     opt.relativenumber = true
@@ -86,5 +93,4 @@ else
     -- Comments
     vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
     vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
-
 end

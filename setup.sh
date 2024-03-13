@@ -32,6 +32,7 @@ apps=(
     thunderbird
     translate-shell
     vlc
+    xinput
     yakuake
     zsh
 )
@@ -52,7 +53,7 @@ if type "pip3" &>/dev/null; then
 fi
 
 ##################
-## Install font ##
+## Install Docker ##
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
@@ -69,7 +70,7 @@ cd nerd-fonts || return
 git sparse-checkout add patched-fonts/Hack
 ./install.sh Hack
 cd "$HOME" || return
-rm -r nerd-fonts
+rm -rf nerd-fonts
 
 #################
 ## Install fzf ##
@@ -134,7 +135,7 @@ ln -sfn "$dotfiles_dir/yakuake/yakuake" "$config_dir/yakuake"
 
 # alacritty
 mkdir "$config_dir/alacritty/"
-ln -sfn "$dotfiles_dir/alacritty" "$config_dir/alacritty"
+ln -sfn "$dotfiles_dir/alacritty" "$config_dir"
 
 # i3
 ln -sfn "$dotfiles_dir/i3" "$config_dir/i3"
