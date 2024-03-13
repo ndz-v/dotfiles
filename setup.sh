@@ -32,6 +32,7 @@ apps=(
     thunderbird
     translate-shell
     vlc
+    xinput
     yakuake
     zsh
 )
