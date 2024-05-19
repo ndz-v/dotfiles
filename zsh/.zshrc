@@ -1,50 +1,51 @@
 #!/usr/bin/env bash
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-export PATH
-
-dotfiles_dir="$HOME/.config/dotfiles"
-
-export FZF_DEFAULT_COMMAND='fd --type f --hidden'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview='bat --color=always  {}'"
-export FZF_ALT_C_COMMAND='fd --type d . --hidden --exclude .git --exclude node_modules'
-export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
-export FZF_DEFAULT_OPTS="--extended --multi --inline-info --layout=reverse --no-height --bind='f2:toggle-preview'"
 
 export EDITOR="code --wait" # Ctrl + x Ctrl + e
 export FCEDIT=nvim          # fc in cli
 
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$DOTNET_ROOT:$PATH:$DOTNET_ROOT/tools
-zstyle ':completion:*:*:docker:*' option-stacking yes
+# set zinit dir
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share/zinit/zinit.git}"
+if [ !  -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+zinit snippet OMZP::sudo
 
-FPATH="$dotfiles_dir/completion:${FPATH}"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-libs=($dotfiles_dir/zsh/custom/lib/*.zsh)
-for lib in $libs; do
-    source "$lib"
-done
+# zsh options
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+alias ls='ls --color'
 
-alias vim=nvim
-alias vi=nvim
-
-plugins=($dotfiles_dir/zsh/custom/plugins/**/*.zsh)
-for plugin in $plugins; do
-    source "$plugin"
-done
-
-source "$dotfiles_dir/zsh/custom/aliases.sh"
-source "$dotfiles_dir/zsh/custom/nidzo.zsh-theme"
-source "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# export RUSTUP_HOME=/home/nidzo/.config/rustup
-# export CARGO_HOME=/home/nidzo/.config/cargo
-
-[ -f "$dotfiles_dir/zsh/.env" ] && source "$dotfiles_dir/zsh/.env"
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "$(dircolors -b $dotfiles_dir/zsh/.dircolors)"

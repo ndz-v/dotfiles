@@ -25,6 +25,7 @@ apps=(
     pandoc
     polybar
     python3-pip
+    wg-info
     ripgrep
     rofi
     shfmt

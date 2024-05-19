@@ -37,7 +37,7 @@
     //  Window
     "window.titleBarStyle": "custom",
     //  Latex Workshop
-    // "latex-workshop.latex.build.forceRecipeUsage": false,
+    "latex-workshop.latex.build.forceRecipeUsage": false,
     "latex-workshop.latex.recipe.default": "first",
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.intellisense.package.enabled": true,
@@ -47,7 +47,6 @@
     "latex-workshop.intellisense.update.aggressive.enabled": true,
     "latex-workshop.latex.outDir": "out",
     "latex-workshop.intellisense.citation.backend": "biblatex",
-    "latex-workshop.latex.pdfWatch.delay": 0,
     "latex-workshop.latex.magic.args": [
         "-output-directory=%OUTDIR%",
         "--shell-escape",
@@ -130,4 +129,7 @@
         "config": "i3"
     },
     "diffEditor.ignoreTrimWhitespace": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
 }
