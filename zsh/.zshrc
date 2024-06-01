@@ -6,6 +6,8 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+env_path="/home/nidzo/.config/dotfiles/zsh/.env"
+[ -f $env_path ] && source "$env_path"
 
 export EDITOR="code --wait" # Ctrl + x Ctrl + e
 export FCEDIT=nvim          # fc in cli
@@ -42,6 +44,7 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 alias ls='ls --color'
+alias dotfiles="code ~/.config/dotfiles"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

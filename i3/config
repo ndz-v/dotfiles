@@ -200,3 +200,4 @@ exec_always --no-startup-id feh --bg-scale "/home/nidzo/.config/dotfiles/media/d
 exec_always --no-startup-id numlockx on
 for_window [title="KCalc"] floating enable
 for_window [class="Xsane"] floating enable
+for_window [all] title_window_icon on
