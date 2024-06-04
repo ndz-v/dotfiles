@@ -3,7 +3,6 @@
 sudo -v # sk for admin credentials
 
 apps=(
-    ShellCheck
     alacritty
     bat
     clang
@@ -18,6 +17,7 @@ apps=(
     git-delta
     i3
     lld
+    lua51-lpeg
     mold
     neovim
     nodejs21
@@ -25,14 +25,15 @@ apps=(
     pandoc
     polybar
     python3-pip
-    wg-info
     ripgrep
     rofi
+    ShellCheck
     shfmt
     sshpass
     thunderbird
     translate-shell
     vlc
+    wg-info
     xinput
     yakuake
     zsh
