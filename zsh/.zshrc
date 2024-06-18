@@ -25,6 +25,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit snippet OMZP::sudo
 zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::key-bindings.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

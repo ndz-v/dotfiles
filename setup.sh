@@ -145,6 +145,9 @@ ln -sfn "$dotfiles_dir/i3" "$config_dir/i3"
 # NeoVim
 ln -sfn "$dotfiles_dir/nvim" "$config_dir/nvim"
 
+# pip config
+ln -sfn "$dotfiles_dir/pip" "$config_dir/pip"
+
 # VS Code
 ln -sfn "$dotfiles_dir/vscode/settings.json" "$config_dir/Code/User/settings.json"
 ln -sfn "$dotfiles_dir/vscode/keybindings.json" "$config_dir/Code/User/keybindings.json"
