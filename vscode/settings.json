@@ -2,7 +2,8 @@
     //  Editor
     "editor.cursorBlinking": "solid",
     "editor.detectIndentation": true,
-    "editor.fontSize": 13,
+    "editor.fontSize": 12,
+    "editor.fontFamily": "'Hack', 'monospace', monospace",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
@@ -10,7 +11,7 @@
     "editor.semanticHighlighting.enabled": true,
     "editor.smoothScrolling": true,
     "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 160,
+    "editor.wordWrapColumn": 180,
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
     "[yaml]": {
@@ -45,7 +46,7 @@
     "latex-workshop.linting.chktex.exec.path": "chktex",
     "latex-workshop.latex.autoClean.run": "onFailed",
     "latex-workshop.intellisense.update.aggressive.enabled": true,
-    "latex-workshop.latex.outDir": "out",
+    "latex-workshop.latex.outDir": ".out",
     "latex-workshop.intellisense.citation.backend": "biblatex",
     "latex-workshop.latex.magic.args": [
         "-output-directory=%OUTDIR%",
@@ -95,7 +96,7 @@
         "ANN"
     ],
     //  Terminal
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontFamily": "Hack",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.enablePersistentSessions": false,
@@ -122,7 +123,6 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "workbench.list.smoothScrolling": true,
     "terminal.integrated.smoothScrolling": true,
-    "editor.fontFamily": "'Hack Nerd Font', 'monospace', monospace",
     "editor.lineNumbers": "relative",
     "editor.occurrencesHighlight": "multiFile",
     "files.associations": {

@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack Nerd Font 10
+font pango:Hack Nerd Font 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -186,6 +186,9 @@ mode "$mode_launcher" {
     bindsym g exec google-chrome
     bindsym t exec thunderbird
 }
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Control+l workspace next
+bindsym $mod+Control+k workspace prev
 
 exec_always --no-startup-id "/home/nidzo/.config/dotfiles/polybar/launch.sh"
 exec_always --no-startup-id "setxkbmap -model pc104 -layout us,de -variant ,, -option grp:shifts_toggle "
@@ -195,9 +198,11 @@ exec_always --no-startup-id dunst
 exec_always --no-startup-id yakuake
 exec_always --no-startup-id xset r rate 200 40
 exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Master 2S' 'libinput Accel Speed' 0.9
-exec_always --no-startup-id xrandr -s 2560x1440 -r 144
+# exec_always --no-startup-id xrandr -s 2560x1440 -r 144
 exec_always --no-startup-id feh --bg-scale "/home/nidzo/.config/dotfiles/media/default.jpg"
 exec_always --no-startup-id numlockx on
 for_window [title="KCalc"] floating enable
 for_window [class="Xsane"] floating enable
+for_window [title="Progress" class="Alert" class="Zotero"] floating enable
+for_window [title="Software Update" class="Update" class="Zotero"] floating enable
 for_window [all] title_window_icon on

@@ -30,6 +30,12 @@ zinit snippet OMZL::key-bindings.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+alias yt="yt-dlp -ic"                      #
+alias yta="yt-dlp -xic --audio-format mp3" #
+alias de="trans :de"                       #
+alias en="trans :en"                       #
+alias sr="trans :sr"                       #
+
 # zsh options
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE

@@ -14,6 +14,7 @@ opt.mouse:append('a')
 opt.clipboard:append('unnamedplus')
 opt.encoding = 'UTF-8'
 opt.completeopt = 'menuone,noinsert,noselect'
+opt.textwidth = 100
 
 -- Search
 opt.incsearch = true
