@@ -58,7 +58,7 @@ fi
 ## Install Docker ##
 
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 newgrp docker
 sudo systemctl enable docker --now
 sudo systemctl restart docker
