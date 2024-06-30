@@ -21,6 +21,7 @@ opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
+local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
 -- Behavior
@@ -37,12 +38,9 @@ opt.autochdir = false
 opt.modifiable = true
 opt.encoding = 'UTF-8'
 
-local function augroup(name)
-    return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = augroup("highlight_yank"),
+    group = vim.api.nvim_create_augroup("lazyvim_" .. "highlight_yank", { clear = true }),
     callback = function()
         vim.highlight.on_yank({ timeout = 500 })
     end,
@@ -71,27 +69,18 @@ if vim.g.vscode then
     end
     vim.keymap.set({ 'n', 'v' }, "<leader>q", quickTextSearch)
 else
-    -- Appearance
     opt.number = true
     opt.relativenumber = true
     opt.cmdheight = 1
     opt.scrolloff = 10
-    opt.completeopt = 'menuone,noinsert,noselect'
-
     local keymap = vim.keymap
-    local opts = { noremap = true, silent = true }
-
-    -- Directory Navigation
-
     keymap.set("n", "<C-d>", "<C-d>zz", opts)
     keymap.set("n", "<C-u>", "<C-u>zz", opts)
-
-    -- Window Management
     keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)          -- Split Vertically
     keymap.set("n", "<leader>sh", ":split<CR>", opts)           -- Split Horizontally
     keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", opts) -- Toggle Minimize
-
-    -- Comments
     vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
     vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
 end
+
+require("config")

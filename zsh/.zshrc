@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 env_path="/home/nidzo/.config/dotfiles/zsh/.env"
 [ -f $env_path ] && source "$env_path"
 
@@ -19,22 +13,30 @@ if [ !  -d "$ZINIT_HOME" ]; then
     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# Load starship theme
+# line 1: `starship` binary as command, from github release
+# line 2: starship setup at clone(create init.zsh, completion)
+# line 3: pull behavior same as clone, source init.zsh
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit snippet OMZP::sudo
 zinit snippet OMZL::completion.zsh
-zinit snippet OMZL::key-bindings.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+zinit ice depth=1
 
 alias yt="yt-dlp -ic"                      #
 alias yta="yt-dlp -xic --audio-format mp3" #
 alias de="trans :de"                       #
 alias en="trans :en"                       #
 alias sr="trans :sr"                       #
+
+bindkey jj vi-cmd-mode
 
 # zsh options
 HISTSIZE=10000

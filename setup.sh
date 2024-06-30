@@ -135,9 +135,8 @@ ln -sfn "$dotfiles_dir/git/.gitconfig" "$HOME/.gitconfig"
 # yakuake
 ln -sfn "$dotfiles_dir/yakuake/yakuake" "$config_dir/yakuake"
 
-# alacritty
-mkdir "$config_dir/alacritty/"
-ln -sfn "$dotfiles_dir/alacritty" "$config_dir"
+# wezterm
+ln -sfn "$dotfiles_dir/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
 
 # i3
 ln -sfn "$dotfiles_dir/i3" "$config_dir/i3"

@@ -37,7 +37,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 # toggle terminal
 
 # kill focused window
@@ -197,10 +197,11 @@ exec_always --no-startup-id /usr/libexec/kglobalacceld
 exec_always --no-startup-id dunst
 exec_always --no-startup-id yakuake
 exec_always --no-startup-id xset r rate 200 40
-exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Master 2S' 'libinput Accel Speed' 0.9
+exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Master 2S' 'libinput Accel Speed' 1
 # exec_always --no-startup-id xrandr -s 2560x1440 -r 144
 exec_always --no-startup-id feh --bg-scale "/home/nidzo/.config/dotfiles/media/default.jpg"
 exec_always --no-startup-id numlockx on
+
 for_window [title="KCalc"] floating enable
 for_window [class="Xsane"] floating enable
 for_window [title="Progress" class="Alert" class="Zotero"] floating enable
