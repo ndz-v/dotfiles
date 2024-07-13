@@ -20,7 +20,7 @@ apps=(
     lua51-lpeg
     mold
     neovim
-    nodejs21
+    nodejs22
     openssl-devel
     pandoc
     polybar
@@ -78,7 +78,7 @@ rm -rf nerd-fonts
 ## Install fzf ##
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+~/.fzf/install --all
 
 ####################
 ## Install nodejs ##
@@ -100,23 +100,39 @@ fi
 # Install VS Code extensions
 if type "code" &>/dev/null; then
     extensions=(
-        albert.TabOut
-        James-Yu.latex-workshop
+        albert.tabout
+        asvetliakov.vscode-neovim
+        christian-kohler.path-intellisense
+        davidanson.vscode-markdownlint
+        dcasella.i3
+        foxundermoon.shell-format
+        james-yu.latex-workshop
+        mads-hartmann.bash-ide-vscode
         ms-azuretools.vscode-docker
+        ms-dotnettools.csdevkit
+        ms-dotnettools.csharp
+        ms-dotnettools.dotnet-maui
+        ms-dotnettools.vscode-dotnet-runtime
+        ms-python.debugpy
+        ms-python.python
+        ms-python.vscode-pylance
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.remote-explorer
-        PKief.material-icon-theme
-        redhat.ansible
+        pkief.material-icon-theme
         redhat.vscode-yaml
         rogalmic.bash-debug
         rust-lang.rust-analyzer
+        streetsidesoftware.code-spell-checker
+        sumneko.lua
         tamasfe.even-better-toml
         timonwong.shellcheck
+        tyriar.sort-lines
         usernamehw.errorlens
-        vadimcn.vscode-lldb
+        valentjn.vscode-ltex
         vmsynkov.colonize
         yy0931.save-as-root
+        yzhang.markdown-all-in-one
     )
     for extension in "${extensions[@]}"; do
         code --install-extension "$extension"
@@ -159,13 +175,6 @@ ln -sfn "$dotfiles_dir/cargo/config.toml" "$HOME/.cargo/config.toml"
 
 # Change remote url of dotfiles
 git remote set-url origin git@github.com:ndz-v/dotfiles.git
-
-########################
-## Clone needed repos ##
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$dotfiles_dir/zsh/custom/zsh-syntax-highlighting"
-
-git clone https://github.com/ndz-v/nvim.git "$config_dir/nvim"
 
 ###################
 ## Install Chrome##
