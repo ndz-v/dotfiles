@@ -3,39 +3,26 @@
 sudo -v # sk for admin credentials
 
 apps=(
-    alacritty
     bat
     clang
     curl
     docker
-    dunst
     entr
     fd
-    feh
     gcc-c++
     git
     git-delta
-    i3
     lld
-    lua51-lpeg
     mold
     neovim
     nodejs22
-    openssl-devel
     pandoc
-    polybar
     python3-pip
     ripgrep
-    rofi
     ShellCheck
     shfmt
-    sshpass
-    thunderbird
     translate-shell
-    vlc
     wg-info
-    xinput
-    yakuake
     zsh
 )
 
