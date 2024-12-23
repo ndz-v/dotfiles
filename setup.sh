@@ -16,6 +16,7 @@ apps=(
     mold
     neovim
     nodejs22
+    npm22
     pandoc
     python3-pip
     ripgrep

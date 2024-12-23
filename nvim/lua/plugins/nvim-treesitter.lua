@@ -1,26 +1,20 @@
 local config = function()
     require("nvim-treesitter.configs").setup({
         build = ":TSUpdate",
-        indent = {
-            enable = true,
-        },
         autotag = {
             enable = true,
         },
-        event = {
-            "BufReadPre",
-            "BufNewFile",
-        },
         ensure_installed = {
-            "bash",
             "c_sharp",
             "dockerfile",
+            "git_config",
+            "git_rebase",
             "gitignore",
             "html",
             "json",
             "lua",
             "markdown",
-            "markdown",
+            "markdown_inline",
             "python",
             "rust",
             "yaml",
@@ -28,13 +22,12 @@ local config = function()
         auto_install = true,
         highlight = {
             enable = true,
-            additional_vim_regex_highlighting = true,
         },
         incremental_selection = {
             enable = true,
             keymaps = {
-                init_selection = "<C-s>",
-                node_incremental = "<C-s>",
+                init_selection = "<CR>",
+                node_incremental = "<CR>",
                 scope_incremental = false,
                 node_decremental = "<BS>",
             },

@@ -8,7 +8,7 @@ export FCEDIT=nvim          # fc in cli
 
 # set zinit dir
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share/zinit/zinit.git}"
-if [ !  -d "$ZINIT_HOME" ]; then
+if [ ! -d "$ZINIT_HOME" ]; then
     mkdir -p "$(dirname $ZINIT_HOME)"
     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
@@ -19,8 +19,8 @@ source "${ZINIT_HOME}/zinit.zsh"
 # line 2: starship setup at clone(create init.zsh, completion)
 # line 3: pull behavior same as clone, source init.zsh
 zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
+    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+    atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
 zinit light zsh-users/zsh-syntax-highlighting
@@ -28,6 +28,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit snippet OMZP::sudo
 zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::key-bindings.zsh
 zinit ice depth=1
 
 alias yt="yt-dlp -ic"                      #
@@ -57,3 +58,4 @@ alias dotfiles="code ~/.config/dotfiles"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(COMPLETE=zsh dev)

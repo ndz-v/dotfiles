@@ -25,3 +25,5 @@ untracked = cyan bold
 branch = yellow black bold ul
 [rebase]
 autosquash = true
+[pull]
+	rebase = true

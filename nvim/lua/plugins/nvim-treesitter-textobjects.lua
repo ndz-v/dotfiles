@@ -7,15 +7,15 @@ return {
                 select = {
                     enable = true,
 
-                    -- Automatically jump forward to textobj, similar to targets.vim
+                    --     -- Automatically jump forward to textobj, similar to targets.vim
                     lookahead = true,
 
                     keymaps = {
-                        -- You can use the capture groups defined in textobjects.scm
+                        --         -- You can use the capture groups defined in textobjects.scm
                         ["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
                         ["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
-                        ["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
-                        ["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
+                        ["=l"] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
+                        ["=r"] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
 
                         ["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/argument" },
                         ["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter/argument" },
@@ -39,17 +39,17 @@ return {
                         ["i/"] = { query = "@comment.inner", desc = "Select inner part of a comment" },
                     },
                 },
-                swap = {
-                    enable = true,
-                    swap_next = {
-                        ["<leader>na"] = "@parameter.inner", -- swap parameters/argument with next
-                        ["<leader>nm"] = "@function.outer",  -- swap function with next
-                    },
-                    swap_previous = {
-                        ["<leader>pa"] = "@parameter.inner", -- swap parameters/argument with prev
-                        ["<leader>pm"] = "@function.outer",  -- swap function with previous
-                    },
-                },
+                -- swap = {
+                --     enable = true,
+                --     swap_next = {
+                --         ["<leader>na"] = "@parameter.inner", -- swap parameters/argument with next
+                --         ["<leader>nm"] = "@function.outer",  -- swap function with next
+                --     },
+                --     swap_previous = {
+                --         ["<leader>pa"] = "@parameter.inner", -- swap parameters/argument with prev
+                --         ["<leader>pm"] = "@function.outer",  -- swap function with previous
+                --     },
+                -- },
             },
         })
     end,
