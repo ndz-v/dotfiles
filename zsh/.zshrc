@@ -58,4 +58,4 @@ alias dotfiles="code ~/.config/dotfiles"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source <(COMPLETE=zsh dev)
+# source <(COMPLETE=zsh dev)

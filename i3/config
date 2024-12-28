@@ -171,6 +171,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+g exec google-chrome
+bindsym $mod+Shift+g exec google-chrome --incognito
 
 focus_follows_mouse no
 
@@ -186,6 +188,7 @@ mode "$mode_launcher" {
     bindsym g exec google-chrome
     bindsym t exec thunderbird
 }
+
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Control+l workspace next
 bindsym $mod+Control+k workspace prev
@@ -194,9 +197,10 @@ exec_always --no-startup-id "/home/nidzo/.config/dotfiles/polybar/launch.sh"
 exec_always --no-startup-id "setxkbmap -model pc104 -layout us,de -variant ,, -option grp:shifts_toggle "
 exec_always --no-startup-id /usr/libexec/polkit-kde-authentication-agent-1
 exec_always --no-startup-id /usr/libexec/kglobalacceld
+exec_always --no-startup-id /usr/libexec/org_kde_powerdevil
 exec_always --no-startup-id dunst
 exec_always --no-startup-id yakuake
-exec_always --no-startup-id xset r rate 200 40
+exec_always --no-startup-id xset r rate 180 50
 exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Master 2S' 'libinput Accel Speed' 1
 # exec_always --no-startup-id xrandr -s 2560x1440 -r 144
 exec_always --no-startup-id feh --bg-scale "/home/nidzo/.config/dotfiles/media/default.jpg"

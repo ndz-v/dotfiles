@@ -96,28 +96,15 @@ if type "code" &>/dev/null; then
         foxundermoon.shell-format
         james-yu.latex-workshop
         mads-hartmann.bash-ide-vscode
-        ms-azuretools.vscode-docker
-        ms-dotnettools.csdevkit
-        ms-dotnettools.csharp
-        ms-dotnettools.dotnet-maui
-        ms-dotnettools.vscode-dotnet-runtime
-        ms-python.debugpy
-        ms-python.python
-        ms-python.vscode-pylance
-        ms-vscode-remote.remote-ssh
-        ms-vscode-remote.remote-ssh-edit
-        ms-vscode.remote-explorer
         pkief.material-icon-theme
         redhat.vscode-yaml
         rogalmic.bash-debug
         rust-lang.rust-analyzer
-        streetsidesoftware.code-spell-checker
         sumneko.lua
         tamasfe.even-better-toml
         timonwong.shellcheck
         tyriar.sort-lines
         usernamehw.errorlens
-        valentjn.vscode-ltex
         vmsynkov.colonize
         yy0931.save-as-root
         yzhang.markdown-all-in-one

@@ -110,9 +110,6 @@
     // "[dockerfile]": {
     //     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     // },
-    "rust-analyzer.inlayHints.chainingHints.enable": false,
-    "rust-analyzer.inlayHints.parameterHints.enable": false,
-    "rust-analyzer.check.command": "clippy",
     "workbench.startupEditor": "none",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
@@ -132,4 +129,17 @@
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "rust-analyzer.inlayHints.chainingHints.enable": false,
+    "rust-analyzer.inlayHints.renderColons": false,
+    "rust-analyzer.inlayHints.closureStyle": "hide",
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.genericParameterHints.const.enable": false,
+    "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+    "chat.commandCenter.enabled": false,
 }
