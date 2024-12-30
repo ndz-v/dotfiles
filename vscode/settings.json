@@ -142,4 +142,5 @@
     "rust-analyzer.check.command": "clippy",
     "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
     "chat.commandCenter.enabled": false,
+    "editor.autoClosingBrackets": "always",
 }
