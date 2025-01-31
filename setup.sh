@@ -3,6 +3,7 @@
 sudo -v # sk for admin credentials
 
 apps=(
+    ShellCheck
     bat
     clang
     curl
@@ -12,7 +13,9 @@ apps=(
     gcc-c++
     git
     git-delta
+    libopenssl-3-devel
     lld
+    mingw64-cross-gcc
     mold
     neovim
     nodejs22
@@ -20,7 +23,6 @@ apps=(
     pandoc
     python3-pip
     ripgrep
-    ShellCheck
     shfmt
     translate-shell
     wg-info
